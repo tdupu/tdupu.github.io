@@ -1,0 +1,249 @@
+#outer
+{
+    z-index: 2;
+    position: relative;
+    /*
+     The width value below controls the overall width of the design. By default it's set to 82%
+     (so it'll take up 82% of the browser window's width). You can set it to a different percentage
+     value (70%, 90%, etc.) or even a pixel value (760px, 800px, etc.) to enforce a fixed width.
+     */
+    width: 95%;
+    border: solid 7px #fff;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+
+#header
+{
+    position: relative;
+    text-align: center;
+    padding: 1em;
+    background: #bdedff;
+}
+
+#header h1
+{
+    font-weight: normal;
+    color: #333333;
+    font-size: 2em;
+}
+
+#header h2
+{
+    font-size: 1em;
+    font-weight: normal;
+    color: #333333;
+}
+
+#menu
+{
+    position: relative;
+    height: 3.5em;
+    margin-bottom: 2px;
+    width: 100%;
+}
+
+#menu ul
+{
+    position: absolute;
+    text-align: center;
+    top: 1.1em;
+    padding: 0em;
+    width: 100%;
+}
+
+#menu ul li
+{
+    position: relative;
+    display: inline;
+}
+
+#menu ul li a
+{
+    padding: 0.5em 1.0em 0.5em 1.0em;
+    color: #0645AD;
+    text-decoration: none;
+}
+
+#menu ul li a:hover
+{
+    text-decoration: underline;
+}
+
+#menu ul li a.active
+{
+    color: #333333;
+}
+
+#content
+{
+    padding: 1.0em;
+}
+
+#content ul.speakers
+{
+    position: relative;
+    text-align: center;
+    list-style: none; 
+    width: 100%;
+    padding-left: 0em;
+}
+
+#content ul.speakers li
+{
+    font-weight: bold;
+}
+
+table .left
+{
+    text-align: right;
+    padding-right: 1em;
+    width: 50%;
+}
+
+table .right
+{
+    text-align: left;
+    padding-left: 1em;
+    width: 50%;
+}
+
+table#schedule
+{
+    border-collapse: collapse;
+    width: 80%;
+    table-layout: fixed;
+
+}
+
+#schedule td
+{
+    position:relative;
+    border: 1px solid black;
+    width: 40%;
+}
+
+#schedule td:empty
+{
+    position:relative;
+    border: 0;
+    width: 40%;
+}
+
+#schedule th
+{
+    position:relative;
+    border: 0;
+    width: 40%;
+    padding:.5em;
+    line-height: 1.2em;
+}
+
+#time
+{
+    font-size: 10pt;
+    height: 10pt;
+    text-align: left;
+    position: absolute;
+    top: 0;
+    padding: 2px;
+    
+}
+
+#talk
+{
+    text-align:center;
+    line-height:1.1em;
+    padding: 11px 2px 3px 2px;
+    position: relative;
+
+}
+
+#break
+{
+    text-align:center;
+    line-height:1.1em;
+    padding: 11px 2px 3px 2px;
+    position: relative;
+
+}
+
+
+#talk p
+{
+    margin:.3em;
+    text-align: center;
+    line-height: 1.5em;
+}
+
+#break p
+{
+    margin:.3em;
+    text-align: center;
+    line-height: 1.3em;
+}
+
+#foot
+{
+    padding: 1.0em;
+
+}
+
+#foot ul.organizers
+{
+    position: relative;
+    text-align: center;
+    list-style: none;
+    width: 100%;
+    padding-left: 0em;
+}
+
+#foot ul.organizers li
+{
+    position: relative;
+    display: inline;
+    padding: 0.5em 1.0em 0.5em 1.0em
+}
+
+
+#foot p
+{
+    text-align: center;
+}
+
+#content ul li 
+{
+    position: relative;
+    line-height: 1.3em;
+    margin-bottom: 1.0em;
+    padding-left: 0em;
+}
+
+
+body,input
+{
+    font-size: 12pt;
+    font-family: "georgia", "times new roman", serif;
+    color: #333333;
+}
+
+p
+{
+    line-height: 1.5em;
+    margin-bottom: 1.0em;
+    text-align: justify;
+}
+
+a
+{
+    color: #0645AD;
+    text-decoration: underline;
+}
+
+a:hover
+{
+    text-decoration: none;
+}
+
+
