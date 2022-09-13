@@ -1,0 +1,592 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+    <title>Complex (Spring 2017)</title>
+  </head>
+  <body>
+    <h1>Math 331 (Spring 2017)&nbsp; <a href="../teaching.html"><small><small><small>(back
+              to Teaching)</small></small></small></a></h1>
+    <pre style="color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; text-align: start; text-indent: 0px; text-transform: none; word-spacing: 0px;"><a
+href="https://aisweb1.uvm.edu/pls/owa_prod/bwckctlg.p_display_courses?term_in=201701&amp;one_subj=MATH&amp;sel_crse_strt=331&amp;sel_crse_end=331&amp;sel_subj=&amp;sel_levl=&amp;sel_schd=&amp;sel_coll=&amp;sel_divs=&amp;sel_dept=&amp;sel_attr=">MATH 331</a>  Theory of Func of Complex Var   <a
+href="https://aisweb1.uvm.edu/pls/owa_prod/bwckschd.p_disp_listcrse?term_in=201701&amp;subj_in=MATH&amp;crse_in=331&amp;crn_in=15048">15048</a> LEC   A   4.00        23    8   15       08:30  09:20  M W F  VOTEY  223        Dupuy T      Open to Degree and CDE students;<br>                                                                                         11:40  12:55   T     VOTEY  223                     Prereqs enforced by the system: MATH<br>                                                                                                                                             242</pre>
+    <span style="font-weight: bold;"></span><br>
+    Course Notes:<br>
+    &nbsp;&nbsp;&nbsp; <a href="elliptic.pdf">Elliptic Functions</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="hadamard.pdf">Hadamard's Theorem</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="https://www.dropbox.com/s/vq78dws9vunc8rx/homotopy.pdf?">Fundamental
+      Groups and Covering Spaces (I need to finish these)</a><br>
+    <br>
+    Main Book:<br>
+    &nbsp;&nbsp;&nbsp; Green and Krantz - Function Theory of One Complex
+    Variable<br>
+    <br>
+    Books I will be following at times:<br>
+    &nbsp;&nbsp;&nbsp; <a href="http://www.math.harvard.edu/%7Ectm/home/text/class/harvard/213a/10/html/home/course/course.pdf">McMullen's
+      Course Notes</a> (fancier treatment)<br>
+    &nbsp;&nbsp;&nbsp; <a href="http://www.math.uchicago.edu/%7Eschlag/bookweb.pdf">Schlag
+      - A Concise Course in Complex Analysis and Riemann Surfaces</a><br>
+    &nbsp;&nbsp;&nbsp; Ahlfors - Complex Analysis<br>
+    &nbsp;&nbsp;&nbsp; <a href="https://www.fing.edu.uy/%7Ecerminar/Complex_Analysis.pdf">Stein
+      and Shakarchi - Complex Analysis</a> (cleanest proofs IMHO)<br>
+    &nbsp;&nbsp;&nbsp; Needham - Visual Complex Analysis<br>
+    &nbsp;&nbsp;&nbsp; <a href="https://archive.org/stream/courseofmodernan00whit#page/448/mode/1up">Whittaker
+      and Watson -A Course in Modern Analysis</a><br>
+    <br>
+    Resources for Topics:<br>
+    &nbsp;&nbsp;&nbsp; <a href="http://www.dm.unipi.it/%7Ebenedett/AbikoffUNIF.pdf">Abikoff
+      - Uniformization Theorem</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="http://page.math.tu-berlin.de/%7Ebobenko/Lehre/Skripte/RS.pdf">Bobenko
+      - Compact Riemann Surfaces</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="http://www.math.uci.edu/%7Emfried/booklist-ret/chpret2.pdf">Fried
+      - Riemann's Existence Theorem: An Elementary Approach to Moduli</a><br>
+    <br>
+    <br>
+    <table style="text-align: left; width: 591px; height: 496px;" cellspacing="2"
+      cellpadding="2" border="1">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top;"><a href="hw01.pdf">Homework 1</a> (<a
+              href="hw01.tex">tex</a>)<br>
+          </td>
+          <td style="vertical-align: top;">Due: Friday, Jan 27th (<a href="hw01-sol.pdf">solutions</a>)<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><a href="hw02.pdf">Homework 2</a> (<a
+              href="hw02.tex">tex</a>)<br>
+          </td>
+          <td style="vertical-align: top;">Due: Friday, Feb 10th (<a href="hw02-sol.pdf">solutions</a>)<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><a href="hw03.pdf">Homework 3</a> (<a
+              href="hw03.tex">tex</a>)<br>
+          </td>
+          <td style="vertical-align: top;">Due: Friday Feb 24th (<a href="hw03-sol.pdf">solutions</a>)<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><a href="hw04.pdf">Homework 4</a> (<a
+              href="hw04.tex">tex</a>)<br>
+          </td>
+          <td style="vertical-align: top;">Due: Friday, March 3rd (<a href="hw04-sol.pdf">solutions</a>)
+            <br>
+            (scratch <a href="https://cloud.sagemath.com/projects/06bf2561-7993-4824-83f6-b97b1f8bed4a/files/Residues.sagews">sage
+              notebook</a> I used to check stuff with-- it is messy)<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><a href="hw05.pdf">Homework 5</a> (<a
+              href="hw05.tex">tex</a>)<br>
+          </td>
+          <td style="vertical-align: top;">Due: Monday, March 13th (<a href="hw05-sol.pdf">solutions</a>)<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><a href="hw06.pdf">Homework 6</a> (<a
+              href="hw06.tex">tex</a>)<br>
+          </td>
+          <td style="vertical-align: top;">Due: Monday, April 3rd (<a href="hw06-sol.pdf">solutions</a>)<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><a href="hw07.pdf">Homework 7</a> (<a
+              href="hw07.tex">tex</a>)<br>
+          </td>
+          <td style="vertical-align: top;">Due: Friday, May 5th (<a href="hw07-sol.pdf">solutions</a>)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    ** = from homework <br>
+    <br>
+    <table style="text-align: left; width: 770px; height: 488px;" cellspacing="2"
+      cellpadding="2" border="1">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top; text-align: center;">Topics<br>
+          </td>
+          <td style="vertical-align: top; text-align: center;">References and
+            Specifics<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><span style="font-weight: bold;">Complex
+              Numbers and Cauchy's Theorem</span><br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Complex Numbers and Complex Functions<br>
+          </td>
+          <td style="vertical-align: top;">Background on uniform
+            convergence, switching integrals and limits, switching derivatives
+            and
+            limits Remember, complex functions are just functions from \RR^2 \to
+            RR^2. See <a href="https://andromeda.rutgers.edu/%7Eloftin/ra2/ra2.pdf">John
+              Loftin's Notes</a>.<br>
+            <br>
+            Weierstrass M-test (WW 3.34, page 49)<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Analytic Functions<br>
+          </td>
+          <td style="vertical-align: top;">Hadamard's root test GK (Lemma 3.2.6)<br>
+            GK (3.2) <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Holomorphic Functions <br>
+          </td>
+          <td style="vertical-align: top;">Schlag (section 2), <br>
+            GK (1.3-1.4)<br>
+            <a href="https://en.wikipedia.org/wiki/Cauchy%E2%80%93Riemann_equations">Cauchy-Riemann
+              equations</a><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Complex Integration<br>
+          </td>
+          <td style="vertical-align: top;"><a href="http://www.math.harvard.edu/%7Ectm/home/text/class/harvard/213a/10/html/home/course/course.pdf">McMullen</a>
+            (page 5) (He also also outlines Goursat and gives the basic proof)<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Cauchy's Theorem (simple regions) <br>
+          </td>
+          <td style="vertical-align: top;"><a href="https://en.wikipedia.org/wiki/Cauchy%27s_integral_theorem#Proof">Basic
+              Green's Theorem Proof</a><br>
+            We also talked about the <a href="https://en.wikipedia.org/wiki/Jordan_curve_theorem">Jordan
+              Curve Theorem</a><br>
+            <br>
+            Simple path independence (for closed curves)<br>
+            Simple homotopy independence<br>
+            <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">**Cauchy-Goursat (which doesn't
+            assume continuity of the derivative) --- this was an exercise<br>
+          </td>
+          <td style="vertical-align: top;"><a href="http://people.math.gatech.edu/%7Eecroot/4320/cauchygoursat.pdf">Proof
+              using triangles</a> - from Ernie Croot's webpage<br>
+            Proof using squares - Alfors, or Green and Krantz (appendix B) <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><span style="font-weight: bold;">Applications
+              of Cauchy's Theorem</span><br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Integration/Cauchy Integral Formula +
+            Consequences:<br>
+            <br>
+          </td>
+          <td style="vertical-align: top;">McMullen (section 1), G&amp;K
+            (chapters 2 and 3)<br>
+            <br>
+            <br>
+            <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Application of Cauchy Integral
+            Formula: Analytic = Holomorphic<br>
+            <br>
+            (This also gave the Cauchy Integral Formula for derivatives)<br>
+          </td>
+          <td style="vertical-align: top;">To get analytic =&gt;
+            holomorphic one can work directly with power series as in (say)
+            Whittaker and Watson (2.61 page 31), we also did this in homework
+            02. <br>
+            <br>
+            The hard direction is holomorphic =&gt; analytic,<br>
+            GK (3.3)<br>
+            <br>
+            <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">**Limits of Holomorphic Functions are
+            Holomorphic<br>
+          </td>
+          <td style="vertical-align: top;">&nbsp;GK (3.5), this was also on HW01<br>
+            <br>
+            Remark: One could also use <a href="https://en.wikipedia.org/wiki/Morera%27s_theorem">Morera's
+              theorem</a>,
+            which I mentioned in emails but didn't prove in class. This says
+            that
+            if integrals around closed loops are zero, then you are analytic (it
+            is
+            a converse of Cauchy's Theorem).<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">**Application of Cauchy 2: Taylor
+            Series Estimate<br>
+          </td>
+          <td style="vertical-align: top;">GK (3.4)<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Application of Taylor Series:
+            Liouville's Theorem<br>
+          </td>
+          <td style="vertical-align: top;">GK Theorem 3.4.3 (page 86)<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Application of Liouville: <a href="https://en.wikipedia.org/wiki/Fundamental_theorem_of_algebra">Fundamental
+              theorem of algebra</a><br>
+          </td>
+          <td style="vertical-align: top;">GK, Theorem 3.4.5 (page 87)<br>
+            <br>
+            (There is another proof that uses winding numbers later on)<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Interlude on Topology and <a href="https://en.wikipedia.org/wiki/Category_theory">Categories</a>
+            <br>
+          </td>
+          <td style="vertical-align: top;"><a href="https://en.wikipedia.org/wiki/Open_and_closed_maps">Open
+              maps</a><br>
+            <a href="https://en.wikipedia.org/wiki/Compact_space#Open_cover_definition">Compact
+              Spaces</a><br>
+            <a href="https://en.wikipedia.org/wiki/Proper_map">Proper Maps</a><br>
+            <a href="https://en.wikipedia.org/wiki/Hausdorff_space">Separated
+              Spaces</a><br>
+            <br>
+            Eventually, this subject gets to <br>
+            <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">
+            Existence of Logarithms</td>
+          <td style="vertical-align: top;">Schlag (Proposition 1.21)<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Isolation of Zeros <br>
+            Local Structure of Analytic Mappings (Ramification points)<br>
+            <a href="https://en.wikipedia.org/wiki/Analytic_continuation">Analytic
+              Continuation</a><br>
+          </td>
+          <td style="vertical-align: top;">Rudin - Real and Complex Analysis
+            (10.31)<br>
+            Schlag&nbsp; (page 16, Corollary 3.12)<br>
+            <br>
+            Remarks:<br>
+            *In the factorization we saw an example of a <a href="https://en.wikipedia.org/wiki/Conformal_map">conformal
+              map</a><br>
+            *Analytic continuation leads naturally to the idea of a <a href="https://en.wikipedia.org/wiki/Riemann_surface">Riemann
+              Surface</a> via the phenomena of <a href="https://en.wikipedia.org/wiki/Monodromy">Monodromy</a>.
+            Green and Krantz postpone analytic continuation to Chapter 10, which
+            is something we do not want to do. <br>
+            *The Several variable version of the local structure theorem is the
+            <a href="https://en.wikipedia.org/wiki/Weierstrass_preparation_theorem">Weierstrass
+              Preparation Theorem</a>.<br>
+            *We also talked about<span style="text-decoration: underline;"> </span><a
+              href="https://en.wikipedia.org/wiki/Branch_point">Branch Points
+              and Ramification</a> (WARNING - terminology can vary)<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">
+            Open Mapping Theorem</td>
+          <td style="vertical-align: top;">Rudin - Real and Complex Analysis
+            (10.31)<br>
+            <br>
+            Remark: We are using Rudin's proof here to avoid the use of winding
+            numbers. The proof in GK and other places uses winding numbers. <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Mean Value Theorem </td>
+          <td style="vertical-align: top;"><a href="http://mathworld.wolfram.com/GausssMean-ValueTheorem.html">Mathworld</a><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">
+            Maximum Modulus<br>
+            <span style="font-weight: bold; font-style: italic;"></span><br>
+          </td>
+          <td style="vertical-align: top;"><a href="http://www.math.harvard.edu/%7Ectm/papers/home/text/class/harvard/213a/course/course.pdf">McMullen</a>
+            (Corollary 1.10)<br>
+            <br>
+            <span style="font-style: italic;">(I had built towards this theorem
+              for a long time---this was the original reason the open mapping
+              theorem)</span><br>
+            <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><span style="font-weight: bold;">Residues
+              Integrals</span><br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Laurent Series<br>
+            Residues<br>
+          </td>
+          <td style="vertical-align: top;">G&amp;K (4.3 - Existence of Laurent
+            Expansions)<br>
+            Basic Complex Analysis - Marsden-Hoffman (chapter 4)<br>
+            <br>
+            Remark: <br>
+            we have been avoiding the later part of this chapter<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Residue Theorem<br>
+          </td>
+          <td style="vertical-align: top;">We stated this without proof. <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Application of Residue Theorem to
+            integrals<br>
+          </td>
+          <td style="vertical-align: top;">Whittaker and Watson (chapter 6.1, <a
+              href="https://archive.org/stream/courseofmodernan00whit#page/110/mode/2up">page
+              111</a> --- This is the treatment most modern books are based off
+            of this chapter because of the use of winding numbers)</td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><span style="font-weight: bold;">Infinite
+              Products and Partial Fractions</span><br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Partial Fraction Expansion =
+            Mittag-Leffler Theorem</td>
+          <td style="vertical-align: top;">GK (8.3)<br>
+            Ahlfors (Ch 4, sec 2, subsection 1)<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Elliptic Functions<br>
+          </td>
+          <td style="vertical-align: top;"><a href="elliptic.pdf">I typed up
+              special notes for this section: Elliptic Function Notes</a><br>
+            See also:<br>
+            GK (10.6)<br>
+            WW (sections 20.1 and 20.2)<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Infinite Products = Weierstrass
+            Factorization Theorem<br>
+          </td>
+          <td style="vertical-align: top;">WW 2.7 page 32 (has some weird
+            examples)<br>
+            GK (8.1-8.2)<br>
+            Ahlfors (Ch 4, sec 2, subsection 2)<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><span style="font-weight: bold;">General
+              Cauchy Integral Formula</span><br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Winding Numbers and Cauchy's Integral
+            Formula Theorem<br>
+          </td>
+          <td style="vertical-align: top;"><a href="https://www.youtube.com/watch?v=qVAzOCN9GKQ&amp;index=6&amp;list=PLJmfLfPx1OeckJhuFghcMMZFbJV5Uge6Y">Winding
+              Numbers Video</a><br>
+            <a href="https://www.youtube.com/watch?v=HjJyrjSW03Q&amp;index=7&amp;list=PLJmfLfPx1OeckJhuFghcMMZFbJV5Uge6Y">General
+              Cauchy Theorem Video</a><br>
+            <a href="https://www.youtube.com/watch?v=bhXMzQtPGF8&amp;index=8&amp;list=PLJmfLfPx1OeckJhuFghcMMZFbJV5Uge6Y">Arguement
+              Principal Video</a><br>
+            <br>
+            Rouche's Theorem was done when Christelle visited.<br>
+            <br>
+            <br>
+            ****************<br>
+            Remarks:<br>
+            ****************<br>
+            <br>
+            When we did our proof so simple
+            regions we assumed Green's theorem for simple regions. This both
+            assumed Green's theorem and the Jordan Curve Theorem. We want to get
+            rid of these assumptions.<br>
+            <br>
+            Terry Tao's Notes (Notes 3, <a href="https://terrytao.wordpress.com/2016/10/02/math-246a-notes-3-cauchys-theorem-and-its-consequences/">section
+              1</a>) - Gives a polygonal path approach to the general Cauchy's
+            Theorem. <br>
+            <br>
+            <a href="http://www.mathe2.uni-bayreuth.de/stoll/lecture-notes/IntroductoryComplexAnalysis.pdf">Stoll's
+              Notes</a> (chapter 8):<br>
+            &nbsp;&nbsp;&nbsp; This develops a minimal amount of <br>
+            <br>
+            <a href="https://www2.math.uni-paderborn.de/fileadmin/Mathematik/People/wedhorn/Lehre/SkriptFunktionentheorie.pdf">Wedhorn's
+              Notes</a> <br>
+            section 2: Path Integrals<br>
+            section 3: Homotopy<br>
+            section 4A,4B: Holomorphic Forms and Cauchy's Theorem (immediate
+            consequences)<br>
+            section 8: Homology and Winding Numbers<br>
+            <br>
+            <a href="http://math.stackexchange.com/questions/1904790/confusion-about-proving-homotopy-invariance-of-the-contour-integral">A
+              proof based on existence of primatives for analytic functions on
+              the disc.</a><br>
+            <br>
+            We eventually want to understand Schlag Theorem 1.16, <a href="http://www.math.uchicago.edu/%7Eschlag/bookweb.pdf">page
+              14</a>,
+            this proof is the most enlightening as it uses general machinery.
+            Many
+            proofs don't use topology. The downside of these are that they are
+            only
+            good for one theorem, which the general machine of algebraic
+            topology
+            is good for many many many things.<br>
+            <br>
+            <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><span style="font-weight: bold;">Conformal
+              Maps and Riemann Surfaces</span><br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">PP^1 = Riemann Sphere<br>
+          </td>
+          <td style="vertical-align: top;"><a href="https://www.youtube.com/watch?v=sdewYn4mkFU&amp;index=1&amp;list=PLJmfLfPx1OeckJhuFghcMMZFbJV5Uge6Y">PP^1
+              video</a><br>
+            <a href="https://www.youtube.com/watch?v=YLApw8ejShM&amp;index=2&amp;list=PLJmfLfPx1OeckJhuFghcMMZFbJV5Uge6Y">Holomorphicity
+              at Infinity video</a><br>
+            <a href="https://www.youtube.com/watch?v=uGYoYnMWU8w&amp;index=3&amp;list=PLJmfLfPx1OeckJhuFghcMMZFbJV5Uge6Y">Functions
+              to PP^1 video</a><br>
+            <a href="https://www.youtube.com/watch?v=qbpzZMKA4kE&amp;index=4&amp;list=PLJmfLfPx1OeckJhuFghcMMZFbJV5Uge6Y">Endomorphisms
+              of PP^1 video</a><br>
+            <br>
+            Bonus: <a href="https://www.youtube.com/watch?v=TIo1mC577Yw&amp;list=PLJmfLfPx1OeckJhuFghcMMZFbJV5Uge6Y&amp;index=5">Official
+              Definition of Riemann Surfaces Video</a><br>
+            <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Mobius Transformations<br>
+            (Automorphisms of PP^1)<br>
+          </td>
+          <td style="vertical-align: top;">GK (6.3), Also see Homework 05<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Schwarz Lemma<br>
+          </td>
+          <td style="vertical-align: top;">GK (5.5)<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><span style="font-weight: bold;">Entire
+              Functions of Finite Order And Hadamard's Theorem</span><br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><a href="https://en.wikipedia.org/wiki/Entire_function#Order_and_type">Order
+              of an entire function</a><br>
+            Hadamard's Theorm<br>
+          </td>
+          <td style="vertical-align: top;"><a href="hadamard.pdf">Course Notes
+              on Hadamard's Theorem</a><br>
+            See also GK (9.3)<br>
+            <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><span style="font-weight: bold;">Riemann
+              Mapping Theorem</span><br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Montel's Theorem (w/out proof)<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Proof of Riemann Mapping Theorem (via
+            "square root trick")<br>
+          </td>
+          <td style="vertical-align: top;">GK (6.7)<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><span style="font-weight: bold;">Covering
+              Spaces, Uniformization and Big Picard</span><br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Fundamental Groups and Covering
+            Spaces<br>
+          </td>
+          <td style="vertical-align: top;">My Notes (partial)<br>
+            <a href="http://math.arizona.edu/%7Eglickenstein/math534_1011/coveringspaces.pdf">Glickenstein's
+              Notes</a><br>
+            Munkres is also good. <br>
+            <br>
+            McMullen has a discussion on the Uniformization Theorem.<br>
+            <br>
+            <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Modular Forms<br>
+          </td>
+          <td style="vertical-align: top;"><a href="https://en.wikipedia.org/wiki/Modular_curve">Modular
+              Curves</a><br>
+            <a href="https://en.wikipedia.org/wiki/Modular_form">Modular Forms</a><br>
+            <a href="https://en.wikipedia.org/wiki/Modular_lambda_function">Modular
+              lambda function</a><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Picard Theorems<br>
+          </td>
+          <td style="vertical-align: top;">GK (10.5), <a href="https://proofwiki.org/wiki/Picard%27s_Theorem">Proof
+              Wiki</a>, McMullen page 89 (which may be hard to read)<br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <center>
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img
+          alt="Creative Commons License" style="border-width: 0pt;" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png"></a><br>
+      This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative
+        Commons
+        Attribution-NonCommercial 4.0 International License</a>.</center>
+    <br>
+    <br>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\newcommand{\ZZ}{\mathbf{Z}}
+\newcommand{\RR}{\mathbf{R}}
+\newcommand{\CC}{\mathbf{C}}
+\newcommand{\HH}{\mathbf{H}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\hol}{\operatorname{hol}}
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\Stab}{\operatorname{Stab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+
+\newenvironment{sol}[1][Solution]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newcommand{\qed}{\nobreak \ifvmode \relax \else
+    \ifdim\lastskip<1.5em \hskip-\lastskip
+    \hskip1.5em plus0em minus-.5em \fi \nobreak
+    \vrule height0.75em width0.5em depth0.25em\fi}
+
+%opening
+\title{}
+\author{Dupuy --- Complex Analysis --- Spring 2017 --- Homework 07}
+\date{} 
+
+
+\begin{document}
+
+\maketitle 
+
+\begin{enumerate}
+\item Show the Gauss formula for the Gamma function:
+ $$ \Gamma(z) = \lim_{n\to\infty} \frac{n^z n!}{z(z+1)(z+2) \cdots (z+n)}. $$
+(Take the definition of the Gamma function to be from its product formula).
+\item Verify that $F(z) = \int_0^{\infty} t^{z-1}e^{-t}dt$ and $\Gamma(z)$ (via $1/\Gamma(z)$ being defined by the product formula) satify the hypotheses of Weilandt's Theorem. In particular that $F(z)$ and $\Gamma(z)$ are bounded when $1 <\Re z <2$. 
+
+\item Show that $\int_0^{2\pi} \log \vert 1 - e^{i\theta}\vert d\theta=0$.
+
+\item (New Mexico, Jan 2006)
+Consider $f(z) = \prod_{n=1}^{\infty}(1-z/n^3)$.
+What is the order of $f(z)$?
+
+\item Let $f(z) = \sum_{n=0}^{\infty} a_n z^n$ 
+be an entire function of finite order $\rho$. Show that 
+ $$ \rho = \liminf_{n\to\infty} \frac{\log(n)}{\log \vert a_n \vert^{-1/n}}.$$
+
+\item 
+\begin{enumerate}
+\item Prove the Castorati-Weiestrass Theorem: Let $f(z)$ is analytic in a punctured disc of radius $R$ at the origin. If $f(z)$ has an essential singularity at $z=0$ show that for every $r$ with $0<r<R$ the set $f(D_r(0)\setminus \lbrace 0 \rbrace)$ is dense in $\CC$. (This is a corollary of Big Picard).
+\item Let $p$ be a polynomial. Show that there exists infinitely many $z_j$ such that $p(z_j) = e^{z_j}$.
+\end{enumerate}
+
+\item 
+The following exercise is intended to introduce you to the $j$ function which plays a role in the proof of the Big Picard Theorem from class. 
+
+Let $H$ be the upper-half plane. 
+A \textbf{modular form} of weight $k$ and level $N=1$ is a function $f:H \to \CC$ such that  
+\begin{equation}
+ f( \frac{az+b}{cz+d} ) = (cz+d)^{-2k} f(z).
+\end{equation}
+for all $\left[\begin{matrix}
+a & b \\
+c & d 
+\end{matrix} \right ]\in \SL_2(\ZZ)$. 
+
+\begin{enumerate}
+\item Let $M_k$ denote the collection of modular forms of weight $k$ and level 1. 
+Show that $M = \bigoplus_{k\geq 0} M_k$ is a graded ring (i.e. that $M_{k_1}M_{k_2} \subset M_{k_1+k_2}$. 
+
+\item Show that $G_{2k}(\frac{az+b}{cz+d}) = (cz + d)^{2k} G_{2k}(z)$ has weight $2k$ (Hint: check this on the generators of $\SL_2(\ZZ)$.)
+
+Using the first part conclude that the we have the following modular forms of the indicated weights:
+\begin{enumerate}
+\item $g_2(\tau) = 60 G_4(\tau)$, $k=4$
+\item $g_3(\tau) = 140 G_6(\tau)$, $k=6$
+\item $\Delta(\tau) = g_2(\tau)^3 - 27 g_3(\tau)^2$, $k=12$
+\item $j(\tau) = 1728 g_2(\tau)^3/\Delta(\tau)$, $k=0$
+\end{enumerate}
+\end{enumerate}
+
+\item Explain in words the ideas that go into the proof of Montel's Theorem in Green and Krantz (page 193). 
+How is Arzela-Ascoli used?
+
+\item Let $X=\CC^{\times} = \CC \setminus \lbrace 0 \rbrace$. 
+What is the universal cover of $X$? What is group of deck transformations for this cover? 
+
+
+\item Use Van Kampen's theorem to rigorously compute 
+ $\pi_1(\mathbf{P}^1\setminus \lbrace p_1,\ldots, p_r\rbrace, z_0)$ for arbitrary $r$. (Hint: apply Van Kampen to open sets $U,V$ where $U\cap V$ is simply connected). 
+
+\end{enumerate}
+
+\end{document}

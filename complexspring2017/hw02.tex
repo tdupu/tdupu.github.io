@@ -1,0 +1,81 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\newcommand{\ZZ}{\mathbf{Z}}
+\newcommand{\RR}{\mathbf{R}}
+\newcommand{\CC}{\mathbf{C}}
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\hol}{\operatorname{hol}}
+
+%opening
+\title{}
+\author{Dupuy --- Complex Analysis --- Spring 2016 --- Homework 02}
+\date{} 
+
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+\item (CUNY, Fall 2005)
+Let $D$ be the closed unit disc. 
+Let $g_n$ be a sequence of analytic functions converging uniformly to $f$ on $D$. 
+\begin{enumerate}
+\item Show that $g_n'$ converges.
+\item Conclude that $f$ is analytic.
+\end{enumerate}
+\item 
+Here is a first example of an analytic continuation ``from the wild''. 
+\begin{enumerate}
+\item Show that the Riemann Zeta function 
+ $$ \zeta(z):=\sum_{n\geq 1} \frac{1}{n^z}$$
+converges for $\Re z > 1$ and is analytic on this domain. (You need to use the ``analytic convergence theorem'', which states that a uniform limit of analytic functions is analytic. This is just a slight generalization of the previous problem.)
+\item (Whittaker and Watson, 2.8, problem 10) 
+ \begin{enumerate}
+ \item Show that when $\Re s>1$,
+ $$ \sum_{n=1}^{\infty} \frac{1}{n^s} = \frac{1}{s-1} + \sum_{n=1}^{\infty} \left[ \frac{1}{n^s} + \frac{1}{s-1} \left( \frac{1}{(n+1)^{s-1}} - \frac{1}{n^{s-1}} \right) \right]$$
+  \item Show that the series on the right converges when $0<\Re s<1$. (This means the series above gives us access to the interesting part of the Riemann-Zeta function. Hint: $ \int_n^{n+1} x^{-s}dx = \frac{(n+1^{-s+1}}{1-s} - \frac{n^{-s+1}}{1-s} $)
+\end{enumerate}
+\end{enumerate}
+\item (New Mexico, not sure which year) %Problem 3
+Let $f$ be analytic on $\CC$. 
+Assume that $\max \lbrace \vert f(z) \vert : \vert z \vert = r \rbrace \leq M r^n$ for a fixed constant $M>0$, and a sequence of valued $r$ going to infinity. 
+Show that $f$ is a polynomial of degree less than or equal to $n$. 
+
+\item 
+\begin{enumerate}
+ \item Prove the Riemann Extension Theorem: Let $U\subset \CC$ be a region containing a point $z_0$. 
+ Let $f \in \hol(U\setminus \lbrace z_0 \rbrace)$.
+ If $f$ is bounded on $U$ show that there exists a unique $\widetilde{f} \in \hol(U)$ such that $\widetilde{f}\vert_{U \setminus \lbrace z_0 \rbrace} = f \in \hol(U \setminus \lbrace z_0 \rbrace )$.
+ \item Recall that a morphism of topological spaces $f: X \to Y$ is ``proper'' if and only if the inverse image of every compact set is compact. 
+ Show that an analytic map $f:\CC \to \CC$ is proper if and only if for all $z_j \to \infty$ we have $f(z_j) \to \infty$. 
+ \item Show that the only proper maps $f:\CC \to \CC$ are polynomials. (see page 27 of McMullen, you need to consider the function $g(z) = 1/f(1/z)$ and show that $g(z) = z^n g_0(z)$ where $g_0(z)$ is analytic and non-zero. This will allows you to conclude $\vert g(z) \vert > c\vert z \vert^n$ for some $n$ which will allows you to conclude behavious about the growth of $f(z)$ as $z \to \infty$. )
+\end{enumerate}
+
+\item (New Mexico, not sure which year) 
+Let $f$ and $g$ be entire functions satisfying $\vert f(z) \vert \leq \vert g(z) \vert$ for $\vert z \vert \geq 100$. Assume that $g$ is not identically zero. Show that $f/g$ is rational. 
+
+\item Prove Goursat's theorem. Let $\gamma$ be a simple contour. If $f:\overline{\gamma^+} \to \CC$ is holomorphic (but whose derivative is not necessarily continuous) then 
+ $$ \int_{\gamma} f(\zeta) d\zeta = 0. $$
+
+\item Suppose that $f(z) = a_0 + a_1(z-z_0) + a_2 (z-z_0)^2 + \cdots$ has a finite radius of convergence. 
+Let $g(z) = a_n+ a_{n+1} (z-z_0) + a_{n+2}(z-z_0)^2 + \cdots$. Show that $g(z)$ has the same radius of convergence as $f(z)$ at $z_0$. (Hint: don't think about this too much)
+
+\item Let $f(z) = \sum_{n=0}^{\infty}a_nz^n$ and let $R$ be the radius of convergence (which is possibly infinite). Let $S_N(f)(z) = \sum_{n=0}^N a_n z^n$. 
+Show that for all $r<R$ and all $z \in \CC$ with $\vert z \vert < r$ we have 
+ $$ \vert f(z) - S_N(f)(z) \vert \leq \frac{M(f,r)}{r - \vert z \vert} \frac{\vert z \vert^{N+1}}{r^{N}} $$ 
+where $ M(f,r) = \max_{\vert z \vert = r} \vert f(z) \vert. $
+
+\item (UIC, Spring 2016)
+Describe all entire functions such that $f(1/n) = f(-1/n) = 1/n^2$ for all $n\in \ZZ$.
+
+\item Let $U \subset \CC$ be a connected open set. Consider $U\subset \CC$ with the subspace topology (open subset of $U$ are the intersection of open subsets of $\CC$ with $U$ and closed subset are closed subset of $\CC$ intersected with $U$). Show that the only subset of $U$ which are open, closed and nonempty is $U$ itself. 
+
+
+
+\end{enumerate}
+
+\end{document}

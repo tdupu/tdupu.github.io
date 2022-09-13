@@ -1,0 +1,49 @@
+Example Feedback:
+Assignment 1.1: 1(c,e), 2 (c,e), 3 (c,e,f)
+
+Score 8	
+
+
+Score 8	
+For (1c), a shouldn't assumes what it wants to prove unless it does so for the sake of contradiction. is just a bunch of formulas. 
+In (6c), it says that the set is a group then not a group. 
+In (6e), the proof doesn't prove that (1/2) ZZ is a group. It should be refering to it as a set.
+
+
+Score 10
+Small mistake on division associativity. 
+
+
+Score: 6
+Comments: no proofs, one proof by example
+
+
+Score 7	
+In (1c) you are working with the wrong operation.
+In (6) you aren't checking closure.
+
+
+Score 10	
+We say "…is closed under addition" not "…is close under addition".
+
+
+Assignment 1.1:31
+Score 8	
+Proof doesn't draw the conclusion it should. 
+
+
+Score 5	
+The proof repeats parts of what is supposed to be stated but makes no reference to t(G) or its complement.
+
+
+Score 7	
+The language is really imprecise. For example the word "pair" is not properly defined in the way that it is used.
+
+
+
+*************************
+
+
+
+
+

@@ -1,0 +1,74 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\newcommand{\ZZ}{\mathbf{Z}}
+\newcommand{\RR}{\mathbf{R}}
+\newcommand{\CC}{\mathbf{C}}
+\newcommand{\HH}{\mathbf{H}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\hol}{\operatorname{hol}}
+
+%opening
+\title{}
+\author{Dupuy --- Complex Analysis --- Spring 2017 --- Homework 04}
+\date{} 
+
+
+\begin{document}
+
+\maketitle
+
+
+
+\begin{enumerate}
+\subsection*{Master's Level}
+
+\item (Whittaker and Watson, 6.24,3)
+ If $-1 < z < 3$ then 
+  $$ \int_0^{\infty} \frac{x^z}{(1+x^2)^2}dx = \frac{\pi (1-z) }{4 \cos( \pi z/2) }$$
+
+\item (Whittaker and Watson, 6.21, Example 4)
+Let $a>b>0$ be real numbers. 
+Show that 
+ $$ \int_0^{2\pi} \frac{d\theta}{(a+b\cos(\theta))^2} = \frac{2\pi a}{(a^2-b^2)^{3/2}}$$
+
+%$$ \int_0^{2\pi} \frac{d\theta}{(a+b\cos(\theta)^2)^2} = \frac{2\pi (2a+b)}{a^{3/2}(a^2-b^2)^{3/2}}$$
+
+\item (Whittaker and Watson, 6.23, 2) If $a>0$ and $b>0$ show that 
+ $$ \int_{-\infty}^{\infty} \frac{x^4dx}{(a+bx^2)^4} = \frac{\pi}{16 a^{3/2}b^{5/2}}$$
+ 
+\item (Whittaker and Watson, 6.22, 1) Show that if $a>0$ then 
+ $$ \int_0^{\infty} \frac{\cos(x)}{x^2+a^2}dx = \frac{\pi}{2a}e^{-a}. $$
+
+
+\subsection*{Ph.D. Level}
+
+\item (Whittaker and Watson, 6.22)
+If the $\Re z >0$ then 
+ $$ \int_0^{\infty} (e^{-t} - e^{-tz}) \frac{dt}{t} = \log z $$
+ 
+\item (Whittaker and Watson, 6.24,2) If $0 \leq z \leq 1$ and $-\pi< a \leq \pi$ then
+$$\int_0^{\infty} \frac{t^{z-1}}{t + e^{ia} }dt  = \frac{\pi e^{i(z-1)a}}{\sin(\pi z)} $$
+
+
+\item (Whittaker and Watson 6.24, 1, pg118)
+If $0<a<1$ show that 
+ $$ \int_0^{\infty} \frac{x^{a-1}}{1+x}dx = \pi \csc a \pi $$
+
+
+\item (Whittaker and Watson, 6.24, 4)Show that if $-1<p<1$ and $-\pi<\lambda<\pi$ we have 
+ $$ \int_0^{\infty} \frac{x^{-p} dx}{1 + 2x \cos(\lambda) + x^2 } = \frac{\pi}{\sin(p\pi)} \frac{\sin(p\lambda)}{\sin(\lambda)}$$
+
+\item  (Whittaker and Watson, 6.21, Example 3)
+Let $n$ be a positive integer. 
+Show that 
+ $$ \int_0^{2\pi} e^{\cos(\theta)} \cos(n\theta - \sin\theta)d\theta = \frac{2\pi}{n!}$$
+
+
+\end{enumerate}
+
+
+\end{document}

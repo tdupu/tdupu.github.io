@@ -1,0 +1,88 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\newcommand{\ZZ}{\mathbf{Z}}
+\newcommand{\RR}{\mathbf{R}}
+\newcommand{\CC}{\mathbf{C}}
+\newcommand{\HH}{\mathbf{H}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\hol}{\operatorname{hol}}
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\Stab}{\operatorname{Stab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\PP}{\mathbf{P}}
+
+\newenvironment{sol}[1][Solution]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newcommand{\qed}{\nobreak \ifvmode \relax \else
+    \ifdim\lastskip<1.5em \hskip-\lastskip
+    \hskip1.5em plus0em minus-.5em \fi \nobreak
+    \vrule height0.75em width0.5em depth0.25em\fi}
+
+%opening
+\title{}
+\author{Dupuy --- Complex Analysis --- Spring 2017 --- Homework 06}
+\date{} 
+
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+
+
+\subsection*{}
+
+
+
+
+\subsection*{Rouche's Theorem and Argument Principal}
+
+\item (New Mexico, Jan 1997) How many roots does $p(z) = z^4 + z + 1$ have in the first quadrant?
+
+\item (New Mexico, Aug 1993)
+How many roots does $e^z - 4z^n +1 =0$ have inside the unit disc $\vert z \vert < 1$?
+
+
+\subsection*{Riemann Surfaces}
+\item 
+\begin{enumerate}
+ \item Show that every automorphism of $\CC$ extends to an automorphism of $\PP^1$.
+ \item Show that $\Aut(\CC):= \lbrace az+b : a \in \CC^{\times} \mbox{ and } b\in \CC \rbrace$ (This sometimes called the one dimensional affine linear group and is denoted $\mathrm{AL}_1(\CC)$.).
+\end{enumerate}
+
+\item Show that $\CC$ is not conformally equivalent to $D = \lbrace z \in \CC: \vert z \vert < 1 \rbrace$. 
+
+\item Show that $\Aut(H) = \lbrace \frac{az+b}{cz+d}: a,b,c,d\in \RR \mbox{ and } ad-bc =1 \rbrace$ (This is sometimes called the two dimensional projective special linear groups with coefficients in $\RR$, and is denoted $\PSL_2(\RR)$).
+
+
+\subsection*{Harmonic Functions}
+\item Let $f(z) = u(z) + i v(z)$ be analytic. 
+Show that the level sets of $u(z)$ and $v(z)$ are orthogonal.
+
+\item Let $u_0(\theta)$ be a continuous $2\pi$-periodic function. 
+Let $D$ be a disc of radius $r$. 
+The Dirichlet boundary value problem asks to find a function $u(x,y)$ such that:
+  $$ \begin{cases}
+     \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} =0, & \mbox{ for $(x,y)\in D$ } \\
+	 u(e^{i\theta})= u_0(\theta), & 
+     \end{cases}
+     $$
+Show that convolution with the Poisson kernel 
+ $$P_r(\theta) = \frac{1-r^2}{1-2r\cos(\theta) + r^2}$$
+gives a solution to this problem. 
+
+
+
+
+\end{enumerate}
+
+\end{document}

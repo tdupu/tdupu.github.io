@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+    <title>Math 251 Syllabus</title>
+  </head>
+  <body bgcolor="#b8cddf" link="#0000ff" vlink="#0000ff" text="#000000"> <font
+      size="4">
+      <hr>
+      <h1 align="center"> <font color="#000000">Syllabus</font></h1>
+      <font color="#000000">
+        <h2 align="center"> <font color="#000000"> Math 251 Section A, Fall
+            2019 <br>
+            Taylor Dupuy<br>
+          </font></h2>
+        <font color="#000000"> <br>
+          <hr>
+          <hr> <font color="#000000"> <br>
+            <li><b> OFFICE:</b> Room E439, Innovation Building<br>
+              e-mail: taylor dot dupuy at uvm dot edu<br>
+              <p> </p>
+            </li>
+            <li><b>OFFICE HOURS:</b> M 10:40-11:50 a.m. and by appointment
+              <p> </p>
+            </li>
+            <li><b> TEXT:</b> <b> Abstract Algebra</b>, 3rd edition, by Dummit
+              and Foote, John-Wiley, ISBN 0-471-43334-9
+              <p> </p>
+              <blockquote> Errata pages for the book:
+                <blockquote>
+                  <ol>
+                    <li> As an Adobe Acrobat PDF file: <a href="http://www.cems.uvm.edu/%7Efoote/errata_3rd_edition.pdf">
+                        <font color="#0000ff"> errata.pdf </font> </a> </li>
+                    <li> As a TeX DVI file: <a href="http://www.cems.uvm.edu/%7Efoote/errata_3rd_edition.dvi">
+                        <font color="#0000ff"> errata.dvi </font> </a> </li>
+                  </ol>
+                </blockquote>
+              </blockquote>
+              <p> </p>
+              <hr>
+              <p> This course will cover the material in Chapters 1-5 (the basic
+                theory of groups, subgroups, and quotient groups), portions of
+                Chapter 6 (some topics in greater depth dealing with finite
+                groups, including solvable and nilpotent groups), and Chapter 7
+                (the basic theory of rings, ideals, and quotient rings). This
+                course forms the basis for the continued study of the basic
+                algebraic structures (groups, rings, and fields) in the sequel:
+                Math 252. </p>
+              <p> Your grade in this course will be determined on the basis of
+                homework, two mid-term exams (approximately Wednesday, October 2
+                and Wednesday, November 19), and a final exam (Friday, December
+                13, 10:30a.m. -- 1:15 p.m., in L111 Lafayette), and will be the
+                maximum of the following two grades: </p>
+              <blockquote> A: 20% for the homework (worst two scores removed)
+                and for each of the two mid-term exams, and 40% for the final
+                exam.
+                <p> B: 100% final exam (provided the grade determined in A is at
+                  least a "C") </p>
+              </blockquote>
+              <p> Homework will be due at the beginning of class on the assigned
+                due date and no late homework will be accepted (note that the
+                two worst homework scores are removed from the grading precisely
+                to allow for occasions where submitting homework on time may not
+                be possible). Guidelines for the preparation of homework can be
+                found here: </p>
+              <p> <a href="homework_guidelines.html">Guidelines for Homework
+                  Assignments </a> </p>
+              <p> Exams may be rescheduled only for compelling, legitimate, and
+                documented reasons. In general, if it is necessary to miss an
+                exam your grade will be determined on the basis of your other
+                work. </p>
+              <p> Collaboration on homework is both allowed and encouraged -
+                discussing solutions to mathematics problems is one of the best
+                ways to learn mathematics. Any work submitted must be your own
+                and honest - for example, you must write up your own solutions
+                and be prepared to publicly defend in class any solution you
+                submit. Any joint work should be acknowledged explicitly.
+                Solutions simply copied from some other source without
+                attribution are intellectually dishonest and can be the grounds
+                for dismissal. </p>
+              <hr>
+              <p> </p>
+            </li>
+          </font>
+          <li><font color="#000000"><b>MISCELLANEOUS:</b> Students are expected
+              to observe appropriate codes of conduct. UVM policies and
+              procedures can be found at: <a href="http://www.uvm.edu/%7Euvmppg/ppg/student/studentcode.pdf">
+                Code of Student Rights and Responsibilities</a> and <a href="http://www.uvm.edu/%7Euvmppg/ppg/student/acadintegrity.pdf">
+                Code of Academic Integrity</a>
+              <p> Students have the right to practice the religion of their
+                choice. Each semester students should submit in writing to their
+                instructors by the end of the second full week of classes their
+                documented religious holiday schedule for the semester. Faculty
+                must permit students who miss work for the purpose of religious
+                observance to make up this work. </p>
+              <p> Students requiring special accommodations must make
+                arrangements within the first two weeks of class. </p>
+              <hr>
+              <hr> </font>
+            <p><font color="#000000"> <a href="math252S20.html"><img src="http://www.emba.uvm.edu/%7Eddummit/arrow.gif"
+                    alt="go back"></a> return to Math 252, Spring 2020 homepage
+              </font> </p>
+          </li>
+        </font></font></font>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\newcommand{\ZZ}{\mathbf{Z}}
+\newcommand{\RR}{\mathbf{R}}
+\newcommand{\CC}{\mathbf{C}}
+\newcommand{\HH}{\mathbf{H}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\hol}{\operatorname{hol}}
+
+%opening
+\title{}
+\author{Dupuy --- Complex Analysis --- Spring 2017 --- Homework 01}
+\date{} 
+
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+\item Let $\zeta_n$ be a primative $n$th root of unity. Show that $\sum_{j=0}^{n-1} \zeta_n^j=0$.
+
+
+\item (New Mexico, Summer 1999)
+Let $\mathcal{H}$ be the upper half complex plane $\mathcal{H} = \lbrace z \in \CC : \Im z > 0 \rbrace$.
+Let $D$ be the unit disc $D = \lbrace w : \vert w \vert < 1 \rbrace$. 
+Show that the map $f(z) = w = (z-i)/(z+i)$ defines a bijection $\mathcal{H} \to D$.
+
+\item (Wallis' Formula) Using the complex representation of cosine, find a formula for 
+ $$ \int_0^{2\pi} \cos(\theta)^{2n} d\theta. $$
+
+
+\item Prove Hadamard's formula for the radius of convergence of a series $\sum_{n=0}^{\infty} a_n z^n$.
+ $$ R = \lim_{n\to \infty} \inf_{m\geq n} \vert a_m \vert^{-1/m}.$$
+Also show that the series converges absolutely and uniformly, (the differentiability thing is the next problem).
+ 
+\item Suppose that $f(z) = \sum_{n\geq0} a_n z^n$ has a radius of convergence $R$. 
+\begin{enumerate}
+ \item Show $\sum_{n\geq 0} n a_n z^{n-1}$ converges with the same radius of convergence $R$.
+ \item Show $\frac{d}{dz}\left[ \sum_{n=0}^{\infty} a_nz^{n}\right] = \sum_{n\geq 0} \frac{d}{dz}[ a_n z^{n}]$ on the disc of convergence.
+\end{enumerate}
+(Warning: it is not true that for general $u_n(z)\to u(z)$ uniformly that $u_n'(z) \to u_n(z)$ uniformly! This is a special fact about power series.)
+
+\item (Extra Credit, see WW page 59) Show that the series
+ $$ \sum_{n =1}^{\infty} \frac{z^{n-1} }{(1-z^n)(1-z^{n+1})}$$
+ converges to $\frac{1}{(z-1)^2}$ when $\vert z \vert <1$ and $\frac{1}{z(z-1)^2}$ when $\vert z \vert > 1$
+
+
+\item 
+If the series converges do some analysis to determine the radius of convergence at the boundary.
+\begin{enumerate}
+\item Expand $\frac{1}{1+z^2}$ in a power series around $z=0$, find the radius of convergence.
+\item Find the radius of convergence of $\sum_{n\geq 0} n! z^n$.
+\item (New Mexico, Jan 1998) Expand $\frac{z^2+2z-4}{z}$ in a power series around $z=1$ and find its radius of convergence.
+\end{enumerate}
+
+
+\item 
+\begin{enumerate}
+\item 
+Let $B\times A \subset \CC \times \CC$ be an open region with compact closure.
+Let $f: B\times A \to \CC$ be a function.  Let $\gamma \subset A$ be a $C^1$-curve (so it has finite length). 
+Define $F: B \to \CC$ by  
+ $$ F(z) = \int_{\gamma} f(z,s) ds.$$
+Assuming $\frac{\partial f}{\partial z}(z,s)$ exists and is continuous for all $s \in \gamma$ and all $z \in B$ show that 
+ $$ \frac{d}{dz}[ F(z)] = \int_{\gamma} \frac{\partial f}{\partial z}(z,s) ds. $$
+\item Let $\Omega \subset \CC$ be an open set. Let $\gamma:[0,1]\to \Omega$ be an $C^1$ curve. 
+Let $f \in \hol(\Omega)$ and $g \in L^2(\Omega)$. Show that 
+ $$ F(z) := \int_{\gamma} f(\zeta-z)g(\zeta)d \zeta $$ 
+is holomorphic on $\Omega$.
+\end{enumerate}
+
+\item (Extra Credit, This exercise show how nice the complex numbers are and how if one tries to develop a notion of holomorphic function in higher dimensions it doesn't work.)
+
+The quaternions are the Division algebra (non commutative field) over the reals defined by 
+ $$\mathbf{H} = \RR \oplus \RR i \oplus \RR j \oplus \RR k, \mbox{($\cong \RR^4$ as a vector space) } $$ 
+where $i$,$j$ and $k$ satisfy
+ $$ ijk = -1 \mbox{ and } i^2 = j^2 = k^2 = -1.$$
+The norm on the quaternions is defined as 
+ $$ \vert a+bi+cj+dk \vert^2 = a^2 + b^2 + c^3 + d^2,$$
+here $a,b,c,d \in\RR$.
+
+For $U\subset \mathbf{H}$ open, we say a function $f: U \to \mathbf{H}$ is \textbf{holomorphic} if 
+ $$ f(q) = \lim_{h\to 0} \left( (f(q+h)-f(q))h^{-1}  \right). $$
+ 
+
+Show that the only quaternionic holomorphic functions are of the form 
+ $$f(q) = \alpha q + \beta.$$
+ where $\alpha,\beta \in \mathbf{H}$.
+
+\item (New Mexico, Summer 2000)
+Show that the pullback of a harmonic function by an holomorphic map is harmonic (what these words means is explained below).
+Assume that $w = f(z) = u(z)+iv(z)$ is holomorphic map $f:D \to D' \subset \CC$. We consider $D$ in the $z$-plane to a domain $D'$ in the $w$-plane. 
+If $\phi$ is harmonic on $D'$, show that 
+ $$ \Phi(x,y) := \phi(u(x,y),v(x,y))$$
+is harmonic in $D$. 
+
+(The function $\Phi$ is called the pullback of $\phi$ by $f$. Sometimes in the literature these you will see the notation $f^*\phi$ for $\Phi$.)
+
+\item (Whittaker and Watson, page 99)
+Consider the series 
+ $$ \frac{1}{2} \left( z + \frac{1}{z} \right) + \sum_{n=1}^\infty \left( z - \frac{1}{z} \right) \left( \frac{1}{1+z^n} - \frac{1}{1+z^{n-1}} \right). $$
+Show that this series converges for all values of $z$ with $\vert z \vert \neq 1$. 
+Furthermore, show that 
+$$ \frac{1}{2} \left( z + \frac{1}{z} \right) + \sum_{n=1}^\infty \left( z - \frac{1}{z} \right) \left( \frac{1}{1+z^n} - \frac{1}{1+z^{n-1}} \right) = \begin{cases}
+z, & \vert z \vert <1 \\
+\frac{1}{z}, & \vert z \vert > 1
+\end{cases}$$
+
+\item (Whittaker and Watson, 2.8, problem 16)
+By converting the series 
+ $$1 + \frac{8q}{1-q} + \frac{16q^2}{1+q^2} + \frac{24q^3}{1-q^3} + \cdots $$ 
+(in which $\vert q \vert<1$), into a double series, show that it is equal to 
+ $$ 1 + \frac{8q}{(1-q)^2}+ \frac{8q^2}{(1+q^2)^2} + \frac{8q^3}{(1-q^3)^2} + \cdots $$
+\end{enumerate}
+
+
+\end{document}
