@@ -1,0 +1,648 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+    <title>UVM - Math 52 - Fall 2017</title>
+  </head>
+  <body>
+    <h1>Fundamentals of Mathematics - Fall 2017</h1>
+    <h3> Lectures </h3>
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLJmfLfPx1OedcIUn5nSCZQEtJrhLusB5Y"
+      allowfullscreen="" width="560" height="315" frameborder="0"></iframe>
+    <h3> Syllabus </h3>
+    <a href="MATH52-FALL2017-DUPUY.pdf">Syllabus</a>
+    <h3> Books </h3>
+    <ul>
+      <li><a href="https://www.amazon.com/Tools-Mathematical-Reasoning-Applied-Undergraduate/dp/1470428997">Lakins
+-
+          The Tools of Mathematical Reasoning</a> (Main Text) </li>
+      <li>BBFS-Fundamentals of Mathematics (<a href="Foundations.pdf">pdf</a>)
+        (WARNING: They use some weird notation. For example their predicates
+        don't have parentheses in the arguements and their forall and exists
+        quantifiers are written like unions and intersections.)</li>
+      <li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/readings/MIT6_042JF10_notes.pdf">LLM
+-
+          Mathematics for Computer Science </a> (this goes with the MIT course
+        I link to below and I like this text quite a bit).</li>
+      <li><a href="https://math.berkeley.edu/%7Ehutching/teach/proofs.pdf">Hutchings
+-
+          Introduction to mathematical arguments</a></li>
+      <li><a href="https://www.people.vcu.edu/%7Erhammack/BookOfProof/"><span style="color: #0000ee;">Hammack
+            - Book of Proof</span></a></li>
+    </ul>
+    <h3> Links </h3>
+    <ul>
+      <li>DZB's <a href="http://www.mathcs.emory.edu/%7Edzb/teaching/250Spring2016/">course
+          page</a> from Emory (I am using a large problem bank of his for this
+        course)<br>
+      </li>
+      <li>Piazza<br>
+      </li>
+      <li><a href="https://www.google.com/search?q=introduction+to+latex&amp;oq=introduction+to+latex&amp;gs_l=psy-ab.3..0i67k1j0l3.1158.1256.0.1432.2.2.0.0.0.0.105.198.1j1.2.0....0...1.1.64.psy-ab..0.2.197.a2K9N7--82Y">Introduction
+to
+          LaTeX</a> (<a href="https://www.overleaf.com/">Overleaf</a> is a good
+        online editor, a lot of people use <a href="https://miktex.org/download">Miktex</a>
+        or <a href="https://www.tug.org/texlive/">TexLive</a>.&nbsp; Here is a
+        big list of <a href="https://tex.stackexchange.com/questions/339/latex-editors-ides">editors</a>.
+        <a href="http://detexify.kirelabs.org/classify.html">Detexify</a> is
+        good for looking up symbols. )</li>
+      <li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/video-lectures/lecture-1-introduction-and-proofs/">Leighton
+-
+          MIT opencourseware videos</a></li>
+      <li><a href="http://www.uvm.edu/cems/mathstat/tutoring-and-help-sessions">UVM
+          graduate student help sessions</a> (it says only up to 21 but I
+        contacted them and they know you could possibly show up)</li>
+      <li><a href="http://www.cems.uvm.edu/%7Ejwsands/m52s17/index.html">Jonathan
+          Sand's Spring 2017 Math 52 course page</a> (has old exams, homeworks
+        with solutions)</li>
+      <li>John Voight's <a href="https://math.dartmouth.edu/%7Ejvoight/Fa2012-52/">Fall
+          2012</a>, and <a href="https://math.dartmouth.edu/%7Ejvoight/Fa2011-52/">Fall
+          2011</a> Math 52 course pages (has old exams, homeworks and solutions)</li>
+    </ul>
+    <h3> Handouts </h3>
+    These are modified versions of DZB's handouts.<br>
+    <ol>
+      <li><a href="handouts/52-H01-logic.pdf">HO01 - Propositions</a> (<a href="handouts/52-H01-logic.tex">.tex</a>)<br>
+      </li>
+      <li><a href="https://www.dropbox.com/s/uzzhcq4ac7ldy2k/H02-logic-divisibility.pdf?dl=0">HO02
+-
+          Proof Techniques and Divisibility</a> (<a href="https://www.dropbox.com/s/rp8lcqpyapt9xir/H02-logic-divisibility.tex?dl=0">.tex</a>)</li>
+      <li><a href="https://www.dropbox.com/s/w403mkjgco17yqv/52-H03-induction.pdf?dl=0">HO03
+          - Induction</a> (<a href="https://www.dropbox.com/s/j3tq02jlkf97u3s/52-H03-induction.tex?dl=0">.tex</a>)</li>
+      <li><a href="https://www.dropbox.com/s/ykk6m3eio2505t5/H04-sets-subset-powersets.pdf?dl=0">HO04
+          - Sets</a> (.tex)</li>
+      <li><a href="https://www.dropbox.com/s/eaz5xzaw01y4e9r/250-HXX-indexed-unions.pdf?dl=0">HO05
+          - Indexed Unions</a></li>
+      <li><a href="https://www.dropbox.com/s/q6avudwi130ox40/250-HXX-indexed-unions-proofs.pdf?dl=0">HO06
+          - Indexed Union Proofs</a></li>
+      <li><a href="https://www.dropbox.com/s/qwu9x42n09brego/250-H10-functions-intro.pdf?dl=0">HO07
+          - Introduction to Functions</a></li>
+      <li><a href="https://www.dropbox.com/s/32wyztq4yghc398/250-H11-2-inj-surj-examples.pdf?dl=0">HO08
+          - Injections and Surjections</a></li>
+      <li><a href="https://www.dropbox.com/s/doedy737srumiel/250-H12-Images-and-preimages.pdf?dl=0">HO09
+          - Images</a></li>
+      <li><a href="https://www.dropbox.com/s/qxpo55huyg8r2j3/250-H13-images-fixing-hypotheses.pdf?dl=0"><span
+            style="color: #0000ee;">HO10 - Images Fixing Hypotheses</span></a></li>
+      <li><a href="https://www.dropbox.com/s/2nlfjvju8evdioa/250-H14-compositions-injectivity-surjectivity.pdf?dl=0">HO11
+          - Compositions of Functions</a></li>
+      <li><a href="https://www.dropbox.com/s/mn19ovtbrkuxagn/250-H17-bijections.pdf?dl=0"><span
+            style="color: #0000ee;">HO12 - Bijections</span></a></li>
+      <li>HO11 - Countability</li>
+      <li><a href="https://www.dropbox.com/s/yeu83828yifks4r/250-H16-equivalence-relations.pdf?dl=0">Equivalence
+          Relations</a></li>
+      <li><a href="https://www.dropbox.com/s/nn9sbdzjm0zs9yz/250-H15-binary-operations.pdf?dl=0">Binary
+          Operations</a></li>
+    </ol>
+    <h3>Exams</h3>
+    <table style="text-align: left; width: 437px; height: 172px;" cellspacing="2"
+      cellpadding="2" border="1">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top;">Practice Exam 01<br>
+          </td>
+          <td style="vertical-align: top;"><a href="homework/prac-exam01-sol.pdf">solutions</a><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Exam 01<br>
+          </td>
+          <td style="vertical-align: top;"><a href="Exam01-sol.pdf">solutions</a><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Exam 02 (Wednesday, November 15th) </td>
+          <td><a href="Exam02-sol.pdf">solutions</a><br>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="https://math.dartmouth.edu/%7Ejvoight/Fa2012-52/">John
+              Voight's Fall 2012 Exams and Solutions</a></td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="https://math.dartmouth.edu/%7Ejvoight/Fa2011-52/">John
+              Voight's Fall 2011 Exams and Solutions</a></td>
+          <td>`</td>
+        </tr>
+        <tr>
+          <td><a href="http://www.cems.uvm.edu/%7Ejwsands/m52s17/index.html">Jonathan
+              Sand's Spring 2017 Exams and Solutions</a></td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="https://www.dropbox.com/s/pi2rjyj684jwmh0/final-practice.pdf?dl=0">Practice
+              for Final</a></td>
+          <td><br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <h3> Homework </h3>
+    Typos and misprints can occur, so if you have any questions let me know.
+    <table style="text-align: left; width: 879px; height: 1024px;" cellspacing="2"
+      cellpadding="2" border="1">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top; width: 529.133px;"><a href="homework/hw01.pdf">Homework
+              01</a> (<a href="homework/hw01.tex">.tex</a>)<br>
+          </td>
+          <td style="vertical-align: top; width: 264.033px;">due: Friday,
+            September 1st, 2017
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br> </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><a href="https://www.dropbox.com/s/air0ey8xluz50rj/hw02.pdf?dl=0">Homework
+              02</a> (<a href="https://www.dropbox.com/s/i623tf2c9o64h4n/hw02.tex?dl=0">.tex</a>)<br>
+          </td>
+          <td style="vertical-align: top;">due: Friday, September 8th, 2017<br>
+          </td>
+          <td style="vertical-align: top;"><a href="homework/hw02-sol.pdf">solutions</a><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><a href="https://www.dropbox.com/s/16d283sjc4kt4ye/hw03.pdf?dl=0">Homework
+              03</a> (<a href="https://www.dropbox.com/s/jjkwqo7mu3jxi4f/hw03.tex?dl=0">.tex</a>)<br>
+          </td>
+          <td style="vertical-align: top;">due: Monday, September 18th, 2017<br>
+          </td>
+          <td style="vertical-align: top;"><a href="homework/hw03-sol.pdf">solutions</a>
+            <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><a href="https://www.dropbox.com/s/ikechnc2dkot9kf/hw04.pdf?dl=0">Homework
+              04</a> (<a href="https://www.dropbox.com/s/p9zolca0ar4ao6j/hw04.tex?dl=0">.tex</a>)<br>
+          </td>
+          <td style="vertical-align: top;">due: Monday, September 25th, 2017<br>
+            corrections due: Monday, October 2nd 2017<br>
+          </td>
+          <td style="vertical-align: top;"><a href="homework/hw04-sol.pdf">solutions</a><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><a href="https://www.dropbox.com/s/krojahz99vxmxuh/hw05.pdf?dl=0">Homework
+              05</a> (<a href="https://www.dropbox.com/s/nrrdyzw2n0onzjb/hw05.tex?dl=0">.tex</a>)<br>
+          </td>
+          <td style="vertical-align: top;">due: Friday, September 29th, 2017<br>
+            corrections due: Friday, October 6th, 2017<br>
+          </td>
+          <td style="vertical-align: top;"><a href="homework/hw05-sol.pdf">solutions</a><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><a href="https://www.dropbox.com/s/qzk2e855mdbon0q/hw06.pdf?dl=0">Homework
+              06</a> (<a href="https://www.dropbox.com/s/szkyut37bljxbzq/hw06.tex?dl=0">.tex</a>)<br>
+          </td>
+          <td style="vertical-align: top;">due: Friday, October 6th, 2017<br>
+            corrections due: Monday, October 23rd, 2017<br>
+          </td>
+          <td style="vertical-align: top;"><a href="https://www.dropbox.com/s/2r0dojc4l9ggi64/hw06-sol.pdf?dl=0">solutions</a><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><a href="https://www.dropbox.com/s/2u82cmrcfz117q7/hw07.pdf?dl=0">Homework
+              07</a> (<a href="https://www.dropbox.com/s/3nbysclgwb8deep/hw07.tex?dl=0">.tex</a>)<br>
+          </td>
+          <td style="vertical-align: top;">due: Monday, October 16th, 2017<br>
+            corrections due: Monday, November 6th<br>
+          </td>
+          <td style="vertical-align: top;"><a href="https://www.dropbox.com/sh/fi19hqah7id8nl4/AABthdyTFnEdVeEElpXu7jkCa?dl=0">solutions</a><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Extra Credit (applied to next exam)<br>
+            comes from discussion at Lecture 15: <a href="https://www.youtube.com/watch?v=d0biOTldnVA&amp;t=43m00s">41m
+              and 49s -&nbsp; </a><br>
+          </td>
+          <td style="vertical-align: top;">due: Monday, November 6th, 2017<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><a href="https://www.dropbox.com/s/9h9h12g5w0iv1yv/hw08.pdf?dl=0">Homework
+              08</a> (<a href="https://www.dropbox.com/s/8uruu9d8lvitbwc/hw08.tex?dl=0">.tex</a>)<br>
+          </td>
+          <td style="vertical-align: top;">due: Monday, October 30th , 2017<br>
+            corrections due: Friday, November 10th<br>
+          </td>
+          <td style="vertical-align: top;"><a href="https://www.dropbox.com/s/qbv49wtg80qpgxe/hw08-sol.pdf?dl=0">solutions</a><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><a href="https://www.dropbox.com/s/25mocl3wbxtj7ml/hw09.pdf?dl=0">Homework
+              09</a> (<a href="https://www.dropbox.com/s/dike6ri0sbuveor/hw09.tex?dl=0">.tex</a>)<br>
+          </td>
+          <td style="vertical-align: top;">due: Monday, November 6th, 2017<br>
+            corrections due: Monday, November 27th<br>
+          </td>
+          <td style="vertical-align: top;"><a href="https://www.dropbox.com/s/coqgrzfgl5xw42r/hw09-sol.pdf?dl=0">solutions</a><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top; height: 20px;"><a href="https://www.dropbox.com/s/qde44zaz2ixz6xg/hw10.pdf?dl=0">Homework
+              10</a> (<a href="https://www.dropbox.com/s/4i34yzj8dcrs7qr/hw10.tex?dl=0">.tex</a>)<br>
+          </td>
+          <td style="vertical-align: top;">due: Monday, November 27th<br>
+          </td>
+          <td style="vertical-align: top;"><a href="https://www.dropbox.com/s/sogjgihfoioww3a/hw10-sol.pdf?dl=0">solutions</a><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Homework 11:<br>
+            If you scored less than 8/10 on problem 3 of exam 2: <br>
+            <ul>
+              <li>Lakins 4.2: 11, 16, 18</li>
+            </ul>
+            If you scored less than 8/10 on problem 4 of exam 2:<br>
+            <ul>
+              <li>Sets Handout, section 2: 1,3,4 (numbering as on the current
+                version posted on the webpage)</li>
+            </ul>
+            If you scored less than 8/10 on problem 5 of exam 2: <br>
+            <ul>
+              <li>Induction handout, section 2: 11, 12</li>
+              <li> Lakins 3.1: 6, 11</li>
+            </ul>
+            I am not going to be emailing individual scores over break. If you
+            didn't show up to class on Friday before break then make your best
+            guess based on the posted solutions or wait until class on Monday. </td>
+          <td style="vertical-align: top;">due: Friday, December 1st, 2017<br>
+            no corrections.<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Homework 12 (<a href="https://www.dropbox.com/s/n3pmttst3phu3p1/hw12.tex?dl=0">.tex</a>)<br>
+          </td>
+          <td style="vertical-align: top;">due: Monday, December 4th, 2017<br>
+          </td>
+          <td style="vertical-align: top;"><a href="https://www.dropbox.com/s/o346x06ybkpx01k/hw12-sol.pdf?dl=0">solutions</a><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Homework 13: (<a href="https://www.dropbox.com/s/ce11cdiub33tx7x/hw13.tex?dl=0">.tex</a>)<br>
+          </td>
+          <td>due: Friday, December 8th, 2017</td>
+          <td><a href="https://www.dropbox.com/s/zuwykdd1bdo72bz/hw13-sol.pdf?dl=0">solutions</a><br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <h3> Lectures </h3>
+    <table style="text-align: left; width: 825px;" cellspacing="2" cellpadding="2"
+      border="1">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top; width: 411.767px;"><a href="https://www.youtube.com/watch?v=cqX-Zq-Y4JE&amp;feature=youtu.be">Lecture
+1
+              </a>(Monday, August 28th, 2017): Propositions and Formulae</td>
+          <td style="vertical-align: top; width: 307.233px;">Lakins 1.1 </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><a href="https://www.youtube.com/watch?v=Y8-kv20vySU">Lecture
+              2</a> (Wednesday, August 30th, 2017): Propositional
+            Calculus/Boolean Algebra<br>
+          </td>
+          <td style="vertical-align: top;">Lakins 1.1<br>
+            <a href="http://www-history.mcs.st-andrews.ac.uk/Biographies/De_Morgan.html">De
+Morgan
+              Biography</a><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><a href="https://www.youtube.com/watch?v=_8CIEVOgZuc">Lecture
+              3</a> (Friday, September 1st, 2017): Quantifiers<br>
+          </td>
+          <td style="vertical-align: top;">Lakins 1.1<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><a href="https://www.youtube.com/watch?v=opkJvZDSWDA">Lecture
+              4</a> (Wednesday, September 6th, 2017): Implication<br>
+          </td>
+          <td style="vertical-align: top;">Lakins 1.1<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><a href="https://www.youtube.com/watch?v=ApnvFX8aago">Lecture
+              5</a> (Friday, September 8th, 2017): Axioms; Groups; Rings<br>
+          </td>
+          <td style="vertical-align: top;">Hardest class of the semester.<br>
+            <br>
+            Lakins 5.1 pg 102 talks about binary operations briefly but not in a
+            context that is useful for you guys at this stage. We introduce
+            binary operations as a "rule" which allow us to talk about things
+            like addition and multiplication on sets. <br>
+            <br>
+            Ring axioms not covered in Lakins but needed to talk about the
+            integers rigorously.'<br>
+            <br>
+            Long Term Goal: prove that the integers are an integral domain.<br>
+            <br>
+            <a href="http://www-history.mcs.st-and.ac.uk/HistTopics/Ring_theory.html">History
+              of Ring Theory</a><br>
+            <a href="http://www-history.mcs.st-and.ac.uk/HistTopics/Development_group_theory.html"
+              target="_top"><span style="color: #0000ee;">History of Group
+                Theory</span></a><span style="color: #0000ee;"></span><br>
+            <br>
+            Milestone: <br>
+            We can talk about equivalence relations on universes. <br>
+            <br>
+            The relations we develop here will be important for modular
+            arithmetic in Lecture 26.<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><a href="https://www.youtube.com/watch?v=UOkZtBkrB0I">Lecture
+              6</a> (Monday, September 11th, 2017): Divisibility in Rings<br>
+          </td>
+          <td style="vertical-align: top;">Not in Lakins but very important as
+            it allows us to build lots of examples. <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Lecture 7 (Wednesday, September 13th,
+            2017): Methods of Proof<br>
+          </td>
+          <td style="vertical-align: top; height: 20px;">Lakins 2.1, 2.2, 2.3<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Review Day (Friday, September 15th,
+            2017)<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Lecture 8 (Monday, September 18th,
+            2017): Uniqueness as a tool<br>
+          </td>
+          <td style="vertical-align: top;">End of section 2<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Lecture 9 (Wednesday, September 20th,
+            2017): Review of Homework 03 - Working with Groups and Special
+            Primes<br>
+          </td>
+          <td style="vertical-align: top;">Lakins 7.2.0ish (Equivalence
+            relations -- as formulas, not as sets)<br>
+            but not 7.2.1 (Equivalence classes)<br>
+            <br>
+            <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Lecture 10 (Friday, September 22nd,
+            2017): Induction<br>
+          </td>
+          <td style="vertical-align: top;">Lakins 3.1<br>
+            <br>
+            Milestone: we can prove this:<br>
+            Lakins 6.2.1 (Euclidean Algorithm): Fix m. For every n there exists
+            some a and r with 0&lt;r&lt;m such that <br>
+            &nbsp;&nbsp;&nbsp; n = a*m + r.<br>
+            <br>
+            It is called an algorithm because it is division with remainder. <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Lecture 11 (Monday, September 25th,
+            2017): Dedekind-Peano Axioms, More Induction<br>
+          </td>
+          <td style="vertical-align: top;"><a href="http://www-history.mcs.st-andrews.ac.uk/Biographies/Dedekind.html">Dedekind
+              biography</a><span style="color: #0000ee;"></span></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Lecture 12 (Wednesday, September
+            27th, 2017): Introduction to Strong Induction<br>
+          </td>
+          <td style="vertical-align: top;">Lakins 3.2<br>
+            Lakins 6.3 (the fundamental theorem of arithmetic)</td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Lecture 13 (Friday, September 29th,
+            2017): Strong and Weak Induction Equivalence, Peano Arithmetic<br>
+          </td>
+          <td style="vertical-align: top;">see Exercise 3.2.5 in Lakins<br>
+            <br>
+            Milestone: we can now define the integers rigorously and prove that
+            they are an integral domain<br>
+            <br>
+            Milestone: we can now define x&lt;y for integers rigorously</td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Lecture 14 (Monday, October 2nd,
+            2017): Signatures, Formulas, Structures, Theories, and Models<br>
+          </td>
+          <td style="vertical-align: top;">Not in Lakins but needed to refine
+            Exercise 3.2.5<br>
+            <br>
+            Milestone:<br>
+            We are now talking about what we are assuming to prove things. <br>
+            <br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Review Day (Friday, October 6th,
+            2017):<br>
+          </td>
+          <td style="vertical-align: top;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Exam Day (Wednesday, October 11th,
+            2017)<br>
+          </td>
+          <td style="vertical-align: top;">Chapters 1 and 2<br>
+          </td>
+        </tr>
+        <tr>
+          <td>Lecture 15: (Friday, October 13th, 2017) Dedekind-Peano vs Peano
+            Arithmetic</td>
+          <td>shows Exercise 3.2.5 of Lakins is misguided<br>
+            <br>
+            (PA and Dedekind-Peano omitted in the book)<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Lecture 16 (Monday, October 23rd,
+            2017) : Some Famous Summation Formulas<br>
+          </td>
+          <td style="vertical-align: top;">Any Calculus I book<br>
+          </td>
+        </tr>
+        <tr>
+          <td>Lecture 17 (Wednesday, October 18th, 2017): Binomial Theorem and
+            Ordering </td>
+          <td>Lakins 6.1.2 (the well-ordering principle)<br>
+            <br>
+            Partial orders are not covered in this book<br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;">Lecture 18 (with Puck Romback!&nbsp;
+            Friday, October 20th, 2017): Set Operations<br>
+          </td>
+          <td style="vertical-align: top;">Lakins 4.1<br>
+            <br>
+            <a href="http://www-history.mcs.st-andrews.ac.uk/Biographies/Cantor.html">Cantor
+              biography</a><span style="color: #0000ee;"></span><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Lecture 19 (Monday, October 23rd, 2017 ): Cartesian Products and
+            Power Sets</td>
+          <td>Lakins 4.2<br>
+            <a href="http://www-history.mcs.st-and.ac.uk/HistTopics/Beginnings_of_set_theory.html">History
+              of Sets</a><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Lecture 20 (Wenesday, October 25th, 2017): Infinite Intersections
+            and the Least Upper Bound Property</td>
+          <td>Lakins 4.3<br>
+            <br>
+            To show certain infinite intersections are empty one needs the
+            Archimedean property. This is implied by the existence of least
+            upper bounds and greatest lower bounds of the real numbers. To talk
+            about why this works we are essentially discussing the construction
+            of the real numbers and Dedekind cuts (which defined real numbers as
+            breaking points between collections of rational numbers)<br>
+            <br>
+            <a href="http://www-history.mcs.st-and.ac.uk/Biographies/Archimedes.html">Archimedes
+              Biography</a><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Lecture 21 (with Jonathan Sands! Friday, October 27th, 2017):
+            Indexed Sets (Examples)</td>
+          <td>Lakins 4.3<br>
+          </td>
+        </tr>
+        <tr>
+          <td>Lecture 22 (Monday, October 30th, 2017): Indexed Sets
+            (Generalities) </td>
+          <td>Lakins 4.3<br>
+          </td>
+        </tr>
+        <tr>
+          <td>Lecture 23 (Wednesday, November 1st, 2017): Functions</td>
+          <td>Lakins 5.1, 5.5<br>
+            <br>
+            <a href="http://www-history.mcs.st-and.ac.uk/HistTopics/Functions.html">the
+              history of the function concept</a><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Lecture 24 (with Christelle Vincent! Friday, November 3rd, 2017):
+            Injectivity and Surjectivity</td>
+          <td>Lakin 5.3<br>
+          </td>
+        </tr>
+        <tr>
+          <td>Lecture 25 (Monday, November 6th, 2017): Quotients</td>
+          <td>Lakins 7.2<br>
+          </td>
+        </tr>
+        <tr>
+          <td>Lecture 26 (Wednesday, November 8th, 2017): More Quotients</td>
+          <td>Lakins 7.2.1&nbsp; (Equivalence Classes)<br>
+            Lakins 6.4, 6.5 (Congruences)<br>
+            <br>
+            Two constructions where equivalence classes matter:<br>
+            *the construction of the rationals as a quotient<br>
+            *Cantor's construction of the real numbers<br>
+          </td>
+        </tr>
+        <tr>
+          <td>Lecture 27 (Friday, November 10th, 2017): Compositions, Left
+            Inverses, Right Inverses</td>
+          <td>Lakins: 5.2, 5.4<br>
+          </td>
+        </tr>
+        <tr>
+          <td>Exam 2<br>
+          </td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Lecture 28 (Friday, November 16th, 2017): Left/Right Inverses and
+            the Axiom of Choice</td>
+          <td><a href="http://mathworld.wolfram.com/Zermelo-FraenkelAxioms.html">Zemelo-Frankel
+              Choice (ZFC) Axioms</a> (the official we use in modern
+            mathematics)<br>
+            <br>
+            <a href="https://www.youtube.com/watch?v=s86-Z-CbaHA">VSauce video
+              on Banach-Tarski (a strange consequence of the Axiom of Choice)</a><span
+              style="color: #0000ee;"><br>
+              <br>
+            </span><a href="https://en.wikipedia.org/wiki/Axiom_of_choice">The
+              Axiom of Choice</a><br>
+            <br>
+            Zorn's Lemma (a statement which is equivalent to the Axiom of
+            choice) appears everywhere in analysis and abstract algebra and is a
+            fundamental tool for modern mathematics. Here are some notes for
+            people who are interesting in seeing where this road goes: <br>
+            <a href="http://www.math.uconn.edu/%7Ekconrad/blurbs/zorn1.pdf">Keith
+              Conrad's notes on Zorn's Lemma</a><br>
+            <br>
+            Some Remarks on Keith Conrad's webpage: <br>
+            Keith Conrad (UConn) has put together an amazing collection of notes
+            on various topics which provide very good expositions to often
+            difficult topics for first time readers. If you find yourself stuck
+            on something these notes can be a great resource. <a href="http://www.math.uconn.edu/%7Ekconrad/blurbs/zorn1.pdf"><span
+                style="color: #0000ee;"></span></a></td>
+        </tr>
+        <tr>
+          <td>Lecture 29 (Monday, November 27th, 2017): Different Size
+            Infinities (Cardinality)</td>
+          <td style="height: 61px;"><a href="http://www-history.mcs.st-and.ac.uk/HistTopics/Infinity.html">History
+              of Infinity</a><br>
+            <span style="color: #0000ee;"><br>
+            </span><a href="https://www.people.vcu.edu/%7Erhammack/BookOfProof/">Book
+              of Proof: Chapter 13</a></td>
+        </tr>
+        <tr>
+          <td>Lecture 30 (Wednesday November 29th, 2017): Uncountable Infinity</td>
+          <td><a href="https://www.people.vcu.edu/%7Erhammack/BookOfProof/">Book
+              of Proof: Chapter 13</a></td>
+        </tr>
+        <tr>
+          <td>Lecture 31 (Friday, December 1st, 2017): Uncountable Infinity =
+            Power Set of Naturals</td>
+          <td><a href="https://www.people.vcu.edu/%7Erhammack/BookOfProof/">Book
+              of Proof: Chapter 13</a></td>
+        </tr>
+        <tr>
+          <td>Lecture 32 (Monday, December 4th, 2017): Cantor-Bernstein-Schroder</td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Lecture 33 videos (online): Pidgeonhole Principle</td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    &nbsp;
+  </body>
+</html>
