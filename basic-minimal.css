@@ -42,3 +42,22 @@ hr.clear {visibility:hidden;clear:both;}
 #footer p {margin:0; padding:0;}
 #footer a {color:#777;}
 
+.reverse-list {
+    list-style: none; /* Remove default list styles */
+    list-style-position: inside;
+    counter-reset: reversed-counter; /* Start the counter at a specific index, in this case, 6 */
+}
+
+.reverse-list li {
+    counter-increment: reversed-counter -1; /* Decrement the counter value by 1 for each list item */
+    /* margin-left: 2.5em; */
+    /*white-space: nowrap;  Prevent text from wrapping */
+    width: calc(100% - 2.5em); /* Set a specific width to allow text to wrap but not go under the number */
+     
+}
+
+.reverse-list li::before {
+    content: counter(reversed-counter) ". "; /* Display the counter value followed by a period and space before each list item */
+    display: inline-block;
+    margin-right: 10px;
+}
