@@ -1,0 +1,8 @@
+For 100 coin flips:
+
+--62% of flips have streaks of length >=6 of both THTHTH or TTTTTT
+--3% are missing both
+--17% have one pattern and not the other
+--20% only have streaks <= 5 of TTTTT
+--On average there are 6 streaks of size 2 of each type on average.
+--One can pick any string of length 6 and test for that so testing against THTHTH, TTTTTT, THHTTT will all give the same result.

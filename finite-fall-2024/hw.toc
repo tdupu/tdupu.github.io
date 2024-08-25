@@ -1,0 +1,35 @@
+\contentsline {section}{\numberline {1}Counting}{3}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Understanding Logarithms}{3}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Understanding How To Count Numbers Between Numbers}{3}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}Understanding Permutations and the Multiplication Principle}{3}{subsection.1.3}% 
+\contentsline {subsection}{\numberline {1.4}Understanding the Subtraction Principle}{3}{subsection.1.4}% 
+\contentsline {subsection}{\numberline {1.5}Understanding Collections}{4}{subsection.1.5}% 
+\contentsline {section}{\numberline {2}Sets}{5}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Understanding Union, Intersection, Subsets, Elements, Membership, and Cardinality}{5}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Understanding Set Builder Notation}{5}{subsection.2.2}% 
+\contentsline {section}{\numberline {3}Probability }{6}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Understanding Sample Spaces}{6}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Understanding How to Compute Basic Probabilities}{6}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Understanding Expected Values}{6}{subsection.3.3}% 
+\contentsline {subsection}{\numberline {3.4}Understanding What to Do With Expected Values}{6}{subsection.3.4}% 
+\contentsline {subsection}{\numberline {3.5}Understanding Coinflipping and the Central Limit Theorem}{7}{subsection.3.5}% 
+\contentsline {section}{\numberline {4}Voting}{8}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Understanding Burlington's 2009 Mayoral Race }{8}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Understanding Slime Molds}{8}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Understanding that Elections Are Fundamentally Flawed}{8}{subsection.4.3}% 
+\contentsline {section}{\numberline {5}Graphs and Networks}{9}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Understanding the Basic Terminology of Graphs and Networks}{9}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Understanding what the Koenigsberg Bridges Problem}{9}{subsection.5.2}% 
+\contentsline {subsection}{\numberline {5.3}Understanding the Traveling Salesman Problem}{9}{subsection.5.3}% 
+\contentsline {subsection}{\numberline {5.4}Understanding the Three Houses Three Utilities Problem}{10}{subsection.5.4}% 
+\contentsline {section}{\numberline {6}Symmetry and the Golden Ratio (unstable) }{11}{section.6}% 
+\contentsline {section}{\numberline {7}Statistics (unstable) }{12}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Understanding How To Read Graphs}{12}{subsection.7.1}% 
+\contentsline {subsection}{\numberline {7.2}Understanding How People Are Reckless With Extrapolation}{12}{subsection.7.2}% 
+\contentsline {subsection}{\numberline {7.3}Understanding How Messed-Up and Misleading $p$-Values Are}{13}{subsection.7.3}% 
+\contentsline {subsection}{\numberline {7.4}Understanding How To Estimate The Number of German Tanks}{14}{subsection.7.4}% 
+\contentsline {subsection}{\numberline {7.5}Understanding Sample Sizes}{14}{subsection.7.5}% 
+\contentsline {subsection}{\numberline {7.6}Understanding Base Rate Fallacies}{14}{subsection.7.6}% 
+\contentsline {subsection}{\numberline {7.7}Understanding Correlation}{14}{subsection.7.7}% 
+\contentsline {section}{\numberline {8}Decision Theory (unstable) }{15}{section.8}% 
+\contentsline {subsection}{\numberline {8.1}Understanding Utils}{15}{subsection.8.1}% 
