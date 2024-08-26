@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  25 AUG 2024 11:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  26 AUG 2024 09:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -756,11 +756,11 @@ Package rerunfilecheck Info: File `syll.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 220.
  ) 
 Here is how much of TeX's memory you used:
- 18103 strings out of 492616
- 337038 string characters out of 6129482
+ 18101 strings out of 492616
+ 337022 string characters out of 6129482
  446703 words of memory out of 5000000
  21665 multiletter control sequences out of 15000+600000
- 11506 words of font info for 63 fonts, out of 8000000 for 9000
+ 11455 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,7n,48p,904b,395s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
@@ -771,7 +771,7 @@ usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
 r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
 /local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/
 local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on syll.pdf (3 pages, 119206 bytes).
+Output written on syll.pdf (3 pages, 119222 bytes).
 PDF statistics:
  67 PDF objects out of 1000 (max. 8388607)
  53 compressed objects within 1 object stream
