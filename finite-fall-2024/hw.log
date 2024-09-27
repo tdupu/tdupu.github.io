@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  25 AUG 2024 13:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  27 SEP 2024 09:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -742,20 +742,20 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
  [3]
-[4] [5]
-Overfull \hbox (52.91316pt too wide) in paragraph at lines 151--152
+[4] [5] [6]
+Overfull \hbox (52.91316pt too wide) in paragraph at lines 181--182
 []\OT1/cmr/m/n/10.95 (-20) What is the prob-a-bil-ity that the two cards are se
 -quen-tial (this in-cludes $10\OML/cmm/m/it/10.95 J; JQ; QK; KA; A\OT1/cmr/m/n/
 10.95 (-20) 2$)? 
  []
 
-[6] [7] [8]
-<konigsberg_bridges.png, id=294, 303.1325pt x 238.8925pt>
+[7] [8]
+<konigsberg_bridges.png, id=296, 303.1325pt x 238.8925pt>
 File: konigsberg_bridges.png Graphic file (type png)
 <use konigsberg_bridges.png>
 Package pdftex.def Info: konigsberg_bridges.png  used on input line 229.
 (pdftex.def)             Requested size: 151.56587pt x 119.44595pt.
-<floor-plan.png, id=297, 337.26pt x 241.90375pt>
+<floor-plan.png, id=299, 337.26pt x 241.90375pt>
 File: floor-plan.png Graphic file (type png)
 <use floor-plan.png>
 Package pdftex.def Info: floor-plan.png  used on input line 248.
@@ -765,7 +765,7 @@ Package pdftex.def Info: floor-plan.png  used on input line 248.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [9 <./konigsberg_bridges.png>]
-<three-houses.png, id=319, 642.4pt x 481.8pt>
+<three-houses.png, id=321, 642.4pt x 481.8pt>
 File: three-houses.png Graphic file (type png)
 <use three-houses.png>
 Package pdftex.def Info: three-houses.png  used on input line 277.
@@ -784,7 +784,7 @@ Package epstopdf Info: Source file: <non-planar.eps>
 o.pdf non-planar.eps>
 (epstopdf)             \includegraphics on input line 296.
 Package epstopdf Info: Output file is already uptodate.
-<non-planar-eps-converted-to.pdf, id=324, 346.29375pt x 421.575pt>
+<non-planar-eps-converted-to.pdf, id=326, 346.29375pt x 421.575pt>
 File: non-planar-eps-converted-to.pdf Graphic file (type pdf)
 <use non-planar-eps-converted-to.pdf>
 Package pdftex.def Info: non-planar-eps-converted-to.pdf  used on input line 29
@@ -810,12 +810,12 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 410.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 410.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 410.
 Package rerunfilecheck Info: File `hw.out' has not changed.
-(rerunfilecheck)             Checksum: 5BAD8A2C9A58B88494BB1E3AF34C195D;2922.
+(rerunfilecheck)             Checksum: 903871C77D862A7729E465A66BDD010C;2922.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 410.
  ) 
 Here is how much of TeX's memory you used:
- 18389 strings out of 492616
- 340357 string characters out of 6129482
+ 18391 strings out of 492616
+ 340371 string characters out of 6129482
  447130 words of memory out of 5000000
  21747 multiletter control sequences out of 15000+600000
  16717 words of font info for 95 fonts, out of 8000000 for 9000
@@ -838,10 +838,10 @@ e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/
 019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/20
 19/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2019
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on hw.pdf (15 pages, 307267 bytes).
+Output written on hw.pdf (15 pages, 307732 bytes).
 PDF statistics:
- 510 PDF objects out of 1000 (max. 8388607)
- 462 compressed objects within 5 object streams
- 160 named destinations out of 1000 (max. 500000)
+ 512 PDF objects out of 1000 (max. 8388607)
+ 464 compressed objects within 5 object streams
+ 162 named destinations out of 1000 (max. 500000)
  13625 words of extra memory for PDF output out of 14400 (max. 10000000)
 
