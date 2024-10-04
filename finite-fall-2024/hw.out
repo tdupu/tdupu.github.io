@@ -16,20 +16,22 @@
 \BOOKMARK [2][-]{subsection.4.2}{Understanding How to Compute Basic Probabilities}{section.4}% 16
 \BOOKMARK [2][-]{subsection.4.3}{Understanding Expected Values}{section.4}% 17
 \BOOKMARK [2][-]{subsection.4.4}{Understanding What to Do With Expected Values}{section.4}% 18
-\BOOKMARK [2][-]{subsection.4.5}{Understanding Coinflipping and the Central Limit Theorem}{section.4}% 19
-\BOOKMARK [1][-]{section.5}{Graphs and Networks}{}% 20
-\BOOKMARK [2][-]{subsection.5.1}{Understanding the Basic Terminology of Graphs and Networks}{section.5}% 21
-\BOOKMARK [2][-]{subsection.5.2}{Understanding what the Koenigsberg Bridges Problem}{section.5}% 22
-\BOOKMARK [2][-]{subsection.5.3}{Understanding the Traveling Salesman Problem}{section.5}% 23
-\BOOKMARK [2][-]{subsection.5.4}{Understanding the Three Houses Three Utilities Problem}{section.5}% 24
-\BOOKMARK [1][-]{section.6}{Symmetry and the Golden Ratio \(unstable\) }{}% 25
-\BOOKMARK [1][-]{section.7}{Statistics \(unstable\) }{}% 26
-\BOOKMARK [2][-]{subsection.7.1}{Understanding How To Read Graphs}{section.7}% 27
-\BOOKMARK [2][-]{subsection.7.2}{Understanding How People Are Reckless With Extrapolation}{section.7}% 28
-\BOOKMARK [2][-]{subsection.7.3}{Understanding How Messed-Up and Misleading p-Values Are}{section.7}% 29
-\BOOKMARK [2][-]{subsection.7.4}{Understanding How To Estimate The Number of German Tanks}{section.7}% 30
-\BOOKMARK [2][-]{subsection.7.5}{Understanding Sample Sizes}{section.7}% 31
-\BOOKMARK [2][-]{subsection.7.6}{Understanding Base Rate Fallacies}{section.7}% 32
-\BOOKMARK [2][-]{subsection.7.7}{Understanding Correlation}{section.7}% 33
-\BOOKMARK [1][-]{section.8}{Decision Theory \(unstable\) }{}% 34
-\BOOKMARK [2][-]{subsection.8.1}{Understanding Utils}{section.8}% 35
+\BOOKMARK [2][-]{subsection.4.5}{Understanding p-Values}{section.4}% 19
+\BOOKMARK [2][-]{subsection.4.6}{Understanding Coinflipping and the Central Limit Theorem}{section.4}% 20
+\BOOKMARK [1][-]{section.5}{Graphs and Networks}{}% 21
+\BOOKMARK [2][-]{subsection.5.1}{Understanding the Basic Terminology of Graphs and Networks}{section.5}% 22
+\BOOKMARK [2][-]{subsection.5.2}{Understanding what the Koenigsberg Bridges Problem}{section.5}% 23
+\BOOKMARK [2][-]{subsection.5.3}{Understanding the Traveling Salesman Problem}{section.5}% 24
+\BOOKMARK [2][-]{subsection.5.4}{Understanding the Three Houses Three Utilities Problem}{section.5}% 25
+\BOOKMARK [1][-]{section.6}{Symmetry and the Golden Ratio \(unstable\)}{}% 26
+\BOOKMARK [2][-]{subsection.6.1}{Prisoner Problem}{section.6}% 27
+\BOOKMARK [2][-]{subsection.6.2}{Dihedral Groups}{section.6}% 28
+\BOOKMARK [1][-]{section.7}{Statistics \(unstable\) }{}% 29
+\BOOKMARK [2][-]{subsection.7.1}{Understanding How To Read Graphs}{section.7}% 30
+\BOOKMARK [2][-]{subsection.7.2}{Understanding How People Are Reckless With Extrapolation}{section.7}% 31
+\BOOKMARK [2][-]{subsection.7.3}{Understanding How To Estimate The Number of German Tanks}{section.7}% 32
+\BOOKMARK [2][-]{subsection.7.4}{Understanding Sample Sizes}{section.7}% 33
+\BOOKMARK [2][-]{subsection.7.5}{Understanding Base Rate Fallacies}{section.7}% 34
+\BOOKMARK [2][-]{subsection.7.6}{Understanding Correlation}{section.7}% 35
+\BOOKMARK [1][-]{section.8}{Decision Theory \(unstable\) }{}% 36
+\BOOKMARK [2][-]{subsection.8.1}{Understanding Utils}{section.8}% 37

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  27 SEP 2024 09:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  4 OCT 2024 12:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -749,26 +749,34 @@ Overfull \hbox (52.91316pt too wide) in paragraph at lines 181--182
 10.95 (-20) 2$)? 
  []
 
-[7] [8]
-<konigsberg_bridges.png, id=296, 303.1325pt x 238.8925pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 200.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 200.
+
+[7] [8] [9]
+<konigsberg_bridges.png, id=325, 303.1325pt x 238.8925pt>
 File: konigsberg_bridges.png Graphic file (type png)
 <use konigsberg_bridges.png>
-Package pdftex.def Info: konigsberg_bridges.png  used on input line 229.
+Package pdftex.def Info: konigsberg_bridges.png  used on input line 253.
 (pdftex.def)             Requested size: 151.56587pt x 119.44595pt.
-<floor-plan.png, id=299, 337.26pt x 241.90375pt>
+<floor-plan.png, id=328, 337.26pt x 241.90375pt>
 File: floor-plan.png Graphic file (type png)
 <use floor-plan.png>
-Package pdftex.def Info: floor-plan.png  used on input line 248.
+Package pdftex.def Info: floor-plan.png  used on input line 272.
 (pdftex.def)             Requested size: 168.62958pt x 120.95157pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9 <./konigsberg_bridges.png>]
-<three-houses.png, id=321, 642.4pt x 481.8pt>
+[10 <./konigsberg_bridges.png>]
+<three-houses.png, id=350, 642.4pt x 481.8pt>
 File: three-houses.png Graphic file (type png)
 <use three-houses.png>
-Package pdftex.def Info: three-houses.png  used on input line 277.
+Package pdftex.def Info: three-houses.png  used on input line 301.
 (pdftex.def)             Requested size: 160.59961pt x 120.44969pt.
 
 
@@ -782,45 +790,43 @@ Package epstopdf Info: Source file: <non-planar.eps>
 (epstopdf)                    size: 4860 bytes
 (epstopdf)             Command: <repstopdf --outfile=non-planar-eps-converted-t
 o.pdf non-planar.eps>
-(epstopdf)             \includegraphics on input line 296.
+(epstopdf)             \includegraphics on input line 320.
 Package epstopdf Info: Output file is already uptodate.
-<non-planar-eps-converted-to.pdf, id=326, 346.29375pt x 421.575pt>
+<non-planar-eps-converted-to.pdf, id=355, 346.29375pt x 421.575pt>
 File: non-planar-eps-converted-to.pdf Graphic file (type pdf)
 <use non-planar-eps-converted-to.pdf>
-Package pdftex.def Info: non-planar-eps-converted-to.pdf  used on input line 29
-6.
+Package pdftex.def Info: non-planar-eps-converted-to.pdf  used on input line 32
+0.
 (pdftex.def)             Requested size: 86.57321pt x 105.39348pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[10 <./floor-plan.png>] [11 <./three-houses.png> <./non-planar-eps-converted-to
-.pdf>] [12]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 336.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 336.
-
-[13] [14] [15]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 410.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 410.
+[11 <./floor-plan.png>] [12 <./three-houses.png> <./non-planar-eps-converted-to
+.pdf>] [13] [14] [15]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 424.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 424.
  (./hw.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 410.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 410.
-Package rerunfilecheck Info: File `hw.out' has not changed.
-(rerunfilecheck)             Checksum: 903871C77D862A7729E465A66BDD010C;2922.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 410.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 424.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 424.
+
+
+Package rerunfilecheck Warning: File `hw.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `hw.out':
+(rerunfilecheck)             Before: FF9C42C230A6693F1935ED6D0B9397FB;3007
+(rerunfilecheck)             After:  A201BF02F2E034CE6164F548D3D043A0;3019.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 424.
  ) 
 Here is how much of TeX's memory you used:
- 18391 strings out of 492616
- 340371 string characters out of 6129482
- 447130 words of memory out of 5000000
- 21747 multiletter control sequences out of 15000+600000
+ 18398 strings out of 492616
+ 340452 string characters out of 6129482
+ 447131 words of memory out of 5000000
+ 21749 multiletter control sequences out of 15000+600000
  16717 words of font info for 95 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,8n,48p,1633b,421s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,8n,48p,1633b,474s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
@@ -838,10 +844,10 @@ e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/
 019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/20
 19/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2019
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on hw.pdf (15 pages, 307732 bytes).
+Output written on hw.pdf (15 pages, 308334 bytes).
 PDF statistics:
- 512 PDF objects out of 1000 (max. 8388607)
- 464 compressed objects within 5 object streams
- 162 named destinations out of 1000 (max. 500000)
- 13625 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 526 PDF objects out of 1000 (max. 8388607)
+ 478 compressed objects within 5 object streams
+ 167 named destinations out of 1000 (max. 500000)
+ 13641 words of extra memory for PDF output out of 14400 (max. 10000000)
 

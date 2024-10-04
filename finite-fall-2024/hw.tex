@@ -197,6 +197,30 @@ For additional help the reader should consult GH chapters Ch 4 and 5.
 	What does the probability that you have a winning hand need to be in order for this to be a good bet?	
 \end{enumerate}
 
+\subsection{Understanding $p$-Values}
+\begin{enumerate}
+	\item What is a $p$-value and how is one computed? (give an executive summary of the process without worrying about technical details).
+	\item Explain the following xkcd cartoons related to $p$-values.
+	\begin{enumerate}
+		\item \url{https://xkcd.com/1478/}
+		\item \url{https://xkcd.com/2533/}
+		\item \url{https://xkcd.com/882/}
+	\end{enumerate}
+	\item 
+	The following is from \emph{Currents of Fear} on Frontline.\footnote{I found this on \url{https://www.fallacyfiles.org/multcomp.html}}
+	\begin{quote}
+		…[I]n 1992, a landmark study appeared from Sweden. A huge investigation, it enrolled everyone living within 300 meters of Sweden's high-voltage transmission line system over a 25-year period. They went far beyond all previous studies in their efforts to measure magnetic fields, calculating the fields that the children were exposed to at the time of their cancer diagnosis and before. This study reported an apparently clear association between magnetic field exposure and childhood leukemia, with a risk ratio for the most highly exposed of nearly 4.
+		
+		…Surely, here was the proof that power lines were dangerous, the proof that even the physicists and biological naysayers would have to accept. But three years after the study was published, the Swedish research no longer looks so unassailable. 
+		
+		…[T]he original contractor's report…reveals the remarkable thoroughness of the Swedish team. Unlike the published article, which just summarizes part of the data, the report shows everything they did in great detail, all the things they measured and all the comparisons they made. …[N]early 800 risk ratios are in the report….1
+	\end{quote}
+	To be clear, the Swedish team took 800 thinks like leukemia and looked for associations between leukemia and living near power lines. 
+	Why is it not surprising that one of these came up?
+	With a $p$ value threshold of $0.05$, on average, how many ``risk ratios'' would we need to be computed to expect ``find some link''?
+	\item In Ellenberg's \emph{How Not To Be Wrong} he proves that scientists are regularly abusing $p$-values. How does he do this? (You just need to say what goes into this roughly)
+\end{enumerate}
+
 \subsection{Understanding Coinflipping and the Central Limit Theorem}
 \begin{enumerate}
 	\item What is the plinko game? 
@@ -300,7 +324,20 @@ The following questions are about explaining why the \emph{Three Houses and Thre
 
 \newpage
 
-\section{Symmetry and the Golden Ratio (unstable) }
+\section{Symmetry and the Golden Ratio (unstable)}
+
+\subsection{Prisoner Problem}
+\begin{enumerate}
+	\item Write consider the permutation $f: \lbrace 1,2,3,4\rbrace \to \lbrace 1,2,3,4\rbrace$ given by 
+	 $$ 1 \mapsto 3,  \quad 2 \mapsto 4, \quad 3 \mapsto 1, \quad 4\mapsto 2.$$
+	Write this in permutation notation.
+	\item Why does the prisoner problem work?
+\end{enumerate}
+
+\subsection{Dihedral Groups}
+\begin{enumerate}
+	\item 
+\end{enumerate}
 
 \newpage
 
@@ -333,29 +370,6 @@ The webpage \url{https://www.explainxkcd.com} may be helpful for some of the pro
     \item Come up with an example of something that obeys the Laffer Curve rule.
 \end{enumerate}
 
-\subsection{Understanding How Messed-Up and Misleading $p$-Values Are}
-\begin{enumerate}
-	\item What is a $p$-value and how is one computed? (give an executive summary of the process without worrying about technical details).
-     \item Explain the following xkcd cartoons related to $p$-values.
-     \begin{enumerate}
-     	\item \url{https://xkcd.com/1478/}
-     	\item \url{https://xkcd.com/2533/}
-     	\item \url{https://xkcd.com/882/}
-     \end{enumerate}
-    \item 
-    The following is from \emph{Currents of Fear} on Frontline.\footnote{I found this on \url{https://www.fallacyfiles.org/multcomp.html}}
-    \begin{quote}
-    	…[I]n 1992, a landmark study appeared from Sweden. A huge investigation, it enrolled everyone living within 300 meters of Sweden's high-voltage transmission line system over a 25-year period. They went far beyond all previous studies in their efforts to measure magnetic fields, calculating the fields that the children were exposed to at the time of their cancer diagnosis and before. This study reported an apparently clear association between magnetic field exposure and childhood leukemia, with a risk ratio for the most highly exposed of nearly 4.
-    	
-    	…Surely, here was the proof that power lines were dangerous, the proof that even the physicists and biological naysayers would have to accept. But three years after the study was published, the Swedish research no longer looks so unassailable. 
-    	
-    	…[T]he original contractor's report…reveals the remarkable thoroughness of the Swedish team. Unlike the published article, which just summarizes part of the data, the report shows everything they did in great detail, all the things they measured and all the comparisons they made. …[N]early 800 risk ratios are in the report….1
-    \end{quote}
-To be clear, the Swedish team took 800 thinks like leukemia and looked for associations between leukemia and living near power lines. 
-Why is it not surprising that one of these came up?
-With a $p$ value threshold of $0.05$, on average, how many ``risk ratios'' would we need to be computed to expect ``find some link''?
-    \item In Ellenberg's \emph{How Not To Be Wrong} he proves that scientists are regularly abusing $p$-values. How does he do this? (You just need to say what goes into this roughly)
-\end{enumerate}
 
 \subsection{Understanding How To Estimate The Number of German Tanks}
 \begin{enumerate}
