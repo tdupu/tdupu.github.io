@@ -198,6 +198,17 @@ For additional help the reader should consult GH chapters Ch 4 and 5.
 \end{enumerate}
 
 \subsection{Understanding $p$-Values}
+The material for this section came from \emph{How Not To Be Wrong}. The title of the section in Ellenberg's book is THE INTERNATIONAL JOURNAL OF HARUSPICY starting on page 145.\footnote{ \href{https://en.wikipedia.org/wiki/Haruspex}{Haruspicy} is a form of divination where one studies the entrails of sacrificed animals. It is a real thing. }
+The content that I wanted to cover isn't covered well in Tannenbaum. 
+Here is a link that explains thing a little better:
+\begin{center}
+ \url{https://outsidetheasylum.blog/an-actually-correct-explanation-of-p-values/}. 
+\end{center}
+That still is a little complicated but you can get through it, I think.
+The basic thing that you need to know is that a \emph{$p$-value} is the probability of observing an event assuming the null hypothesis. This means that low $p$-values mean the event is ``unlikely'. The null hypothesis is usually ``everything is just random and there is nothing special controlling the behavior of the events''. In our coinflipping example, the null hypothesis was that the coins were actually flipped randomly. 
+
+The other thing to know is that the threshold for ``good $p$-values'' that is commonly accepted in experimental sciences is $p<0.05$. That is saying that if everything is random, then the observation will only occur 5\% of the time if everything was random. This is a 1/20 probability.
+
 \begin{enumerate}
 	\item What is a $p$-value and how is one computed? (give an executive summary of the process without worrying about technical details).
 	\item Explain the following xkcd cartoons related to $p$-values.
