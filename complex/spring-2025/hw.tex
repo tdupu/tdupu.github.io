@@ -1,0 +1,541 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\Stab}{\operatorname{Stab}}
+\newcommand{\Arg}{\operatorname{Arg}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\hol}{\operatorname{hol}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\Aut}{\operatorname{Aut}}
+
+%opening
+\title{}
+\author{Dupuy --- Complex Analysis Problem Bank}
+\date{} 
+
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newpage
+
+\section{Euler's Formula}
+Euler's formula states that $e^{i\theta} =\cos(\theta) +i\sin(\theta)$ for $\theta \in \RR$. 
+There are some nice things you can do with this. 
+
+\begin{enumerate}
+\item Compute and draw the 8th roots of unity.
+\item Let $\zeta_n$ be a primitive $n$th root of unity. Show that $\sum_{j=0}^{n-1} \zeta_n^j=0$.
+
+\item (Wallis' Formula) Using the complex representation of cosine, find a formula for 
+ $$ \int_0^{2\pi} \cos(\theta)^{2n} d\theta. $$
+ 
+\end{enumerate}
+
+\newpage
+
+\section{Quaternion Exercise}
+
+This exercise show how nice the complex numbers are and how if one tries to develop a notion of holomorphic function in higher for the quaternions.
+The quaternions are the Division algebra (noncommutative field) over the reals defined by 
+$$\HH= \RR \oplus \RR i \oplus \RR j \oplus \RR k, \mbox{($\cong \RR^4$ as a vector space) } $$ 
+where $i$,$j$ and $k$ satisfy
+$$ ijk = -1 \mbox{ and } i^2 = j^2 = k^2 = -1.$$
+The norm on the quaternions is defined as 
+$$ \vert a+bi+cj+dk \vert^2 = a^2 + b^2 + c^3 + d^2,$$
+here $a,b,c,d \in\RR$.
+
+\begin{enumerate}
+\item 
+For $U\subset \HH$ open, we say a function $f: U \to \HH$ is \textbf{holomorphic} if 
+$$ f(q) = \lim_{h\to 0} \left( (f(q+h)-f(q))h^{-1}  \right). $$
+
+
+Show that the only quaternionic holomorphic functions are of the form 
+$$f(q) = \alpha q + \beta.$$
+where $\alpha,\beta \in \HH$.
+\end{enumerate}
+
+\newpage 
+\section{Power and Laurent Series}
+
+\begin{enumerate}
+
+\item Prove Hadamard's formula for the radius of convergence of a series $\sum_{n=0}^{\infty} a_n z^n$.
+ $$ R = \lim_{n\to \infty} \inf_{m\geq n} \vert a_m \vert^{-1/m}.$$
+Also show that the series converges absolutely and uniformly, (the differentiability thing is the next problem).
+
+\item (Analytic implies Holomorphic) Suppose that $f(z) = \sum_{n\geq0} a_n z^n$ has a radius of convergence $R$. 
+\begin{enumerate}
+ \item Show $\sum_{n\geq 0} n a_n z^{n-1}$ converges with the same radius of convergence $R$.
+ \item Show $\frac{d}{dz}\left[ \sum_{n=0}^{\infty} a_nz^{n}\right] = \sum_{n\geq 0} \frac{d}{dz}[ a_n z^{n}]$ on the disc of convergence.
+\end{enumerate}
+(Warning: it is not true that for general $u_n(t)\to u(t)$ uniformly that $u_n'(t) \to u_n'(t)$ uniformly! This is a special fact about power series.)
+
+
+\item Suppose that $f(z) = a_0 + a_1(z-z_0) + a_2 (z-z_0)^2 + \cdots$ has a finite radius of convergence. 
+Let $g(z) = a_n+ a_{n+1} (z-z_0) + a_{n+2}(z-z_0)^2 + \cdots$. Show that $g(z)$ has the same radius of convergence as $f(z)$ at $z_0$. (Hint: don't think about this too much)
+
+
+\item (Extra Credit, see WW page 59) This is a famous example of non-uniform coonvergence. Show that the series
+ $$ \sum_{n =1}^{\infty} \frac{z^{n-1} }{(1-z^n)(1-z^{n+1})}$$
+ converges to $\frac{1}{(z-1)^2}$ when $\vert z \vert <1$ and $\frac{1}{z(z-1)^2}$ when $\vert z \vert > 1$
+
+
+\item 
+If the series converges do some analysis to determine the radius of convergence at the boundary.
+\begin{enumerate}
+\item Expand $\frac{1}{1+z^2}$ in a power series around $z=0$, find the radius of convergence.
+\item Find the radius of convergence of $\sum_{n\geq 0} n! z^n$.
+\item (New Mexico, Jan 1998) Expand $\frac{z^2+2z-4}{z}$ in a power series around $z=1$ and find its radius of convergence.
+\end{enumerate}
+
+
+\item 
+\begin{enumerate}
+\item 
+Let $B\times A \subset \CC \times \CC$ be an open region with compact closure.
+Let $f: B\times A \to \CC$ be a function.  Let $\gamma \subset A$ be a $C^1$-curve (so it has finite length). 
+Define $F: B \to \CC$ by  
+ $$ F(z) = \int_{\gamma} f(z,s) ds.$$
+Assuming $\frac{\partial f}{\partial z}(z,s)$ exists and is continuous for all $s \in \gamma$ and all $z \in B$ show that 
+ $$ \frac{d}{dz}[ F(z)] = \int_{\gamma} \frac{\partial f}{\partial z}(z,s) ds. $$
+\item Let $\Omega \subset \CC$ be an open set. Let $\gamma:[0,1]\to \Omega$ be an $C^1$ curve. 
+Let $f \in \hol(\Omega)$ and $g \in L^2(\Omega)$. Show that 
+ $$ F(z) := \int_{\gamma} f(\zeta-z)g(\zeta)d \zeta $$ 
+is holomorphic on $\Omega$.
+\end{enumerate}
+
+
+\item (Whittaker and Watson, page 99)
+Consider the series 
+ $$ \frac{1}{2} \left( z + \frac{1}{z} \right) + \sum_{n=1}^\infty \left( z - \frac{1}{z} \right) \left( \frac{1}{1+z^n} - \frac{1}{1+z^{n-1}} \right). $$
+Show that this series converges for all values of $z$ with $\vert z \vert \neq 1$. 
+Furthermore, show that 
+$$ \frac{1}{2} \left( z + \frac{1}{z} \right) + \sum_{n=1}^\infty \left( z - \frac{1}{z} \right) \left( \frac{1}{1+z^n} - \frac{1}{1+z^{n-1}} \right) = \begin{cases}
+z, & \vert z \vert <1 \\
+\frac{1}{z}, & \vert z \vert > 1
+\end{cases}$$
+
+\item (Whittaker and Watson, 2.8, problem 16)
+By converting the series 
+ $$1 + \frac{8q}{1-q} + \frac{16q^2}{1+q^2} + \frac{24q^3}{1-q^3} + \cdots $$ 
+(in which $\vert q \vert<1$), into a double series, show that it is equal to 
+ $$ 1 + \frac{8q}{(1-q)^2}+ \frac{8q^2}{(1+q^2)^2} + \frac{8q^3}{(1-q^3)^2} + \cdots $$
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage 
+\section{Sequences of Analytic Functions}
+
+\begin{enumerate}
+	\item (CUNY, Fall 2005)
+	Let $D$ be the closed unit disc. 
+	Let $g_n$ be a sequence of analytic functions converging uniformly to $f$ on $D$. 
+	\begin{enumerate}
+		\item Show that $g_n'$ converges.
+		\item Conclude that $f$ is analytic.
+	\end{enumerate}
+
+(Hint/Discussion: Normally, taking derivatives makes things numerically behave worse and integration makes things nicer. What is nice about complex analysis is that integration and differentiation are the same thing. Here is the hint now: use the integral formula for derivatives to get this done (I think). A basic philosophical point here is that differentiation of holomorphic functions is actually easy because it is secretely integration. )
+
+	\item 
+	Here is a first example of an analytic continuation ``from the wild''. 
+	\begin{enumerate}
+		\item Show that the Riemann Zeta function 
+		$$ \zeta(z):=\sum_{n\geq 1} \frac{1}{n^z}$$
+		converges for $\Re z > 1$ and is analytic on this domain. (You need to use the ``analytic convergence theorem'', which states that a uniform limit of analytic functions is analytic. This is just a slight generalization of the previous problem.)
+		\item (Whittaker and Watson, 2.8, problem 10) 
+		\begin{enumerate}
+			\item Show that when $\Re s>1$,
+			$$ \sum_{n=1}^{\infty} \frac{1}{n^s} = \frac{1}{s-1} + \sum_{n=1}^{\infty} \left[ \frac{1}{n^s} + \frac{1}{s-1} \left( \frac{1}{(n+1)^{s-1}} - \frac{1}{n^{s-1}} \right) \right]$$
+			\item Show that the series on the right converges when $0<\Re s<1$. (This means the series above gives us access to the interesting part of the Riemann-Zeta function. Hint: $ \int_n^{n+1} x^{-s}dx = \frac{(n+1^{-s+1}}{1-s} - \frac{n^{-s+1}}{1-s} $)
+		\end{enumerate}
+	\end{enumerate}
+
+\end{enumerate}
+
+\section{Liouville's Theorem}
+
+The proof of Liouville's Theorem is basic of taking limits in Cauchy's formula. 
+There are variants of this proof which are featured in this problem.
+The proof of the estimate of the partial sum for a power series expansion is based of expanding Cauchy's Integral Formula in a geometric series and then truncating the series. 
+
+\begin{enumerate}
+	\item Prove Liouville's Theorem: any bounded entire function is constant. 
+
+	\item (New Mexico, not sure which year) %Problem 3
+	Let $f$ be analytic on $\CC$. 
+	Assume that $\max \lbrace \vert f(z) \vert : \vert z \vert = r \rbrace \leq M r^n$ for a fixed constant $M>0$, and a sequence of valued $r$ going to infinity. 
+	Show that $f$ is a polynomial of degree less than or equal to $n$. 
+	
+	\item (New Mexico, not sure which year) 
+	Let $f$ and $g$ be entire functions satisfying $\vert f(z) \vert \leq \vert g(z) \vert$ for $\vert z \vert \geq 100$. Assume that $g$ is not identically zero. Show that $f/g$ is rational. 
+	
+	\item Prove Goursat's theorem. Let $\gamma$ be a simple contour. If $f:\overline{\gamma^+} \to \CC$ is holomorphic (but whose derivative is not necessarily continuous) then 
+	$$ \int_{\gamma} f(\zeta) d\zeta = 0. $$
+	
+	
+	\item Let $f(z) = \sum_{n=0}^{\infty}a_nz^n$ and let $R$ be the radius of convergence (which is possibly infinite). Let $S_N(f)(z) = \sum_{n=0}^N a_n z^n$. 
+	Show that for all $r<R$ and all $z \in \CC$ with $\vert z \vert < r$ we have 
+	$$ \vert f(z) - S_N(f)(z) \vert \leq \frac{M(f,r)}{r - \vert z \vert} \frac{\vert z \vert^{N+1}}{r^{N}} $$ 
+	where $ M(f,r) = \max_{\vert z \vert = r} \vert f(z) \vert. $
+	
+	\item (UIC, Spring 2016)
+	Describe all entire functions such that $f(1/n) = f(-1/n) = 1/n^2$ for all $n\in \ZZ$.
+	
+\end{enumerate}
+
+\section{Riemann Extension Theorem}
+For functions which are analytic in some punctured neighborhood and which are bounded there is a natural way to extend the function to the point. This again uses the Cauchy integral formula and is another nice part of complex analysis.
+
+\begin{enumerate}
+	\item 
+\begin{enumerate}
+	\item Prove the Riemann Extension Theorem: Let $U\subset \CC$ be a region containing a point $z_0$. 
+	Let $f \in \hol(U\setminus \lbrace z_0 \rbrace)$.
+	If $f$ is bounded on $U$ show that there exists a unique $\widetilde{f} \in \hol(U)$ such that $\widetilde{f}\vert_{U \setminus \lbrace z_0 \rbrace} = f \in \hol(U \setminus \lbrace z_0 \rbrace )$.
+	\item Recall that a morphism of topological spaces $f: X \to Y$ is ``proper'' if and only if the inverse image of every compact set is compact. 
+	Show that an analytic map $f:\CC \to \CC$ is proper if and only if for all $z_j \to \infty$ we have $f(z_j) \to \infty$. 
+	\item Show that the only proper maps $f:\CC \to \CC$ are polynomials. (see page 27 of McMullen, you need to consider the function $g(z) = 1/f(1/z)$ and show that $g(z) = z^n g_0(z)$ where $g_0(z)$ is analytic and non-zero. This will allows you to conclude $\vert g(z) \vert > c\vert z \vert^n$ for some $n$ which will allows you to conclude behavious about the growth of $f(z)$ as $z \to \infty$. )
+\end{enumerate}
+\end{enumerate}
+
+
+\newpage
+\section{Topological Things}
+I collected a bunch of topological exercises here. 
+
+	Background: 
+\begin{itemize}
+	\item Let $X$ and $Y$ be topological spaces. We define the topology on $X\times Y$ to be the smallest topology such that the projection maps $\pi_X: X \times Y \to X$ and $\pi_Y: X\times Y \to Y$ are continuous (this means the open sets are generated by sets of the form $U \times Y$ or $X\times V$ for $U\subset X$ open or $X \times V$ for $V\subset Y$ open. 
+	\item A topological space $X$ is \textbf{compact} if every open cover has a finite subcover. An open cover is just a union of open sets that equal $X$.
+	\item A \textbf{proper map} is a morphism of topological spaces such that the inverse image of compact sets is compact. 
+\end{itemize}
+
+Side Remark: The third condition is interesting because Grothendieck realized we can use it to extend this definition to categories other than topological spaces. In particular to the category of ``schemes''.
+
+\begin{enumerate}
+	\item Let $U \subset \CC$ be a connected open set. Consider $U\subset \CC$ with the subspace topology (open subset of $U$ are the intersection of open subsets of $\CC$ with $U$ and closed subset are closed subset of $\CC$ intersected with $U$). Show that the only subset of $U$ which are open, closed and nonempty is $U$ itself. 
+	
+	\item (Green and Krantz, Ch 11) A subset $S \subset \RR^n$ is \textbf{path connected} if for all $a,b \in S$ there exists a continuous $\gamma: [0,1] \to S$ such that $\gamma(0) = a$ and $\gamma(1) = b$. 
+	
+	Let $U$ be an open subset of $\RR^n$. Show that $U$ is path connected if and only if $U$ is connected. (Hint: show that the collection of path connected elements is open and closed. Also, you can use that the only nonempty open and closed subset of a connected open set is the entire set itself. )
+	\item 
+	Show that the following conditions are equivalent for a topological space $X$:
+	\begin{enumerate}
+		\item For all $a,b \in X$ there exists open sets $U \owns a$ and $V \owns b$ with $U \cap V = \emptyset$. 
+		\item For all $a,b\in X$, if every neighborhood of $a$ intersects every neighborhood of $b$ then $a = b$.
+		\item The diagonal map $X \to X\times X$ given by $x\mapsto (x,x)$ is proper. 
+		\item The diagonal subset is closed. 
+	\end{enumerate}
+	
+	
+	If any of these conditions hold we call the topological space \textbf{separated} or \textbf{hausdorff}. (Hint: You should use the fact that a morphism $f$ is proper if and only if $f$ is closed and the inverse image of every point is compact.)
+	
+\end{enumerate}
+
+
+\section{Harmonic Functions}
+
+Let $u(x+iy)=u(x,y)$ be a real valued harmonic function on some region $U \subset \CC$.
+A \textbf{harmonic conjugate} is a function $v(x,y)$ such that $f(x+iy):= u(x,y) + i v(x,y)$ is holomorphic.
+
+\begin{enumerate}
+	\item  Show that $u(x,y) = u(z)$ has a harmonic conjugate locally. (Hint: Use the fundamental theorem of line integrals $v(\vec{P}) -v(\vec{Q})  = \int_{C} \nabla v \cdot d\vec{r}$ if $C$ is a path starting a $\vec{Q}$ and ending at $\vec{P}$)
+
+	\item 
+	Find all of the harmonic conjugates of $u(x,y) = x^3 - 3xy^2 + 2x$. 
+	
+	\item Let $f(z) = u(z) + i v(z)$ be analytic. 
+	Show that the level sets of $u(z)$ and $v(z)$ are orthogonal.
+	
+	\item (New Mexico, Summer 2000)
+	Show that the pullback of a harmonic function by an holomorphic map is harmonic (what these words means is explained below).
+	Assume that $w = f(z) = u(z)+iv(z)$ is holomorphic map $f:D \to D' \subset \CC$. We consider $D$ in the $z$-plane to a domain $D'$ in the $w$-plane. 
+	If $\phi$ is harmonic on $D'$, show that 
+	$$ \Phi(x,y) := \phi(u(x,y),v(x,y))$$
+	is harmonic in $D$. 
+	
+	(The function $\Phi$ is called the pullback of $\phi$ by $f$. Sometimes in the literature these you will see the notation $f^*\phi$ for $\Phi$.)
+		
+	\item (New Mexico, not sure which year) 
+	Let $f(z)$ and $g(z)$ be entire functions. 
+	Show that if $f(g(z))$ is a polynomial then both $f(z)$ and $g(z)$ are polynomials.
+	(Hint: this relates to the problem on properness from the previous homework).
+	
+	\item Find all entire functions $f(z)$ which satisfy $\Re f(z) \leq 2/\vert z \vert$ when $\vert z \vert > 1$. (Hint: Consider $e^{-f(z)}$ or $e^{f(z)}$. You will need the maximum modulus principle and Liouville's theorem.)
+	
+	\item Let $u(z)$ be a real valued harmonic function on a domain $D \subset \CC$ 
+
+
+		\item Show that for all $D_r(z_0) \subset D$ we have 
+		$$ u(z_0) = \frac{1}{2\pi} \int_0^{2\pi} u(z_0+ r e^{i\theta}) d\theta. $$ (Hint: use a harmonic conjugate)
+		\item If $z_0 \in D$ has the property that there exists some $r>0$ with $D_r(z_0) \subset D$ and 
+		$$ u(z_0) \geq u(z) $$
+		for all $z \in D_r(z_0)$ then $u(z)$ is constant. 
+		(Hint: Consider a function such that $f(z) = u(z)+iv(z)$ then consider the maximum of $e^{f(z)}$.)
+		
+		
+			
+		\item Let $u_0(\theta)$ be a continuous $2\pi$-periodic function. 
+			Let $D$ be a disc of radius $r$. 
+			The Dirichlet boundary value problem asks to find a function $u(x,y)$ such that:
+			$$ \begin{cases}
+			\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} =0, & \mbox{ for $(x,y)\in D$ } \\
+			u(e^{i\theta})= u_0(\theta), & 
+			\end{cases}
+			$$
+			Show that convolution with the Poisson kernel 
+			$$P_r(\theta) = \frac{1-r^2}{1-2r\cos(\theta) + r^2}$$
+			gives a solution to this problem. 
+			
+	
+	
+
+	
+\end{enumerate}
+
+\section{Residue Integrals}
+
+\begin{enumerate}
+		\item (Whittaker and Watson, 6.24,3)
+	If $-1 < z < 3$ then 
+	$$ \int_0^{\infty} \frac{x^z}{(1+x^2)^2}dx = \frac{\pi (1-z) }{4 \cos( \pi z/2) }$$
+	
+	\item (Whittaker and Watson, 6.21, Example 4)
+	Let $a>b>0$ be real numbers. 
+	Show that 
+	$$ \int_0^{2\pi} \frac{d\theta}{(a+b\cos(\theta))^2} = \frac{2\pi a}{(a^2-b^2)^{3/2}}$$
+	
+	%$$ \int_0^{2\pi} \frac{d\theta}{(a+b\cos(\theta)^2)^2} = \frac{2\pi (2a+b)}{a^{3/2}(a^2-b^2)^{3/2}}$$
+	
+	\item (Whittaker and Watson, 6.23, 2) If $a>0$ and $b>0$ show that 
+	$$ \int_{-\infty}^{\infty} \frac{x^4dx}{(a+bx^2)^4} = \frac{\pi}{16 a^{3/2}b^{5/2}}$$
+	
+	\item (Whittaker and Watson, 6.22, 1) Show that if $a>0$ then 
+	$$ \int_0^{\infty} \frac{\cos(x)}{x^2+a^2}dx = \frac{\pi}{2a}e^{-a}. $$
+	
+	
+	\item (Whittaker and Watson, 6.22)
+	If the $\Re z >0$ then 
+	$$ \int_0^{\infty} (e^{-t} - e^{-tz}) \frac{dt}{t} = \log z $$
+	
+	\item (Whittaker and Watson, 6.24,2) If $0 \leq z \leq 1$ and $-\pi< a \leq \pi$ then
+	$$\int_0^{\infty} \frac{t^{z-1}}{t + e^{ia} }dt  = \frac{\pi e^{i(z-1)a}}{\sin(\pi z)} $$
+	
+	
+	\item (Whittaker and Watson 6.24, 1, pg118)
+	If $0<a<1$ show that 
+	$$ \int_0^{\infty} \frac{x^{a-1}}{1+x}dx = \pi \csc a \pi $$
+	
+	
+	\item (Whittaker and Watson, 6.24, 4)Show that if $-1<p<1$ and $-\pi<\lambda<\pi$ we have 
+	$$ \int_0^{\infty} \frac{x^{-p} dx}{1 + 2x \cos(\lambda) + x^2 } = \frac{\pi}{\sin(p\pi)} \frac{\sin(p\lambda)}{\sin(\lambda)}$$
+	
+	\item  (Whittaker and Watson, 6.21, Example 3)
+	Let $n$ be a positive integer. 
+	Show that 
+	$$ \int_0^{2\pi} e^{\cos(\theta)} \cos(n\theta - \sin\theta)d\theta = \frac{2\pi}{n!}$$
+\end{enumerate}
+
+\section{Rouche's Theorem and Argument Principal}
+
+\begin{enumerate}
+	
+	\item (New Mexico, Jan 1997) How many roots does $p(z) = z^4 + z + 1$ have in the first quadrant?
+	
+	\item (New Mexico, Aug 1993)
+	How many roots does $e^z - 4z^n +1 =0$ have inside the unit disc $\vert z \vert < 1$?
+	
+\end{enumerate}
+
+
+\section{Conformal Maps}
+\begin{enumerate}
+\item (New Mexico, Summer 1999)
+Let $\mathcal{H}$ be the upper half complex plane $\mathcal{H} = \lbrace z \in \CC : \Im z > 0 \rbrace$.
+Let $D$ be the unit disc $D = \lbrace w : \vert w \vert < 1 \rbrace$. 
+Show that the map $f(z) = w = (z-i)/(z+i)$ defines a bijection $\mathcal{H} \to D$.
+	
+	
+\item Find the points where $w = f(z)$ is conformal if 
+\begin{enumerate}
+	\item $w = \cos(z)$
+	\item $w = z^5 - 5z$
+	\item $w = 1/(z^2+1)$
+	\item $w = \sqrt{z^2+1}$.
+\end{enumerate}
+
+\item Find a conformal map of the strip $0 < \Re z < 1$ onto the unit disc $\vert w \vert < 1$ in such a way that $z=1/2 $ goes to $ w=0$ and $z = \infty$ goes to $w=1$.
+
+\item Find the M\"obius transformation that maps the left have plane $\lbrace z \in \CC: \Re z < 1 \rbrace$ to the unit disc $\lbrace w \in \CC : \vert w \vert < 1$ and has $z=0$ and $z=1$ as fixed points.
+
+\item Find a conformal map from the following regions onto the unit disc $D = \lbrace z : \vert z \vert < 1 \rbrace$
+\begin{enumerate}
+	\item $A = \lbrace z: \vert z \vert < 2,  \Arg(z) \in (0,\pi/4) \rbrace $
+	\item $B = \lbrace z: \Re(z) >2 $
+	\item $C = \lbrace z: -1<\Re(z)<1 \rbrace$
+	\item $D' = \lbrace z: \vert z \vert < 1 \mbox{ and } \Re z < 0\rbrace $ 
+\end{enumerate}
+
+\item Let $D$ be the unit disc. Let $f: D \to D$ be a conformal map. 
+\begin{enumerate}
+	\item If $f(0) = 0$ show that $f(z) = \omega z$ for some $\omega \in \partial D$. 
+	\item If $f(0) \neq 0$ show that there exists some $a \in D$ and $\omega \in \partial D$ such that 
+	$$ f(z) = \omega \frac{z - a}{1 - \overline{a} z}.$$
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+	
+	\item Show that $\PSL_2(\ZZ)$ is generated by $S(z) = -1/z$ and $T(z) = z+1$ and hence has the presentation
+	$$ \langle S, T : S^2 = 1, (ST)^3 = 1 \rangle. $$
+	
+	\item Show that a fundamental domain\footnote{A fundamental domain for an action $\Gamma \times X \to X$ is a closed subset $\Omega \subset X$ such that 
+		\begin{enumerate}
+			\item $X = \bigcup_{\gamma \in \Gamma} \gamma(\Omega)$
+			\item For all $\gamma \neq 1$ the set $\gamma(\Omega) \cap \Omega$ has empty interior.
+		\end{enumerate}
+		Note that this definition is different from what I had originally said in class. We had our fundamental domains have the property that $\gamma(\Omega) \cap \Omega = \emptyset.$ Unfortunately, as this example shows, we can't always arrange for this.   
+	} for this action is the complement of the unit disc in a vertical strip of length 1 centered around zero in the upper half plane. In other words
+	$$ \Omega =  \lbrace z: \vert z \vert \geq 1 \mbox{ and } -1/2\leq \Re(z) \leq 1/2 \rbrace$$ is a fundamental domain for this action.  
+	
+	\item 
+	Show that the following points are fixed points of $\overline{\Omega}$ with the following stabilizers:
+	\begin{enumerate}
+		\item $\Stab(i) = \lbrace 1, S\rbrace$
+		\item $\Stab(e^{2\pi i/2}) = \lbrace 1, ST, (ST)^2 \rbrace $
+		\item $\Stab(e^{\pi i/3}) = \lbrace 1, TS, (TS)^2 \rbrace $
+	\end{enumerate}
+	(Note: this exercise gives you an example of an action that is not free.)
+\end{enumerate}
+
+\end{enumerate}
+
+
+\section{Elliptic and Modular Functions} 
+
+\begin{enumerate}
+\item Show that 
+$$ \wp_{\Lambda}(z) = \frac{1}{z^2} + \sum_{\lambda \in \Lambda^*} \left[ \frac{1}{(z-\lambda)^2} - \frac{1}{\lambda^2} \right] $$
+is elliptic with period lattice $\Lambda$.
+
+\item For a lattice $\Lambda \subset \CC$ and $m\geq 3$ define $G_m = G_m(\Lambda) =  \sum_{\lambda \in \Lambda\setminus \lbrace 0 \rbrace } \lambda^{-m}. $   
+\begin{enumerate}
+	\item Show that $ \wp(z) - \frac{1}{z^2} = \sum_{k=1}^{\infty} (k+1)G_{k+2} z^k.$\footnote{You may need to use that you can interchange some series. If $f_n(z) = \sum a_j^{(n)} z^j$ and $A_j = \sum_{n=0}^{\infty} a_j^{(n)} $ converges then $\sum_{n=0}^{\infty} f_n(z) = \sum_{j=0}^{\infty} A_j z^j$. } 
+	\item Conclude that 
+	$$ \wp'(z)^2 - 4 \wp(z)^3 + g_2 \wp(z) + g_3 = O(z^2),$$
+	as $z \to 0$, which shows that $\wp'(z)^2 - 4 \wp(z)^3 + g_2 \wp(z) + g_3$ is analytic at the origin of $\CC$. 
+	Here $g_2 = 60 G_4$ and $g_3 = 140 G_6$.
+	\item Conclude that $\wp'(z)^2 - 4 \wp(z)^3 + g_2 \wp(z) + g_3$ is constant. (Hint: use that elliptic functions without poles are constant.)
+	\item Show the constant in the previous number is zero.
+\end{enumerate}
+
+\item The zeros of $\wp(z)-c$ are simple with precisely double zeros at the points congruent to $\omega_1/2, (\omega_1+\omega_2)/2, \omega_2/2$. (Hint: what are the zeros of $\wp'(z)$ and what does this mean?)
+
+\end{enumerate}
+
+
+
+\section{Riemann Surfaces}
+This uses some basic properties of Riemann Surfaces.
+
+\begin{enumerate}
+\item 
+\begin{enumerate}
+	\item Show that every automorphism of $\CC$ extends to an automorphism of $\PP^1$.
+	\item Show that $\Aut(\CC):= \lbrace az+b : a \in \CC^{\times} \mbox{ and } b\in \CC \rbrace$ (This sometimes called the one dimensional affine linear group and is denoted $\mathrm{AL}_1(\CC)$.).
+\end{enumerate}
+
+\item Show that $\CC$ is not conformally equivalent to $D = \lbrace z \in \CC: \vert z \vert < 1 \rbrace$. 
+
+\item Show that $\Aut(H) = \lbrace \frac{az+b}{cz+d}: a,b,c,d\in \RR \mbox{ and } ad-bc =1 \rbrace$ (This is sometimes called the two dimensional projective special linear groups with coefficients in $\RR$, and is denoted $\PSL_2(\RR)$).
+
+\end{enumerate}
+
+\section{Infinite Products}
+
+\begin{enumerate}
+	\item Show the Gauss formula for the Gamma function:
+	$$ \Gamma(z) = \lim_{n\to\infty} \frac{n^z n!}{z(z+1)(z+2) \cdots (z+n)}. $$
+	(Take the definition of the Gamma function to be from its product formula).
+	\item Verify that $F(z) = \int_0^{\infty} t^{z-1}e^{-t}dt$ and $\Gamma(z)$ (via $1/\Gamma(z)$ being defined by the product formula) satify the hypotheses of Weilandt's Theorem. In particular that $F(z)$ and $\Gamma(z)$ are bounded when $1 <\Re z <2$. 
+	
+	\item Show that $\int_0^{2\pi} \log \vert 1 - e^{i\theta}\vert d\theta=0$.
+	
+	\item (New Mexico, Jan 2006)
+	Consider $f(z) = \prod_{n=1}^{\infty}(1-z/n^3)$.
+	What is the order of $f(z)$?
+	
+	\item Let $f(z) = \sum_{n=0}^{\infty} a_n z^n$ 
+	be an entire function of finite order $\rho$. Show that 
+	$$ \rho = \liminf_{n\to\infty} \frac{\log(n)}{\log \vert a_n \vert^{-1/n}}.$$
+\end{enumerate}
+
+\section{The Big Picard Theorem}
+
+\begin{enumerate}	
+	\item 
+	\begin{enumerate}
+		\item Prove the Casorati-Weiestrass Theorem: Let $f(z)$ is analytic in a punctured disc of radius $R$ at the origin. If $f(z)$ has an essential singularity at $z=0$ show that for every $r$ with $0<r<R$ the set $f(D_r(0)\setminus \lbrace 0 \rbrace)$ is dense in $\CC$. (This is a corollary of Big Picard).
+		\item Let $p$ be a polynomial. Show that there exists infinitely many $z_j$ such that $p(z_j) = e^{z_j}$.
+	\end{enumerate}
+	
+	\item 
+	The following exercise is intended to introduce you to the $j$ function which plays a role in the proof of the Big Picard Theorem from class. 
+	
+	Let $H$ be the upper-half plane. 
+	A \textbf{modular form} of weight $k$ and level $N=1$ is a function $f:H \to \CC$ such that  
+	\begin{equation}
+	f( \frac{az+b}{cz+d} ) = (cz+d)^{-2k} f(z).
+	\end{equation}
+	for all $\left[\begin{matrix}
+	a & b \\
+	c & d 
+	\end{matrix} \right ]\in \SL_2(\ZZ)$. 
+	
+	\begin{enumerate}
+		\item Let $M_k$ denote the collection of modular forms of weight $k$ and level 1. 
+		Show that $M = \bigoplus_{k\geq 0} M_k$ is a graded ring (i.e. that $M_{k_1}M_{k_2} \subset M_{k_1+k_2}$. 
+		
+		\item Show that $G_{2k}(\frac{az+b}{cz+d}) = (cz + d)^{2k} G_{2k}(z)$ has weight $2k$ (Hint: check this on the generators of $\SL_2(\ZZ)$.)
+		
+		Using the first part conclude that the we have the following modular forms of the indicated weights:
+		\begin{enumerate}
+			\item $g_2(\tau) = 60 G_4(\tau)$, $k=4$
+			\item $g_3(\tau) = 140 G_6(\tau)$, $k=6$
+			\item $\Delta(\tau) = g_2(\tau)^3 - 27 g_3(\tau)^2$, $k=12$
+			\item $j(\tau) = 1728 g_2(\tau)^3/\Delta(\tau)$, $k=0$
+		\end{enumerate}
+	\end{enumerate}
+	
+	\item Explain in words the ideas that go into the proof of Montel's Theorem in Green and Krantz (page 193). 
+	How is Arzela-Ascoli used?
+	
+	\item Let $X=\CC^{\times} = \CC \setminus \lbrace 0 \rbrace$. 
+	What is the universal cover of $X$? What is group of deck transformations for this cover? 
+	
+	
+	\item Use Van Kampen's theorem to rigorously compute 
+	$\pi_1(\mathbf{P}^1\setminus \lbrace p_1,\ldots, p_r\rbrace, z_0)$ for arbitrary $r$. (Hint: apply Van Kampen to open sets $U,V$ where $U\cap V$ is simply connected). 
+	
+\end{enumerate}
+
+
+
+\end{document}
