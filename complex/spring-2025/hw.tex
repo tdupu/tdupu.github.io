@@ -70,6 +70,8 @@ where $\alpha,\beta \in \HH$.
 \newpage 
 \section{Power and Laurent Series}
 
+Many of the problems here were taken from old University of New Mexico qualifying exams. They were automatically converted from a scanned file using Google's Gemini so be wary that these were automatically converted.
+
 \begin{enumerate}
 
 \item Prove Hadamard's formula for the radius of convergence of a series $\sum_{n=0}^{\infty} a_n z^n$.
@@ -133,11 +135,153 @@ By converting the series
  $$1 + \frac{8q}{1-q} + \frac{16q^2}{1+q^2} + \frac{24q^3}{1-q^3} + \cdots $$ 
 (in which $\vert q \vert<1$), into a double series, show that it is equal to 
  $$ 1 + \frac{8q}{(1-q)^2}+ \frac{8q^2}{(1+q^2)^2} + \frac{8q^3}{(1-q^3)^2} + \cdots $$
+ 	
+ 	\item Consider the following meromorphic functions.
+ 	
+ 	\begin{enumerate}
+ 		\item Expand $f(z) = \frac{1}{2z - z^2}$ in a power series about $z = 1$.
+ 		
+ 		\item Find a Laurent expansion of $f(z) = \frac{1}{z} + \frac{1}{z + 2} + \frac{1}{(z - 1)^2}$ which is valid in the annulus $1 < |z| < 2$.
+ 	\end{enumerate}
+ 	
+ 	\item Expand $e^{1/z}$ in a Laurent series about $z = 0$, determining the Laurent coefficients.
+ 	
+ 	\item Show that 
+ 	\[\frac{1}{n!} = \frac{1}{\pi} \int_{0}^{\pi} e^{\cos \theta} \cos(n \theta - \sin \theta) d\theta.\]
+ 	
+ 	\item Expand $f(z) = \frac{z + 6}{z^2 - 2z - 3}$ in
+ 	
+ 	\begin{enumerate}
+ 		\item Taylor series around $z = 0$.
+ 		
+ 		\item Laurent series in the annulus $1 < |z| < 3$.
+ 		
+ 		\item Laurent series in the region $3 < |z| < \infty$.
+ 	\end{enumerate}
+ 	
+ 	\item Expand in Laurent series in region indicated: $e^{\frac{1}{z - 1}}, |z| > 1$.
+ 	
+ 	\item Let $f(z):= \frac{1}{(z - 1)(z - 2)}$. Write $f(z)$ as a Laurent series centered at $z = 0$ which converges on the annulus $1 < |z| < 2$.
+ 	
+ 	\item Let $f(z) = \frac{1}{z^2 (e^z - e^{-z})}$, $0 < |z| < \pi$. Compute the first three non-zero terms of the Laurent expansion of $f(z)$ in $0 < |z| < \pi$.
+ 	
+ 	\item Prove that if $f$ is analytic on the region $U$ (open and simply connected), $z_0 \in U$, and $f'(z_0) = 0$, then $f$ is not one-to-one in any neighborhood of $z_0$.
+ 	
+ 	\item Let $\{a_n\}$ be a sequence of complex numbers. Assume that $f(z) = \sum_{n = 0}^{\infty} a_n z^n$ converges for all $z$ satisfying $|z| \leq r$. Prove that if $|a_1| > \sum_{n = 2}^{\infty} n |a_n| r^{n - 1}$, then $f$ is an injective function on the disc $|z| \leq r$.
+ 	
+ 	\item Prove that if $w = f(z)$ is holomorphic in the disc $D(0, 2)$, then $w = f(z)$ has a Taylor expansion centered at $z_0 = 0$ which converges for $|z| \leq 1$.
+ 	
+ 	\item Assume that $\{f_n(z)\}_{n = 1}^{\infty}$ is a sequence of analytic functions defined on the region $\Omega$, such that $\lim_{n \to \infty} f_n(z) = f(z)$ uniformly on compact subsets of $\Omega$. Show that $f(z)$ is analytic in $\Omega$ and that $\lim_{n \to \infty} f_n'(z) = f'(z)$ uniformly on compact subsets of $\Omega$.
+ 	
+ 	\item Classify the singularities at $z = 0$ of the following functions $f(z)$ and find their residue.
+ 	
+ 	\begin{enumerate}
+ 		\item $f(z) = \frac{1}{z}$
+ 		
+ 		\item $f(z) = z \cos \left( \frac{1}{z} \right)$
+ 		
+ 		\item $f(z) = z^{-3} \csc(z^2)$
+ 	\end{enumerate}
+ 	
+ 	\item Let $f(z):= \frac{e^z}{(z - 1)^4}$.
+ 	
+ 	\begin{enumerate}
+ 		\item Classify all of the singularities and find the associated residues.
+ 		
+ 		\item Determine the Laurent expansion of $f$ centered at $z = 1$.
+ 		
+ 		\item If $C$ denotes the positively oriented circle of radius 2 centered at $z = 0$, evaluate $\oint_C f(z) dz$.
+ 	\end{enumerate}
+ 	
+ 	\item Classify the singularities (including the point at $\infty$) and find the residues for
+ 	
+ 	\begin{enumerate}
+ 		\item $f(z) = \sin \left( \frac{1}{z} \right)$
+ 		
+ 		\item $f(z) = \frac{\sin(z^2)}{z^7}$
+ 		
+ 		\item $f(z) = \frac{1}{z^2} \cot z$
+ 	\end{enumerate}
+ 	
+ 	\item Classify all of the singularities and find the associated residues for each of the following functions:
+ 	
+ 	\begin{enumerate}
+ 		\item $\frac{(z + 3)^2}{z}$
+ 		
+ 		\item $\frac{e^{-z}}{(z - 1)(z + 2)^2}$
+ 	\end{enumerate}
+ 	
+ 	\item Classify all of the singularities and find the associated residues for each of the following functions:
+ 	
+ 	\begin{enumerate}
+ 		\item $z \cos(2z)$
+ 		
+ 		\item $\frac{z^3 - z^2 + 2}{z - 1}$
+ 	\end{enumerate}
+ 	
+ 	\item Classify the singularities of the following functions in the extended complex plane $\mathbb{C} \cup \{\infty\}$, and find the singular part at each of the isolated singular points:
+ 	
+ 	\begin{enumerate}
+ 		\item $\frac{1 - \cos z}{z^4}$
+ 		
+ 		\item $\sqrt{1 - \sin z}$
+ 		
+ 		\item $\frac{1 - z^3}{1 - z^2}$
+ 	\end{enumerate}
+ 	
+ 	\item Expand (if possible) in Laurent series in the indicated region:
+ 	
+ 	\begin{enumerate}
+ 		\item $e^{1/(x - 1)}$ for $|z| > 1$
+ 		
+ 		\item $\frac{1}{(z - a)(z - b)}$ for (i) $0 < |a| < |z| < |b|$ and (ii) $|a| < |b| < |z|$
+ 		
+ 		\item $\log \left( \frac{1}{1 - z} \right)$ for $|z| > 1$
+ 	\end{enumerate}
+ 	
+ 	\item Let $f(z) = \frac{1}{z - 1} + \frac{1}{(z - 2)^2}$. Expand $f(z)$ in:
+ 	
+ 	\begin{enumerate}
+ 		\item Taylor series in $|z| < 1$
+ 		
+ 		\item Laurent series in $1 < |z| < 2$
+ 	\end{enumerate}
+ 	
+ 	\item Find the Laurent expansion of $f(z) = (1 - z^2) e^{1/z}$ around $z = 0$. Determine its annulus of convergence and the residue of $f(z)$ at $z = 0$.
+ 	
+ 	\item 
+ 	
+ 	\begin{enumerate}
+ 		\item Find the first 3 non-vanishing terms of the Taylor series expansion of $\tan z$ around the origin.
+ 		
+ 		\item Also, find its radius of convergence.
+ 	\end{enumerate}
+ 	
+ 	\item Expand the function $f(z) = \frac{z^3 + 2z - 4}{z}$ in a power series around $z = 1$ and give its radius of convergence.
+ 	
+ 	\item Compute the radius of convergence of the following:
+ 	
+ 	\begin{enumerate}
+ 		\item $\sum_{n = 1}^{\infty} \frac{(3n)!}{(3n)^{3n}} z^n$
+ 		
+ 		\item $\sum_{n = 0}^{\infty} [3 + (-1)^n]^n z^n$
+ 		
+ 		\item The Taylor series around zero for the function $\frac{z}{e^z - 1}$
+ 	\end{enumerate}
+ 	
+ 	\item Compute the radius of convergence of the following:
+ 	
+ 	\begin{enumerate}
+ 		\item $\sum_{n = 1}^{\infty} \frac{(2n)!}{n^{2n}} z^n$
+ 		
+ 		\item $\sum_{n = 0}^{\infty} (n + a^n) z^n$ where $a \in \mathbb{C}$
+ 		
+ 		\item The Taylor series around zero for the function $z \cot z$
+ 	\end{enumerate}
+ 	
+ 	\item Determine the three Laurent series around 0 of the function $f(z) = \frac{1}{(z - 1)(z - 2)}$ in the three regions $|z| < 1$, $1 < |z| < 2$, and $|z| > 2$, respectively.
+ 	
 \end{enumerate}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage 
 \section{Sequences of Analytic Functions}
@@ -171,9 +315,10 @@ By converting the series
 
 \section{Liouville's Theorem}
 
-The proof of Liouville's Theorem is basic of taking limits in Cauchy's formula. 
+The proof of Liouville's Theorem is basically taking a limit in Cauchy's Integral Formula for the first derivative (if I don't understand what I mean here, this is your first exercise). 
 There are variants of this proof which are featured in this problem.
 The proof of the estimate of the partial sum for a power series expansion is based of expanding Cauchy's Integral Formula in a geometric series and then truncating the series. 
+Many of the problems here were taken from University of New Mexico qualifying exams.
 
 \begin{enumerate}
 	\item Prove Liouville's Theorem: any bounded entire function is constant. 
@@ -198,7 +343,114 @@ The proof of the estimate of the partial sum for a power series expansion is bas
 	\item (UIC, Spring 2016)
 	Describe all entire functions such that $f(1/n) = f(-1/n) = 1/n^2$ for all $n\in \ZZ$.
 	
-\end{enumerate}
+
+		\item 
+		
+		\begin{enumerate}
+		\item State and prove a form of the maximum principle.
+		 \item State Schwarz's lemma and give a proof.
+		\end{enumerate}
+		
+
+		\begin{enumerate}
+			\item Deduce the fundamental theorem of algebra from Liouville's Theorem.
+		\end{enumerate}
+
+		
+		\item Let $f$ be analytic in $\mathbb{C}$. Assume $\max\{|f(z)|:|z|=r\}\le Mr^{n}$ for a fixed constant $M>0$,
+		and a sequence of values of $r$ going to infinity.
+		Show that $f$ is a polynomial of degree less than or equal to $n$.
+		
+		\item Assume that $f(z)$ is an entire function with
+		
+		\[\lim_{|z|\rightarrow\infty}\frac{f(z)}{z^{2}}=0.\]
+		
+		Prove that $f(z)$ must be linear, that is $f(z)=a+bz,$ with $a, b\in \mathbb{C}$. Please provide all the details.
+		
+		\item Let $f(z)$ and $g(z)$ be entire functions. Show that if $f\circ g(z)$ is a polynomial then both $f(z)$ and $g(z)$ are polynomials.
+		
+		\item Let $f(z)$ and $g(z)$ be entire functions satisfying $|f(z)|\le 10|g(z)|$ for all $z\in\mathbb{C}$.
+		
+		Does it follow that there exists $\lambda\in\mathbb{C}$ with $f(z)=\lambda g(z)$ for all $z\in\mathbb{C}$?
+		Give a proof or a counterexample.
+		
+		\item Assume that $w=f(z)$ is an entire function, and that $a$ and $b$ are two positive constants so that $f(z)$ satisfies $|f(z)|\le a+b|z|^{2}$ for all $z\in \mathbb{C}$. Prove that $f(z)$ is a polynomial of degree no larger than two.
+		
+		\item 
+		
+		\begin{enumerate}
+			\item Let $f$ and $g$ be entire functions satisfying $|f(z)|\le|g(z)|$ for $|z|\ge100$. Assume $g$ is not identically zero.
+		Show $f/g$ is rational.
+		
+		\item Let $u$ be harmonic in $\mathbb{C}$ and $u(x,y)\ge-2$ for all $x+iy\in \mathbb{C}$. Show $u$ is constant in $\mathbb{C}$.
+		\end{enumerate}
+		
+		\item $\varphi(z)=|f_{1}(z)|^{2}+|f_{2}(z)|^{2}+\cdots+|f_{n}(z)|^{2}$.
+		
+		\begin{enumerate}
+			\item Show that $\varphi(z)$ is harmonic on the domain only if all the functions $f_{k}(z)$ $(k=1,2,\ldots,n)$ reduce to constant functions.
+			\item Show that $\varphi(z)$ has no local maximum unless all the functions $f_{k}(z)$ $(k=1,2,\ldots,n)$ reduce to constant functions.
+		\end{enumerate}
+		
+		\item  If $u$ is harmonic and bounded in $0<|z|<\rho$, show that the origin is a removable singularity in the sense that $u$ becomes harmonic in $|z|<\rho$ when $u(0)$ is properly defined.
+		
+		\item Assume that $w=f(z)=u(z)+iv(z)$ is an analytic function mapping a domain $D$ in the $z$-plane onto a domain $D^{\prime}$ in the $w$-plane.
+		If $\phi(u,v)$ is a harmonic function in $D^{\prime}$, show that the function $\Phi(x,y)=\phi(u(x,y),v(x,y))$ is harmonic in $D$.
+		
+		\item Answer only one of the following questions:
+		
+		\begin{enumerate} 
+			\item Prove that if $u(z)$ is a non-constant harmonic function in the domain $D$, then $u(z)$ does not have a local maximum in $D$.
+		
+	\item Let $u(x,y)$ be a harmonic function on the entire plane, and let $v(x,y)$ be a harmonic conjugate of $u(x,y)$.
+		Assume that $u(x,y)\le v^{2}(x,y)$ for all $(x,y)\in \mathbb{C}$. Prove that both $u(x,y)$ and $v(x,y)$ must be constant.
+			\end{enumerate}
+		
+		\item 
+		\begin{enumerate}
+			\item  Show that $u(x,y)=(x+1)y$ is harmonic in the entire plane.
+			\item  Find a harmonic conjugate $v(x,y)$ of $u(x,y)$.
+			\item Give explicitly an analytic function $w=f(z)$ with $u=\Re f$ and $v=\Im f$.
+		\end{enumerate}
+
+		
+		\item 
+		\begin{enumerate}
+			\item Show that $u(x,y)=x^{3}-3xy^{2}+y^{2}-x^{2}$ is harmonic in the entire plane.
+			\item Find a harmonic conjugate $v(x,y)$.
+		\item Give explicitly an analytic function $w=f(z)$ with $u=\Re f$ and $v=\Im f$.
+		\end{enumerate}
+		
+		\item  A complex-valued function $f=U+iV$ is said to be harmonic on a domain $D\subset\mathbb{C}$ if $U$ and $V$ are harmonic on $D$. Show that $f$ is holomorphic on $D$ if and only if both $f$ and $zf$ are harmonic on $D$.
+		
+		\item  Let $u(x,y)$ be the bounded harmonic function in the upper half-plane $\{z=x+iy\in \mathbb{C}|y>0\}$ that has the boundary value
+		
+		\[u(x,0)=\operatorname{sgn} x=\begin{cases} -1, & \text{if } x<0, \\ 1, & \text{if } x>0. \end{cases}\]
+		
+		Find a harmonic conjugate $v(x,y)$ of $u(x,y)$.
+		
+		\item
+		\begin{enumerate} 
+			\item Find a bound for the modulus of the integral shown below:
+		
+		\[\int_{\gamma}\sin^{2}(z)\,dz,\]
+		
+		where $\gamma$ is the simple contour $\gamma(t)=(1-t)+i\pi t$ and $0\le t\le1$.
+		
+		\item Evaluate exactly the modulus of the integral in (a).
+		\end{enumerate}
+		
+		\item Let $f(z)$ be an entire function for which the real part $\Re f(x+iy)=u(x,y)$ is a bounded function.
+		Does it follow that $f(z)$ is a constant function? Give a proof or a counterexample.
+		
+		\item Give two distinct harmonic functions on $\mathbb{C}$ that vanish on the entire real axis. Why is this not possible for analytic functions?
+		
+		\item Let $P_{1},P_{2},\ldots,P_{n}$ be arbitrary points of a plane and let $\overline{PP_{k}}$ denote the distance between $P_{k}$ and a variable point $P$. If $P$ is confined to the closure of a bounded domain $D$, show that the product $\prod_{k=1}^{n}\overline{PP_{k}}$ attains its maximum on the boundary of $D$.
+		
+		\item Let $f:\mathbb{C}\to\mathbb{C}$ be entire, and set $g(z):=f(1/z)$.
+		Prove that $f$ is a polynomial if and only if $g(z)$ has a pole at $z=0$.
+	\end{enumerate}
+	
 
 \section{Riemann Extension Theorem}
 For functions which are analytic in some punctured neighborhood and which are bounded there is a natural way to extend the function to the point. This again uses the Cauchy integral formula and is another nice part of complex analysis.
@@ -311,6 +563,9 @@ A \textbf{harmonic conjugate} is a function $v(x,y)$ such that $f(x+iy):= u(x,y)
 \end{enumerate}
 
 \section{Residue Integrals}
+This is what I call the ``Residue Integral Gaunlet''. You should do all of these before your qualifying exam. 
+Many of the integrals from from a course given by Vladimir Zakharov at University of Arizona. 
+Some were taken from Whittaker and Watson. Some were taken from University of New Mexico qualifying exams.
 
 \begin{enumerate}
 		\item (Whittaker and Watson, 6.24,3)
@@ -351,9 +606,158 @@ A \textbf{harmonic conjugate} is a function $v(x,y)$ such that $f(x+iy):= u(x,y)
 	Let $n$ be a positive integer. 
 	Show that 
 	$$ \int_0^{2\pi} e^{\cos(\theta)} \cos(n\theta - \sin\theta)d\theta = \frac{2\pi}{n!}$$
+	
+\item 
+	
+	Answer only one of the following questions:
+	\begin{enumerate}
+	\item Evaluate the integral $\int_{0}^{2\pi}\frac{d\theta}{1+\sin^{2}\theta}$.
+	
+	\item Evaluate the integral $\int_{0}^{\infty}\frac{x \sin x}{1+x^{2}}dx$.
+	\end{enumerate}
+	
+\item
+	Consider $I = \int_{\gamma}\frac{z^{2}dz}{1+z^{4}}$, where $\gamma$ is the contour shown below:
+	
+	[Insert image of contour here]
+	
+	\item Evaluate $I$ when $R < 1$.
+	\item  Evaluate $I$ when $R > 1$.
+	\item  Discuss the results obtained when $R \rightarrow \infty$.
+	
+\item 
+	Choose a branch of $\sqrt{z^{2}-1}$ that is analytic on $\mathbb{C} \backslash \{z + 0i \mid -1 \leq z \leq 1\}$ and has the value $\sqrt{3}$ at $z = 2$. Evaluate $\int_{\gamma}\sqrt{z^{2}-1}dz$, where $\gamma$ is a contour (not specified).
+	
+\item Evaluate the following integrals
+\begin{enumerate}
+	\item \item  $\int_{0}^{\infty}\frac{\ln x}{4+x^{2}}dx$.
+	\item  $\oint_{\gamma}\frac{e^{z}}{(z+1)(z-2i+1)}dz$, where $\gamma$ is the ellipse given by $\frac{x^{2}}{4} + y^{2} = 1$, with positive orientation (counterclockwise).
+	Evaluate the following integrals:
+	\item $\int_{0}^{\infty}\frac{\ln x}{4+x^{2}}dx$.
+\end{enumerate}
+		
+\item 
+	Define the function $F(z) = \int_{|\zeta| = z}\frac{d\zeta}{\zeta(\zeta-z)(\zeta-z+1)}$. Determine the limit of $F(z)$ as $z \rightarrow 2$ from:
+	
+\begin{enumerate}
+	\item Inside the circle $|z| = 2$.
+	\item Outside the circle $|z| = 2$.
+	\item Is $F(z)$ continuous at $z = 2$?
+\end{enumerate}
+	
+
+\item 
+	
+	Evaluate:
+	
+	\begin{enumerate}
+	\item $\int_{|z|=2}\frac{z+6}{z^{2}-2z-3}dz$.
+	
+	\item $\int_{0}^{\pi}\frac{d\theta}{6-3\cos\theta}$.
+	\end{enumerate}
+	
+\item 
+	
+	Let $\gamma \subset \mathbb{C}$ be the square centered at $z = 0$ with vertices at $z = \pm 2 \pm 2i$. Compute $\oint_{\gamma}\frac{z}{z^{3}+1}dz$, where $\gamma$ is traversed once in the counterclockwise direction.
+	
+\item 
+	
+	Evaluate $\int_{|z|=1}\frac{1-\cos z}{(e^{z}-1)\sin z}dz$.
+	
+\item 
+	
+	Given $f(z) = \frac{1}{z} - \frac{2}{z^{2}}$, find $\int_{C}z^{2}\exp(\frac{1}{z})f(z)dz$, where $C$ is the unit circle traversed counterclockwise.
+	
+\item 
+	
+	Evaluate the integral $\int_{0}^{\pi}\frac{d\theta}{a+\sin^{2}(\theta)}$, where $a > 0$.
+	
+\item 
+	
+	Evaluate the integral $\int_{0}^{\pi}\frac{dt}{5+4\cos t}$.
+	
+\item 
+	
+	Assume that $a$, $b$, $c$ are real numbers satisfying $ac - b^{2} > 0$. Prove using residues that $\int_{-\infty}^{\infty}\frac{dx}{ax^{2}+2bx+c} = \frac{\pi}{\sqrt{ac-b^{2}}}$.
+	
+\item 
+	
+	Show that $\int_{-\infty}^{+\infty}\operatorname{sech}^{2}(x)\cos(2x)dx = \frac{2\pi}{\sinh(\pi)}$.
+	
+\item 
+	
+	Compute the integral $I = \frac{1}{2\pi}\int_{-\infty}^{\infty}\frac{\sin x}{x(x^{2}+1)}dx$. Carefully justify all your steps.
+	
+\item 
+	
+	Evaluate the real integral $\int_{0}^{\infty}\frac{x^{2}}{(x^{2}+1)^{2}}dx$ and justify all steps.
+	
+\item 
+	
+	Use the theory of residues to evaluate the integral $\int_{0}^{\infty}\frac{\sqrt{x}dx}{x^{2}+4}$.
+	
+\item 
+	
+	Use the method of contour integration and the calculus of residues to evaluate the integral $\int_{0}^{\infty}\frac{x^{p}}{1+x^{2}}dx$, where $-1 < p < 1$. Draw the relevant contour and justify all steps.
+	
+\item 
+	
+	Compute $F(k) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\frac{e^{ikx}}{\pi^{2}+1}dx$, where $k \in \mathbb{R}$.
+	
+\item 
+	
+	Find the Fourier transform of the function $f(x) = e^{-x/4}$; i.e., find the function $\hat{f}(t)$ defined for all $t \in \mathbb{R}$ by $\hat{f}(t) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-\frac{z^{2}}{2}} \cdot e^{-itz}dz$.
+	
+\item 
+	
+	Evaluate $\int_{-\infty}^{\infty}\frac{\exp(ikx)}{(1+x^{2})}dx$ by contour integration (assume $k > 0$ real).
+	
+\item 
+	(a) $\int_{0}^{\infty}e^{-x^{2}}\cos(\lambda x)dx$.
+	
+	(b) $\int_{0}^{2\pi}\frac{d\theta}{1+\cos^{2}\theta}$.
+	
+	It may be helpful to know that $\int_{-\infty}^{+\infty}e^{-x^{2}}dx = \sqrt{\pi}$.
+	
+\item 
+	
+	Show by the method of complex contour integration that the following identities hold:
+	\begin{enumerate}
+	\item $\int_{0}^{\infty}\frac{\sin ax}{x(x^{2}+1)}dx = \frac{1-e^{-a}}{2}$.
+	
+	\item $\int_{0}^{\infty}\frac{dx}{\sqrt{x}(x+1)} = \pi$.
+	\end{enumerate}
+	
+\item 
+	
+	Answer only one of the following questions:
+	
+	\begin{enumerate}
+		\item Evaluate the integral $\int_{0}^{\infty}\frac{x^{\alpha-1}}{1+x}dx$, where $0 < \alpha < 1$.
+		\item Evaluate the integral $\int_{0}^{\infty}\frac{x^{\alpha-1}}{1+x}dx$, where $0 < \alpha < 1$.
+	\end{enumerate}
+
+
+	
+	\item Evaluate the integral $\int_{0}^{\infty}\frac{x \sin x}{(x^{2}+1)(x^{2}+4)}dx$.
+	
+	\item Evaluate the improper integral $\int_{-\infty}^{\infty}\frac{\cos(x)dx}{1+x^{4}}$. Include justifications for all steps in your calculation.
+	
+	\item Use the theory of residues to evaluate the integral $\int_{0}^{\infty}\frac{\sqrt{x}dx}{x^{2}+4}$.
+
+	\item Evaluate $\int_{0}^{\infty}\frac{\sqrt{x}}{(1+x)^{3}}dx$ by contour integration.
+	
+	\item Evaluate the integral $\int_{-\infty}^{\infty}\frac{\sin^{3}x}{\pi^{3}}dx$.
+	
+
+	
+	\item Show that $\int_{-\infty}^{+\infty}\frac{\cos x - \cos a}{x^{2}-a^{2}}dx = -\pi\frac{\sin a}{a}$, where $a \in \mathbb{R}^{+}$.
+	
 \end{enumerate}
 
 \section{Rouche's Theorem and Argument Principal}
+
+Many of the problems not listed were taken from University of New Mexico qualifying exams. 
 
 \begin{enumerate}
 	
@@ -361,6 +765,67 @@ A \textbf{harmonic conjugate} is a function $v(x,y)$ such that $f(x+iy):= u(x,y)
 	
 	\item (New Mexico, Aug 1993)
 	How many roots does $e^z - 4z^n +1 =0$ have inside the unit disc $\vert z \vert < 1$?
+	
+	  \item For each $n\in\mathbb{N}$ set
+	$f_{n}(z):=\sum_{j=1}^{n}\frac{z^{-j}}{j!}$. For a given $\rho>0$, show that there is an $N(\rho)$
+	such that if $n>N(\rho)$, then all of the zeros of $f_{n}(z)$ lie within $D(0,\rho)$.
+	
+	\item Find all entire functions that satisfies the Lipschitz condition on $\mathbb{C}$. A function $f(z)$ is said to satisfy the Lipschitz condition on $\mathbb{C}$ if there exists a positive constant $M$ such that $|f(z_{1})-f(z_{2})|\le M\cdot|z_{1}-z_{2}|$ for all $z_{1}$, $z_{2}\in \mathbb{C}$.
+	
+	\item Let $p_{n}(z)=1+\frac{z}{1!}+\frac{x^{2}}{2!}+\cdot\cdot\cdot+\frac{z^{n}}{n!}$ Prove that for every $R>0$ there exists a positive integer $n(\hat{R})$ such that all roots of $p_{n}(z)=0$ for $n\ge n(R)$ belong to the set $\{z\in\mathbb{C}||z|>R\}$.
+	
+	\item For each $n\in\mathbb{N}$ set $p_{n}(z):=\sum_{j=0}^{n}(-1)^{j}\frac{z^{-2j}}{j!}$.
+	\begin{enumerate}
+		\item For each fixed $n\in\mathbb{N}$, show that $p_{n}(z)=0$ has precisely $2n$ solutions.
+		\item For a given $\rho>0$, show that there is an $N(\rho)$ such that if $n>N(\rho)$, then all of the zeros of $p_{n}(z)$ lie within $D(0,\rho)$.
+	\end{enumerate}
+	
+	\item Answer only one of the following questions:
+	\begin{enumerate}
+		\item State and prove Rouche's theorem.
+		\item State and prove the argument principle.
+	\end{enumerate}
+	
+	\item Assume $f(z)$ is analytic inside and on a contour $C$ and $b$ is a complex number such that $f(z)=b$ for some on $C$. What is the significance of this?
+	
+	\item State Rouche's theorem and use it to determine how many roots of the polynomial $z^{4}+5z+3$ lie inside:
+	\begin{enumerate}
+		\item the unit disc.
+		\item the annulus $1<|z|<2$.
+	\end{enumerate}
+	
+	\item State Rouche's theorem and find the number of zeros of the function $f(z)=2z^{5}+7z^{3}+z^{2}-3$ in the annulus $1\le|z|<2$.
+	
+	\item Show that the equation $(z-2)^{2}=e^{-z}$ has two distinct roots in the disc $|z-2|\le1$.
+	
+	\item State and prove Rouche's theorem. Use Rouche's theorem to show that there is $\epsilon_{0}>0$ so that for $0<\epsilon<\epsilon_{0}$ the equation $z^{3}-\epsilon z-1=0$ has three distinct roots.
+	
+	\item State some version of Rouche's theorem, and then use it to show that $f(z):=ze^{3-z}-1$ has only one real zero in $D(0,1)$.
+	
+	\item State some version of Rouche's theorem, and then use it to show that all of the zeros for $f(z):=z^{8}-4z^{3}+10$ lie in the annulus $D(0,2)\backslash\overline{D}(0,1)$.
+	
+	\item Prove the argument principle. How many roots does the polynomial $p(z)=z^{4}+z+1$ have in the first quadrant?
+	
+	\item State Rouche's theorem and use it to show that all zeros of the polynomial $p(z)=z^{4}+6z+3$ lie in the circle $|z|<2$. How many zeros of $p(z)$ lie in the annulus $1<|z|<2$?
+	
+	\item Let $f(z)=z^{10}+\frac{1}{2}z^{6}+\frac{1}{100}exp(z^{5})$.
+	\begin{enumerate}
+		\item State Rouche's theorem.
+		\item Show that $f(z)$ has no zeros on $|z|=1$.
+		\item How many zeros does $f(z)$ have inside $\{z:|z|=1\}$? Justify your answer.
+	\end{enumerate}
+	
+	\item Show that $z^{5}-15z+1=0$ has one root in the disc $|z|<\frac{1}{8}$ and four roots in the annulus $\frac{3}{2}<|z|<2$.
+	
+	\item Show that $z^{5}+15z+1=0$ has one root in the disc $|z|<\frac{3}{2}$, four roots in the annulus $\frac{3}{2}<|z|<2$.
+	
+	\item Let $f(z)=z^{4}-5z+1$.
+	\begin{enumerate}
+		\item How many zeros does $f(z)$ have in the disc $\{z\in \mathbb{C}:|z|<1\}$?
+		\item How many zeros does $f(z)$ have in the annulus $1<|z|<2$?
+	\end{enumerate}
+	
+	\item Find the number of zeroes of the equation $e^{z}-4z^{n}+1=0$ in the unit disc $D=\{z\in \mathbb{C}:|z|<1\}$.
 	
 \end{enumerate}
 
