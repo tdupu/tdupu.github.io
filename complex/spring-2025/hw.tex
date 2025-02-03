@@ -120,6 +120,8 @@ is holomorphic on $\Omega$.
 \end{enumerate}
 
 
+\item 
+\begin{enumerate}
 \item (Whittaker and Watson, page 99)
 Consider the series 
  $$ \frac{1}{2} \left( z + \frac{1}{z} \right) + \sum_{n=1}^\infty \left( z - \frac{1}{z} \right) \left( \frac{1}{1+z^n} - \frac{1}{1+z^{n-1}} \right). $$
@@ -135,6 +137,7 @@ By converting the series
  $$1 + \frac{8q}{1-q} + \frac{16q^2}{1+q^2} + \frac{24q^3}{1-q^3} + \cdots $$ 
 (in which $\vert q \vert<1$), into a double series, show that it is equal to 
  $$ 1 + \frac{8q}{(1-q)^2}+ \frac{8q^2}{(1+q^2)^2} + \frac{8q^3}{(1-q^3)^2} + \cdots $$
+ \end{enumerate}	
  	
  	\item Consider the following meromorphic functions.
  	
@@ -394,40 +397,7 @@ Many of the problems here were taken from University of New Mexico qualifying ex
 		
 		\item  If $u$ is harmonic and bounded in $0<|z|<\rho$, show that the origin is a removable singularity in the sense that $u$ becomes harmonic in $|z|<\rho$ when $u(0)$ is properly defined.
 		
-		\item Assume that $w=f(z)=u(z)+iv(z)$ is an analytic function mapping a domain $D$ in the $z$-plane onto a domain $D^{\prime}$ in the $w$-plane.
-		If $\phi(u,v)$ is a harmonic function in $D^{\prime}$, show that the function $\Phi(x,y)=\phi(u(x,y),v(x,y))$ is harmonic in $D$.
-		
-		\item Answer only one of the following questions:
-		
-		\begin{enumerate} 
-			\item Prove that if $u(z)$ is a non-constant harmonic function in the domain $D$, then $u(z)$ does not have a local maximum in $D$.
-		
-	\item Let $u(x,y)$ be a harmonic function on the entire plane, and let $v(x,y)$ be a harmonic conjugate of $u(x,y)$.
-		Assume that $u(x,y)\le v^{2}(x,y)$ for all $(x,y)\in \mathbb{C}$. Prove that both $u(x,y)$ and $v(x,y)$ must be constant.
-			\end{enumerate}
-		
-		\item 
-		\begin{enumerate}
-			\item  Show that $u(x,y)=(x+1)y$ is harmonic in the entire plane.
-			\item  Find a harmonic conjugate $v(x,y)$ of $u(x,y)$.
-			\item Give explicitly an analytic function $w=f(z)$ with $u=\Re f$ and $v=\Im f$.
-		\end{enumerate}
 
-		
-		\item 
-		\begin{enumerate}
-			\item Show that $u(x,y)=x^{3}-3xy^{2}+y^{2}-x^{2}$ is harmonic in the entire plane.
-			\item Find a harmonic conjugate $v(x,y)$.
-		\item Give explicitly an analytic function $w=f(z)$ with $u=\Re f$ and $v=\Im f$.
-		\end{enumerate}
-		
-		\item  A complex-valued function $f=U+iV$ is said to be harmonic on a domain $D\subset\mathbb{C}$ if $U$ and $V$ are harmonic on $D$. Show that $f$ is holomorphic on $D$ if and only if both $f$ and $zf$ are harmonic on $D$.
-		
-		\item  Let $u(x,y)$ be the bounded harmonic function in the upper half-plane $\{z=x+iy\in \mathbb{C}|y>0\}$ that has the boundary value
-		
-		\[u(x,0)=\operatorname{sgn} x=\begin{cases} -1, & \text{if } x<0, \\ 1, & \text{if } x>0. \end{cases}\]
-		
-		Find a harmonic conjugate $v(x,y)$ of $u(x,y)$.
 		
 		\item
 		\begin{enumerate} 
@@ -508,6 +478,41 @@ Let $u(x+iy)=u(x,y)$ be a real valued harmonic function on some region $U \subse
 A \textbf{harmonic conjugate} is a function $v(x,y)$ such that $f(x+iy):= u(x,y) + i v(x,y)$ is holomorphic.
 
 \begin{enumerate}
+			\item Assume that $w=f(z)=u(z)+iv(z)$ is an analytic function mapping a domain $D$ in the $z$-plane onto a domain $D^{\prime}$ in the $w$-plane.
+	If $\phi(u,v)$ is a harmonic function in $D^{\prime}$, show that the function $\Phi(x,y)=\phi(u(x,y),v(x,y))$ is harmonic in $D$.
+	
+	\item Answer only one of the following questions:
+	
+	\begin{enumerate} 
+		\item Prove that if $u(z)$ is a non-constant harmonic function in the domain $D$, then $u(z)$ does not have a local maximum in $D$.
+		
+		\item Let $u(x,y)$ be a harmonic function on the entire plane, and let $v(x,y)$ be a harmonic conjugate of $u(x,y)$.
+		Assume that $u(x,y)\le v^{2}(x,y)$ for all $(x,y)\in \mathbb{C}$. Prove that both $u(x,y)$ and $v(x,y)$ must be constant.
+	\end{enumerate}
+	
+	\item 
+	\begin{enumerate}
+		\item  Show that $u(x,y)=(x+1)y$ is harmonic in the entire plane.
+		\item  Find a harmonic conjugate $v(x,y)$ of $u(x,y)$.
+		\item Give explicitly an analytic function $w=f(z)$ with $u=\Re f$ and $v=\Im f$.
+	\end{enumerate}
+	
+	
+	\item 
+	\begin{enumerate}
+		\item Show that $u(x,y)=x^{3}-3xy^{2}+y^{2}-x^{2}$ is harmonic in the entire plane.
+		\item Find a harmonic conjugate $v(x,y)$.
+		\item Give explicitly an analytic function $w=f(z)$ with $u=\Re f$ and $v=\Im f$.
+	\end{enumerate}
+	
+	\item  A complex-valued function $f=U+iV$ is said to be harmonic on a domain $D\subset\mathbb{C}$ if $U$ and $V$ are harmonic on $D$. Show that $f$ is holomorphic on $D$ if and only if both $f$ and $zf$ are harmonic on $D$.
+	
+	\item  Let $u(x,y)$ be the bounded harmonic function in the upper half-plane $\{z=x+iy\in \mathbb{C}|y>0\}$ that has the boundary value
+	
+	\[u(x,0)=\operatorname{sgn} x=\begin{cases} -1, & \text{if } x<0, \\ 1, & \text{if } x>0. \end{cases}\]
+	
+	Find a harmonic conjugate $v(x,y)$ of $u(x,y)$.
+	
 	\item  Show that $u(x,y) = u(z)$ has a harmonic conjugate locally. (Hint: Use the fundamental theorem of line integrals $v(\vec{P}) -v(\vec{Q})  = \int_{C} \nabla v \cdot d\vec{r}$ if $C$ is a path starting a $\vec{Q}$ and ending at $\vec{P}$)
 
 	\item 
