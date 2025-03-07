@@ -17,6 +17,11 @@
 \newcommand{\PP}{\mathbb{P}}
 \newcommand{\Aut}{\operatorname{Aut}}
 
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{listings}
+\newcommand{\taylor}[1]{{\color{blue} \sf $\clubsuit\clubsuit\clubsuit$ Taylor: [#1]}}
+
 %opening
 \title{}
 \author{Dupuy --- Complex Analysis Problem Bank}
@@ -533,20 +538,20 @@ A \textbf{harmonic conjugate} is a function $v(x,y)$ such that $f(x+iy):= u(x,y)
 	\item (New Mexico, not sure which year) 
 	Let $f(z)$ and $g(z)$ be entire functions. 
 	Show that if $f(g(z))$ is a polynomial then both $f(z)$ and $g(z)$ are polynomials.
-	(Hint: this relates to the problem on properness from the previous homework).
+	(Hint: I used that $f:\CC\to\CC$ is proper if and only if $f$ is a polynomial.  Properness is discussed in the ``Topological Properties'' section.).
 	
-	\item Find all entire functions $f(z)$ which satisfy $\Re f(z) \leq 2/\vert z \vert$ when $\vert z \vert > 1$. (Hint: Consider $e^{-f(z)}$ or $e^{f(z)}$. You will need the maximum modulus principle and Liouville's theorem.)
+	\item Find all entire functions $f(z)$ which satisfy $\Re f(z) \leq 2/\vert z \vert$ when $\vert z \vert > 1$. (Hint: Consider $e^{-f(z)}$ or $e^{f(z)}$. I used the maximum modulus principle and Liouville's theorem.)
 	
 	\item Let $u(z)$ be a real valued harmonic function on a domain $D \subset \CC$ 
 
-
+	\begin{enumerate}
 		\item Show that for all $D_r(z_0) \subset D$ we have 
-		$$ u(z_0) = \frac{1}{2\pi} \int_0^{2\pi} u(z_0+ r e^{i\theta}) d\theta. $$ (Hint: use a harmonic conjugate)
+		$$ u(z_0) = \frac{1}{2\pi} \int_0^{2\pi} u(z_0+ r e^{i\theta}) d\theta. $$ (Hint: use the Cauchy Integral Formula)
 		\item If $z_0 \in D$ has the property that there exists some $r>0$ with $D_r(z_0) \subset D$ and 
 		$$ u(z_0) \geq u(z) $$
 		for all $z \in D_r(z_0)$ then $u(z)$ is constant. 
 		(Hint: Consider a function such that $f(z) = u(z)+iv(z)$ then consider the maximum of $e^{f(z)}$.)
-		
+	\end{enumerate}
 		
 			
 		\item Let $u_0(\theta)$ be a continuous $2\pi$-periodic function. 
@@ -567,50 +572,13 @@ A \textbf{harmonic conjugate} is a function $v(x,y)$ such that $f(x+iy):= u(x,y)
 	
 \end{enumerate}
 
-\section{Residue Integrals}
-This is what I call the ``Residue Integral Gaunlet''. You should do all of these before your qualifying exam. 
+\section{Residue Integral Gauntlet}
+You should do all of these before your qualifying exam. 
 Many of the integrals from from a course given by Vladimir Zakharov at University of Arizona. 
-Some were taken from Whittaker and Watson. Some were taken from University of New Mexico qualifying exams.
+Some were taken from Whittaker and Watson. Some were taken from University of New Mexico qualifying exams.\taylor{I found some bugs here so be careful.}
 
 \begin{enumerate}
-		\item (Whittaker and Watson, 6.24,3)
-	If $-1 < z < 3$ then 
-	$$ \int_0^{\infty} \frac{x^z}{(1+x^2)^2}dx = \frac{\pi (1-z) }{4 \cos( \pi z/2) }$$
 	
-	\item (Whittaker and Watson, 6.21, Example 4)
-	Let $a>b>0$ be real numbers. 
-	Show that 
-	$$ \int_0^{2\pi} \frac{d\theta}{(a+b\cos(\theta))^2} = \frac{2\pi a}{(a^2-b^2)^{3/2}}$$
-	
-	%$$ \int_0^{2\pi} \frac{d\theta}{(a+b\cos(\theta)^2)^2} = \frac{2\pi (2a+b)}{a^{3/2}(a^2-b^2)^{3/2}}$$
-	
-	\item (Whittaker and Watson, 6.23, 2) If $a>0$ and $b>0$ show that 
-	$$ \int_{-\infty}^{\infty} \frac{x^4dx}{(a+bx^2)^4} = \frac{\pi}{16 a^{3/2}b^{5/2}}$$
-	
-	\item (Whittaker and Watson, 6.22, 1) Show that if $a>0$ then 
-	$$ \int_0^{\infty} \frac{\cos(x)}{x^2+a^2}dx = \frac{\pi}{2a}e^{-a}. $$
-	
-	
-	\item (Whittaker and Watson, 6.22)
-	If the $\Re z >0$ then 
-	$$ \int_0^{\infty} (e^{-t} - e^{-tz}) \frac{dt}{t} = \log z $$
-	
-	\item (Whittaker and Watson, 6.24,2) If $0 \leq z \leq 1$ and $-\pi< a \leq \pi$ then
-	$$\int_0^{\infty} \frac{t^{z-1}}{t + e^{ia} }dt  = \frac{\pi e^{i(z-1)a}}{\sin(\pi z)} $$
-	
-	
-	\item (Whittaker and Watson 6.24, 1, pg118)
-	If $0<a<1$ show that 
-	$$ \int_0^{\infty} \frac{x^{a-1}}{1+x}dx = \pi \csc a \pi $$
-	
-	
-	\item (Whittaker and Watson, 6.24, 4)Show that if $-1<p<1$ and $-\pi<\lambda<\pi$ we have 
-	$$ \int_0^{\infty} \frac{x^{-p} dx}{1 + 2x \cos(\lambda) + x^2 } = \frac{\pi}{\sin(p\pi)} \frac{\sin(p\lambda)}{\sin(\lambda)}$$
-	
-	\item  (Whittaker and Watson, 6.21, Example 3)
-	Let $n$ be a positive integer. 
-	Show that 
-	$$ \int_0^{2\pi} e^{\cos(\theta)} \cos(n\theta - \sin\theta)d\theta = \frac{2\pi}{n!}$$
 	
 \item 
 	
@@ -622,23 +590,63 @@ Some were taken from Whittaker and Watson. Some were taken from University of Ne
 	\end{enumerate}
 	
 \item
-	Consider $I = \int_{\gamma}\frac{z^{2}dz}{1+z^{4}}$, where $\gamma$ is the contour shown below:
-	
-	[Insert image of contour here]
-	
+	Consider $I = \int_{\gamma}\frac{z^{2}dz}{1+z^{4}}$, where $\gamma$ is the a square with side perpendicular to the coordinate axes of side length $2R$ oriented in the counter-clockwise direction.
+	\begin{enumerate}
 	\item Evaluate $I$ when $R < 1$.
 	\item  Evaluate $I$ when $R > 1$.
 	\item  Discuss the results obtained when $R \rightarrow \infty$.
+	\end{enumerate}
 	
-\item 
+\iffalse \item 
 	Choose a branch of $\sqrt{z^{2}-1}$ that is analytic on $\mathbb{C} \backslash \{z + 0i \mid -1 \leq z \leq 1\}$ and has the value $\sqrt{3}$ at $z = 2$. Evaluate $\int_{\gamma}\sqrt{z^{2}-1}dz$, where $\gamma$ is a contour (not specified).
+	
+\fi
+	
+	\item 
+	
+	Evaluate the real integral $\int_{0}^{\infty}\frac{x^{2}}{(x^{2}+1)^{2}}dx$ and justify all steps.
+	
+	\item 
+	
+	Use the theory of residues to evaluate the integral $\int_{0}^{\infty}\frac{\sqrt{x}dx}{x^{2}+4}$.
+	
+	\item 
+	
+	Use the method of contour integration and the calculus of residues to evaluate the integral $\int_{0}^{\infty}\frac{x^{p}}{1+x^{2}}dx$, where $-1 < p < 1$. Draw the relevant contour and justify all steps.
+	
+	\item 
+	
+	Compute $F(k) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\frac{e^{ikx}}{x^{2}+1}dx$, where $k \in \mathbb{R}$.
+	
+	\item 
+	
+	Find the Fourier transform of the function $f(x) = e^{-x/4}$; i.e., find the function $\hat{f}(t)$ defined for all $t \in \mathbb{R}$ by $\hat{f}(t) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-\frac{z^{2}}{2}} \cdot e^{-itz}dz$.
+	
+	\item 
+	
+	Evaluate $\int_{-\infty}^{\infty}\frac{\exp(ikx)}{(1+x^{2})}dx$ by contour integration (assume $k > 0$ real).
+	
+	\item 
+	(a) $\int_{0}^{\infty}e^{-x^{2}}\cos(\lambda x)dx$.
+	
+	(b) $\int_{0}^{2\pi}\frac{d\theta}{1+\cos^{2}\theta}$.
+	
+	It may be helpful to know that $\int_{-\infty}^{+\infty}e^{-x^{2}}dx = \sqrt{\pi}$.
+	
+	\item 
+	
+	Show by the method of complex contour integration that the following identities hold:
+	\begin{enumerate}
+		\item $\int_{0}^{\infty}\frac{\sin ax}{x(x^{2}+1)}dx = \frac{1-e^{-a}}{2}$, where $a$ is a positive real number.
+		
+		\item $\int_{0}^{\infty}\frac{dx}{\sqrt{x}(x+1)} = \pi$.
+	\end{enumerate}
 	
 \item Evaluate the following integrals
 \begin{enumerate}
-	\item \item  $\int_{0}^{\infty}\frac{\ln x}{4+x^{2}}dx$.
+	 \item  $\int_{0}^{\infty}\frac{\ln x}{4+x^{2}}dx$. \taylor{This seems to be a bad problem. It was also repeated. This might have been an artifact of the chatGPT transcription.}
 	\item  $\oint_{\gamma}\frac{e^{z}}{(z+1)(z-2i+1)}dz$, where $\gamma$ is the ellipse given by $\frac{x^{2}}{4} + y^{2} = 1$, with positive orientation (counterclockwise).
 	Evaluate the following integrals:
-	\item $\int_{0}^{\infty}\frac{\ln x}{4+x^{2}}dx$.
 \end{enumerate}
 		
 \item 
@@ -695,46 +703,6 @@ Some were taken from Whittaker and Watson. Some were taken from University of Ne
 	
 \item 
 	
-	Evaluate the real integral $\int_{0}^{\infty}\frac{x^{2}}{(x^{2}+1)^{2}}dx$ and justify all steps.
-	
-\item 
-	
-	Use the theory of residues to evaluate the integral $\int_{0}^{\infty}\frac{\sqrt{x}dx}{x^{2}+4}$.
-	
-\item 
-	
-	Use the method of contour integration and the calculus of residues to evaluate the integral $\int_{0}^{\infty}\frac{x^{p}}{1+x^{2}}dx$, where $-1 < p < 1$. Draw the relevant contour and justify all steps.
-	
-\item 
-	
-	Compute $F(k) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\frac{e^{ikx}}{\pi^{2}+1}dx$, where $k \in \mathbb{R}$.
-	
-\item 
-	
-	Find the Fourier transform of the function $f(x) = e^{-x/4}$; i.e., find the function $\hat{f}(t)$ defined for all $t \in \mathbb{R}$ by $\hat{f}(t) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-\frac{z^{2}}{2}} \cdot e^{-itz}dz$.
-	
-\item 
-	
-	Evaluate $\int_{-\infty}^{\infty}\frac{\exp(ikx)}{(1+x^{2})}dx$ by contour integration (assume $k > 0$ real).
-	
-\item 
-	(a) $\int_{0}^{\infty}e^{-x^{2}}\cos(\lambda x)dx$.
-	
-	(b) $\int_{0}^{2\pi}\frac{d\theta}{1+\cos^{2}\theta}$.
-	
-	It may be helpful to know that $\int_{-\infty}^{+\infty}e^{-x^{2}}dx = \sqrt{\pi}$.
-	
-\item 
-	
-	Show by the method of complex contour integration that the following identities hold:
-	\begin{enumerate}
-	\item $\int_{0}^{\infty}\frac{\sin ax}{x(x^{2}+1)}dx = \frac{1-e^{-a}}{2}$.
-	
-	\item $\int_{0}^{\infty}\frac{dx}{\sqrt{x}(x+1)} = \pi$.
-	\end{enumerate}
-	
-\item 
-	
 	Answer only one of the following questions:
 	
 	\begin{enumerate}
@@ -757,6 +725,45 @@ Some were taken from Whittaker and Watson. Some were taken from University of Ne
 
 	
 	\item Show that $\int_{-\infty}^{+\infty}\frac{\cos x - \cos a}{x^{2}-a^{2}}dx = -\pi\frac{\sin a}{a}$, where $a \in \mathbb{R}^{+}$.
+	
+		\item (Whittaker and Watson, 6.24,3)
+	If $-1 < z < 3$ then 
+	$$ \int_0^{\infty} \frac{x^z}{(1+x^2)^2}dx = \frac{\pi (1-z) }{4 \cos( \pi z/2) }$$
+	
+	\item (Whittaker and Watson, 6.21, Example 4)
+	Let $a>b>0$ be real numbers. 
+	Show that 
+	$$ \int_0^{2\pi} \frac{d\theta}{(a+b\cos(\theta))^2} = \frac{2\pi a}{(a^2-b^2)^{3/2}}$$
+	
+	%$$ \int_0^{2\pi} \frac{d\theta}{(a+b\cos(\theta)^2)^2} = \frac{2\pi (2a+b)}{a^{3/2}(a^2-b^2)^{3/2}}$$
+	
+	\item (Whittaker and Watson, 6.23, 2) If $a>0$ and $b>0$ show that 
+	$$ \int_{-\infty}^{\infty} \frac{x^4dx}{(a+bx^2)^4} = \frac{\pi}{16 a^{3/2}b^{5/2}}$$
+	
+	\item (Whittaker and Watson, 6.22, 1) Show that if $a>0$ then 
+	$$ \int_0^{\infty} \frac{\cos(x)}{x^2+a^2}dx = \frac{\pi}{2a}e^{-a}. $$
+	
+	
+	\item (Whittaker and Watson, 6.22)
+	If the $\Re z >0$ then 
+	$$ \int_0^{\infty} (e^{-t} - e^{-tz}) \frac{dt}{t} = \log z $$
+	
+	\item (Whittaker and Watson, 6.24,2) If $0 \leq z \leq 1$ and $-\pi< a \leq \pi$ then
+	$$\int_0^{\infty} \frac{t^{z-1}}{t + e^{ia} }dt  = \frac{\pi e^{i(z-1)a}}{\sin(\pi z)} $$
+	
+	
+	\item (Whittaker and Watson 6.24, 1, pg118)
+	If $0<a<1$ show that 
+	$$ \int_0^{\infty} \frac{x^{a-1}}{1+x}dx = \pi \csc a \pi $$
+	
+	
+	\item (Whittaker and Watson, 6.24, 4)Show that if $-1<p<1$ and $-\pi<\lambda<\pi$ we have 
+	$$ \int_0^{\infty} \frac{x^{-p} dx}{1 + 2x \cos(\lambda) + x^2 } = \frac{\pi}{\sin(p\pi)} \frac{\sin(p\lambda)}{\sin(\lambda)}$$
+	
+	\item  (Whittaker and Watson, 6.21, Example 3)
+	Let $n$ be a positive integer. 
+	Show that 
+	$$ \int_0^{2\pi} e^{\cos(\theta)} \cos(n\theta - \sin\theta)d\theta = \frac{2\pi}{n!}$$
 	
 \end{enumerate}
 
