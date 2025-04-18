@@ -3,6 +3,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{fullpage}
+\usepackage{hyperref}
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\CC}{\mathbb{C}}
@@ -316,6 +317,8 @@ By converting the series
 
 \end{enumerate}
 
+\newpage 
+
 \section{Liouville's Theorem}
 
 The proof of Liouville's Theorem is basically taking a limit in Cauchy's Integral Formula for the first derivative (if I don't understand what I mean here, this is your first exercise). 
@@ -419,8 +422,12 @@ Many of the problems here were taken from University of New Mexico qualifying ex
 		
 		\item Let $f:\mathbb{C}\to\mathbb{C}$ be entire, and set $g(z):=f(1/z)$.
 		Prove that $f$ is a polynomial if and only if $g(z)$ has a pole at $z=0$.
+		
+		\item Find all entire functions that satisfies the Lipschitz condition on $\mathbb{C}$. A function $f(z)$ is said to satisfy the Lipschitz condition on $\mathbb{C}$ if there exists a positive constant $M$ such that $|f(z_{1})-f(z_{2})|\le M\cdot|z_{1}-z_{2}|$ for all $z_{1}$, $z_{2}\in \mathbb{C}$.
+		
 	\end{enumerate}
 	
+\newpage 
 
 \section{Riemann Extension Theorem}
 For functions which are analytic in some punctured neighborhood and which are bounded there is a natural way to extend the function to the point. This again uses the Cauchy integral formula and is another nice part of complex analysis.
@@ -471,7 +478,7 @@ Side Remark: The third condition is interesting because Grothendieck realized we
 	
 \end{enumerate}
 
-
+\newpage
 \section{Harmonic Functions}
 
 Let $u(x+iy)=u(x,y)$ be a real valued harmonic function on some region $U \subset \CC$.
@@ -567,6 +574,7 @@ A \textbf{harmonic conjugate} is a function $v(x,y)$ such that $f(x+iy):= u(x,y)
 	
 \end{enumerate}
 
+\newpage
 \section{Residue Integrals}
 This is what I call the ``Residue Integral Gaunlet''. You should do all of these before your qualifying exam. 
 Many of the integrals from from a course given by Vladimir Zakharov at University of Arizona. 
@@ -760,30 +768,12 @@ Some were taken from Whittaker and Watson. Some were taken from University of Ne
 	
 \end{enumerate}
 
+\newpage
 \section{Rouche's Theorem and Argument Principal}
 
-Many of the problems not listed were taken from University of New Mexico qualifying exams. 
+Many of the problems were taken from University of New Mexico's Complex Analysis qualifying exams. The year they appeared has been lost with time (with legwork you can find them on the University of New Mexico Department of Mathematics and Statistics webpage).
 
 \begin{enumerate}
-	
-	\item (New Mexico, Jan 1997) How many roots does $p(z) = z^4 + z + 1$ have in the first quadrant?
-	
-	\item (New Mexico, Aug 1993)
-	How many roots does $e^z - 4z^n +1 =0$ have inside the unit disc $\vert z \vert < 1$?
-	
-	  \item For each $n\in\mathbb{N}$ set
-	$f_{n}(z):=\sum_{j=1}^{n}\frac{z^{-j}}{j!}$. For a given $\rho>0$, show that there is an $N(\rho)$
-	such that if $n>N(\rho)$, then all of the zeros of $f_{n}(z)$ lie within $D(0,\rho)$.
-	
-	\item Find all entire functions that satisfies the Lipschitz condition on $\mathbb{C}$. A function $f(z)$ is said to satisfy the Lipschitz condition on $\mathbb{C}$ if there exists a positive constant $M$ such that $|f(z_{1})-f(z_{2})|\le M\cdot|z_{1}-z_{2}|$ for all $z_{1}$, $z_{2}\in \mathbb{C}$.
-	
-	\item Let $p_{n}(z)=1+\frac{z}{1!}+\frac{x^{2}}{2!}+\cdot\cdot\cdot+\frac{z^{n}}{n!}$ Prove that for every $R>0$ there exists a positive integer $n(\hat{R})$ such that all roots of $p_{n}(z)=0$ for $n\ge n(R)$ belong to the set $\{z\in\mathbb{C}||z|>R\}$.
-	
-	\item For each $n\in\mathbb{N}$ set $p_{n}(z):=\sum_{j=0}^{n}(-1)^{j}\frac{z^{-2j}}{j!}$.
-	\begin{enumerate}
-		\item For each fixed $n\in\mathbb{N}$, show that $p_{n}(z)=0$ has precisely $2n$ solutions.
-		\item For a given $\rho>0$, show that there is an $N(\rho)$ such that if $n>N(\rho)$, then all of the zeros of $p_{n}(z)$ lie within $D(0,\rho)$.
-	\end{enumerate}
 	
 	\item Answer only one of the following questions:
 	\begin{enumerate}
@@ -791,7 +781,24 @@ Many of the problems not listed were taken from University of New Mexico qualify
 		\item State and prove the argument principle.
 	\end{enumerate}
 	
-	\item Assume $f(z)$ is analytic inside and on a contour $C$ and $b$ is a complex number such that $f(z)=b$ for some on $C$. What is the significance of this?
+	\item (New Mexico, Jan 1997) How many roots does $p(z) = z^4 + z + 1$ have in the first quadrant?
+	
+	\item (New Mexico, Aug 1993)
+	How many roots does $e^z - 4z^n +1 =0$ have inside the unit disc $\vert z \vert < 1$?
+	
+	  \item All of the problems below are essentially the same but appeared in different years in the forms they are given.
+\begin{enumerate}
+	\item For each $n\in\mathbb{N}$ set
+	$f_{n}(z):=\sum_{j=1}^{n}\frac{z^{-j}}{j!}$. For a given $\rho>0$, show that there is an $N(\rho)$
+	such that if $n>N(\rho)$, then all of the zeros of $f_{n}(z)$ lie within $D(0,\rho)$.
+	\item Let $p_{n}(z)=1+\frac{z}{1!}+\frac{x^{2}}{2!}+\cdot\cdot\cdot+\frac{z^{n}}{n!}$ Prove that for every $R>0$ there exists a positive integer $n(\hat{R})$ such that all roots of $p_{n}(z)=0$ for $n\ge n(R)$ belong to the set $\{z\in\mathbb{C}||z|>R\}$.
+	
+	\item For each $n\in\mathbb{N}$ set $p_{n}(z):=\sum_{j=0}^{n}(-1)^{j}\frac{z^{-2j}}{j!}$.
+	\begin{enumerate}
+		\item For each fixed $n\in\mathbb{N}$, show that $p_{n}(z)=0$ has precisely $2n$ solutions.
+		\item For a given $\rho>0$, show that there is an $N(\rho)$ such that if $n>N(\rho)$, then all of the zeros of $p_{n}(z)$ lie within $D(0,\rho)$.
+	\end{enumerate}
+\end{enumerate}
 	
 	\item State Rouche's theorem and use it to determine how many roots of the polynomial $z^{4}+5z+3$ lie inside:
 	\begin{enumerate}
@@ -813,16 +820,19 @@ Many of the problems not listed were taken from University of New Mexico qualify
 	
 	\item State Rouche's theorem and use it to show that all zeros of the polynomial $p(z)=z^{4}+6z+3$ lie in the circle $|z|<2$. How many zeros of $p(z)$ lie in the annulus $1<|z|<2$?
 	
-	\item Let $f(z)=z^{10}+\frac{1}{2}z^{6}+\frac{1}{100}exp(z^{5})$.
+	\item Let $f(z)=z^{10}+\frac{1}{2}z^{6}+\frac{1}{100}\exp(z^{5})$.
 	\begin{enumerate}
 		\item State Rouche's theorem.
 		\item Show that $f(z)$ has no zeros on $|z|=1$.
 		\item How many zeros does $f(z)$ have inside $\{z:|z|=1\}$? Justify your answer.
 	\end{enumerate}
 	
+	\item 
+	\begin{enumerate}
 	\item Show that $z^{5}-15z+1=0$ has one root in the disc $|z|<\frac{1}{8}$ and four roots in the annulus $\frac{3}{2}<|z|<2$.
 	
 	\item Show that $z^{5}+15z+1=0$ has one root in the disc $|z|<\frac{3}{2}$, four roots in the annulus $\frac{3}{2}<|z|<2$.
+	\end{enumerate}
 	
 	\item Let $f(z)=z^{4}-5z+1$.
 	\begin{enumerate}
@@ -834,7 +844,7 @@ Many of the problems not listed were taken from University of New Mexico qualify
 	
 \end{enumerate}
 
-
+\newpage
 \section{Conformal Maps}
 Marsden-Hoffman, Basic Complex Analysis, 3rd Edition, Chapter 5 is helpful here. 
 Particularly, the table on page 341.
@@ -906,6 +916,7 @@ $$ \Omega =  \lbrace z: \vert z \vert \geq 1 \mbox{ and } -1/2\leq \Re(z) \leq 1
 
 \end{enumerate}
 
+\newpage
 
 \section{Elliptic and Modular Functions} 
 
@@ -930,7 +941,7 @@ is elliptic with period lattice $\Lambda$.
 \end{enumerate}
 
 
-
+\newpage
 \section{Riemann Surfaces}
 This uses some basic properties of Riemann Surfaces.
 
@@ -947,6 +958,7 @@ This uses some basic properties of Riemann Surfaces.
 
 \end{enumerate}
 
+\newpage
 \section{Infinite Products}
 
 \begin{enumerate}
