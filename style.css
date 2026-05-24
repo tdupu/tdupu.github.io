@@ -28,6 +28,9 @@ nav { margin: 1rem 0 0.5rem; }
 #portrait {
   float: right;
   width: 150px;
+  height: 150px;
+  object-fit: cover;
+  object-position: center top;
   margin: 0.2rem 0 0.5rem 1rem;
   border: 1px solid #ccc;
 }
