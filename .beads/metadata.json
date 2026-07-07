@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "embedded",
+  "dolt_database": "tdupu_github_io",
+  "project_id": "9a28a979-69f3-43ac-b5fd-cd9eabbfa31d"
+}
