@@ -1,4 +1,3 @@
-
 # Beads / Dolt files (added by bd init)
 .dolt/
 *.db
@@ -23,7 +22,6 @@ AGENTS.md
 
 # Gas City
 .beads/*
-!.beads/identity.toml
 
 # GasCity privacy fence (added by build tgi-30qh)
 .agents/
