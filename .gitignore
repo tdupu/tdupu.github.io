@@ -4,3 +4,28 @@
 *.db
 .beads-credential-key
 .beads/proxieddb/
+plugins/
+.repo.git/
+.land-worktree/
+.claude/
+.archive/
+.runtime/
+crew/
+daemon/
+mayor/
+polecats/
+refinery/
+settings/
+witness/
+config.json
+state.json
+AGENTS.md
+
+# Gas City
+.beads/*
+!.beads/identity.toml
+
+# GasCity privacy fence (added by build tgi-30qh)
+.agents/
+.codex/
+CLAUDE.md
