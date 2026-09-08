@@ -56,3 +56,8 @@ hr {
 @media (max-width: 480px) {
   #portrait { width: 110px; margin-left: 0.6rem; }
 }
+
+/* Second and later lines of the "Teaching:" list on the front page line up
+   under the first course rather than under the label. */
+.teach-indent { display: inline-block; padding-left: 4.9em; text-indent: -0em; }
+@media (max-width: 30rem) { .teach-indent { padding-left: 0; } }
