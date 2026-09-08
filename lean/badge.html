@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The completion badge &mdash; Lean &mdash; MATH 2055</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Taylor Dupuy">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="lean.css">
+</head>
+<body>
+
+<p><a href="index.html">&larr; Lean</a></p>
+
+<h1>The completion badge</h1>
+
+<div class="warn">
+<p><span class="hd">This carries no academic credit of any kind.</span></p>
+<p>
+Not points. Not extra credit. Not a curve adjustment. Not a tiebreaker between a B+ and an
+A&minus;. Not a factor in any grade computation, at any point, for any reason. If you earn
+the badge your grade is exactly what it would have been if you had never opened a browser
+tab. If you ignore this entire section of the course your grade is exactly what it would
+have been otherwise. This is not a hedge or a formality; it is the design.
+</p>
+</div>
+
+<h2>What it is, then</h2>
+
+<p>
+A record that you did a thing. Concretely: your name on a list I keep, and my willingness
+to write a specific sentence about you in a letter of recommendation &mdash; not "was a
+good student," which is worth nothing, but "sat down with an interactive theorem prover,
+formalized proofs from the course, and could read and explain a goal state on a problem
+she had not seen." That sentence is unusual on an application from a sophomore, and it is
+true, and I will only write it if it is.
+</p>
+
+<p>
+That is the whole reward. It is small on purpose. If you need a larger one to be interested,
+this is a strong signal that you should skip it, and skipping it costs you nothing.
+</p>
+
+<h2>Why it is a conversation and not a submission</h2>
+
+<p>
+Here is the honest reason, stated plainly, because you deserve it and because the
+alternative is pretending:
+</p>
+
+<div class="note">
+<p>
+<b>An AI can solve these exercises instantly, and Lean will certify the result as correct.
+A submitted <code>.lean</code> file therefore proves nothing about the person who submitted
+it.</b>
+</p>
+</div>
+
+<p>
+This is not a hypothetical, a worry about the future, or a suspicion about you personally.
+It is simply the current state of the world. The HTPI exercises are short, well-documented,
+publicly available with a companion textbook, and phrased in a formal language that
+language models handle well. A file that compiles is evidence that a file compiles.
+</p>
+
+<p>
+And notice the peculiar thing about this situation: Lean is a <i>verifier</i>. The
+certification is real. The proof in the file genuinely is a proof. The tool did its job
+perfectly. What collapsed is the inference from "correct artifact" to "competent author,"
+and no amount of tightening the artifact will restore it.
+</p>
+
+<p>
+Three consequences follow, and I want all three on the record:
+</p>
+
+<ol>
+<li>
+  <b>This is why none of it is graded.</b> A grade attached to submitted files would be
+  measuring file provenance, badly, while pretending to measure understanding. That is
+  worse than measuring nothing.
+</li>
+<li>
+  <b>This is why the value is entirely in the doing.</b> There is no external reward to
+  optimize for, nothing to game, and nobody checking. The only person who gets anything out
+  of you sitting with a goal state until it makes sense is you. That is not a consolation
+  prize; it is the actual and only mechanism by which this helps, and it happens to be
+  the mechanism that was always doing the work anyway.
+</li>
+<li>
+  <b>This is why the badge is awarded in a room.</b> A conversation is expensive to fake
+  and cheap to have. Ten minutes of talking through an unfamiliar goal state distinguishes
+  people who have done this from people who have not, immediately and unmistakably, and it
+  requires no honor code, no proctoring, and no accusations.
+</li>
+</ol>
+
+<p>
+And to be completely clear about the thing you are probably wondering: <b>using an AI to
+help you learn this is fine and I am not policing it.</b> Ask it what a tactic does, ask it
+to explain an error message, ask it why your proof failed. That is a good use of a good
+tool. Have it write the proof and you have skipped the only part that was worth anything,
+and the conversation will show that within about ninety seconds &mdash; not because I am
+testing you, but because you will not have the fluency that comes from having done it.
+</p>
+
+<h2>The three tiers</h2>
+
+<p>
+Pick the one that matches how far you actually got. There is no shame in Tier 1 and no
+particular glory in Tier 3.
+</p>
+
+<table class="sched">
+<tr><th>Tier</th><th>What you did</th><th>Roughly</th></tr>
+<tr>
+  <td><b>1. Game</b></td>
+  <td>Finished the first four worlds of the
+      <a href="https://adam.math.hhu.de/#/g/djvelleman/stg4">Set Theory Game</a>
+      &mdash; Subset, Complement, Intersection, Union.</td>
+  <td>2&ndash;3 hours, nothing installed</td>
+</tr>
+<tr>
+  <td><b>2. Package</b></td>
+  <td>Got the HTPI package running (Codespaces or local) and completed at least
+      <b>five</b> exercises in <code>Chap3Ex.lean</code>, at least two of which involve
+      sets rather than bare propositional logic.</td>
+  <td>4&ndash;6 hours, plus setup</td>
+</tr>
+<tr>
+  <td><b>3. Chapters</b></td>
+  <td>Completed at least <b>ten</b> exercises spread across
+      <code>Chap3Ex.lean</code>, <code>Chap5Ex.lean</code> and
+      <code>Chap6Ex.lean</code> &mdash; at least two from each &mdash; including at
+      least one proof by induction.
+      <br><small><b>The induction half of this tier is self-study, and deliberately so.</b>
+      Only one meeting is a full Lean day (October 28, Chapter 3); December 11 is a partial day
+      that also carries Quiz 11 and &sect;8.3, so it is a demonstration rather than a working
+      session. Everything you need for <code>Chap6Ex.lean</code> is on the
+      <a href="walkthrough-ch6.html">Chapter 6 walkthrough</a>, written to be read on your own,
+      and you can start it as soon as induction begins in class on
+      <b>Friday, November 20</b> (Chapter 6 runs to December 4). Do not wait for a class meeting to do this tier &mdash; there
+      is not one to wait for.</small></td>
+  <td>a real chunk of a semester's spare time</td>
+</tr>
+</table>
+
+<p>
+Tier 3 is genuinely a lot of work for zero points and you should think about whether you
+want to spend a semester's spare hours that way. Some of you will, and I would rather you
+did it with your eyes open.
+</p>
+
+<h2>What the conversation covers</h2>
+
+<p>
+Come to office hours. Bring nothing. Ten to fifteen minutes.
+</p>
+
+<p>
+I will put a problem in front of you that you have not seen &mdash; an exercise from the
+package at the level of the tier you are claiming, opened in Lean on my screen, cursor
+sitting after the <code>by</code>. Then I ask you to talk. Specifically:
+</p>
+
+<ol>
+<li>
+  <b>Read the goal state.</b> What is above the turnstile and what is below it? Say it in
+  English. "I have a set <i>A</i>, a family <i>F</i>, and the fact that <i>A</i> is in
+  <i>F</i>; I owe that <i>A</i> is contained in the union of <i>F</i>."
+</li>
+<li>
+  <b>Name the shape of the goal.</b> Conditional, universal, existential, conjunction,
+  disjunction, negation, biconditional, equality. This is a finite list and you should know
+  it cold by November whether or not you ever touch Lean.
+</li>
+<li>
+  <b>Say what the first move is and why.</b> Not the tactic's spelling &mdash; if you say
+  "let <i>x</i> be arbitrary" and cannot remember whether that is <code>fix</code> or
+  <code>intro</code>, that is completely fine and I will type it for you. The
+  <i>move</i> is the thing.
+</li>
+<li>
+  <b>Predict what the state will look like afterwards.</b> Then I run the tactic and we
+  both look. Being wrong here is interesting and not a problem; being unable to guess is
+  the thing that separates having done this from having watched someone do it.
+</li>
+<li>
+  <b>Do that two or three more times</b>, until either the proof is done or we have both
+  learned what we needed to.
+</li>
+<li>
+  <b>One question about the tool itself.</b> Something like: what does
+  <code>define</code> do and why is it needed at all? Why does <code>have</code> leave the
+  goal unchanged? What is the induction hypothesis, formally, and why is assuming it not
+  circular? Why can't you run these files on live.lean-lang.org?
+</li>
+</ol>
+
+<div class="note">
+<p>
+<b>You do not have to finish the proof.</b> You do not have to know the tactic names. You
+are not being tested on Lean, because <a href="index.html">Lean expertise is a non-goal</a>.
+You are being asked to demonstrate that you can look at a formal statement of what is
+given and what is owed, and say something true and useful about it. That skill is the
+entire point of MATH 2055, and Lean is just the most honest place to show it.
+</p>
+</div>
+
+<h2>If it does not go well</h2>
+
+<p>
+Then it does not go well, we have a useful conversation about proof anyway, you come back
+another time if you want to, and your grade is unaffected, because your grade was never
+going to be affected. There is no penalty because there is no stake. That is the point of
+having built it this way.
+</p>
+
+<h2>Deadline</h2>
+
+<p>
+Come any time between the first Lean day (<b>Wednesday, October 28</b>) and the
+<b>last day of class, Friday, December 11</b>. The deadline runs to the end of term on
+purpose: Tier 3 asks for a proof by induction, we do not reach induction in class until
+November 20, and the December 11 meeting is a partial Lean day shared with Quiz 11 and
+&sect;8.3 &mdash; so an earlier cutoff would have asked for something the term had not
+delivered yet.
+</p>
+
+<p>
+That said, <b>come early if you can.</b> The last two weeks of a term are the worst two weeks
+to try to schedule a fifteen-minute conversation, and this is supposed to be the enjoyable
+part. Tiers 1 and 2 need nothing beyond Chapter 3 and are comfortable in late October or
+November. There is no final exam in this course, so nothing here spills into finals week:
+December 11 really is the end.
+</p>
+
+<hr>
+
+<p class="footer">
+<a href="index.html">Lean hub</a> &middot;
+<a href="setup.html">Setup</a> &middot;
+<a href="walkthrough-ch3.html">Ch. 3</a> &middot;
+<a href="walkthrough-ch5.html">Ch. 5</a> &middot;
+<a href="walkthrough-ch6.html">Ch. 6</a>
+<br>
+MATH 2055, Fall 2026. Taylor Dupuy, University of Vermont. Optional and ungraded.
+</p>
+
+</body>
+</html>

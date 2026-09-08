@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Chapter 3 walkthrough &mdash; Lean &mdash; MATH 2055</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Taylor Dupuy">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="lean.css">
+</head>
+<body class="wide">
+
+<p><a href="index.html">&larr; Lean</a></p>
+
+<h1>Chapter 3, line by line</h1>
+
+<p>
+Three exercises from Chapter 3 of <i>How To Prove It</i>, each done twice: once in prose,
+the way you would write it by hand on a Friday, and once in Lean, with the goal state printed
+after every single step. The Lean versions are the theorems named
+<code>Exercise_3_2_1a</code>, <code>Exercise_3_4_2</code> and <code>Exercise_3_3_8</code>
+in the file <code>Chap3Ex.lean</code>. Same numbers as the book. That is not a coincidence
+and it is the reason we are doing this.
+</p>
+
+<div class="note">
+<p>
+<b>How to read the goal states.</b> Everything above the <code>⊢</code> is what you have.
+The line below it is what you owe. A tactic is a legal move that changes this position.
+When the position reads <code>No goals</code>, you have won.
+</p>
+</div>
+
+<div class="note">
+<p>
+<b>Provenance.</b> Under each code block is a line in small italics saying where it came
+from. Blocks marked <i>verbatim</i> are copied from Velleman's own files and are known to
+compile. Blocks marked <i>written for this page</i> are mine: the theorem statement is
+verbatim from <code>Chap3Ex.lean</code>, but the proof is not machine-checked, because
+this page was written without a Lean installation to hand. They are built out of the exact
+tactic patterns Velleman uses, so they should be fine &mdash; but <b>check them yourself in
+Lean.</b> That is the assignment anyway. If one fails, tell me and I will fix the page.
+</p>
+</div>
+
+<hr>
+
+<h2>Exercise 3.2.1(a) &mdash; transitivity of the conditional</h2>
+
+<p>
+<b>The problem.</b> Suppose <i>P</i> &rarr; <i>Q</i> and <i>Q</i> &rarr; <i>R</i> are both
+true. Show that <i>P</i> &rarr; <i>R</i>.
+</p>
+
+<p>
+This is the smallest interesting proof in the book, which makes it the right place to
+watch the machinery work. There is nothing to be clever about; the entire content is
+"do the obvious thing in the obvious order," and that is precisely what we want to
+watch Lean bookkeep.
+</p>
+
+<div class="pair">
+<div>
+<h3>On paper</h3>
+<p>
+Suppose <i>P</i>.
+</p>
+<p>
+Since <i>P</i> &rarr; <i>Q</i> and <i>P</i>, it follows that <i>Q</i>.
+</p>
+<p>
+Since <i>Q</i> &rarr; <i>R</i> and <i>Q</i>, it follows that <i>R</i>.
+</p>
+<p>
+Therefore <i>P</i> &rarr; <i>R</i>. &#9633;
+</p>
+</div>
+<div>
+<h3>In Lean</h3>
+<div class="codewrap"><pre><code>theorem Exercise_3_2_1a (P Q R : Prop)
+    (h1 : P → Q) (h2 : Q → R) : P → R := by
+  assume h3 : P
+  have h4 : Q := h1 h3
+  show R from h2 h4
+  done</code></pre></div>
+<p class="prov unver">Statement verbatim from <code>Chap3Ex.lean</code>; proof written for this page (not machine-checked).</p>
+</div>
+</div>
+
+<p>
+Four lines against four sentences. The correspondence is exact, sentence for line, and
+that is the design goal of Velleman's dialect. Now the same thing slowly.
+</p>
+
+<h3>Step 0 &mdash; the opening position</h3>
+
+<p>
+You place your cursor just after <code>by</code> and the Infoview shows:
+</p>
+
+<div class="goalwrap">
+<span class="lbl">Tactic state</span>
+<pre>P Q R : Prop
+h1 : P → Q
+h2 : Q → R
+⊢ P → R</pre>
+</div>
+
+<p>
+The first line says <i>P</i>, <i>Q</i> and <i>R</i> are propositions &mdash; the things
+that can be true or false. The next two give names, <code>h1</code> and <code>h2</code>,
+to the two hypotheses. The last line is the goal. Note that the hypotheses are named:
+in Lean you refer to a hypothesis by its name the way you refer to a variable, and this
+is the first small discipline the system imposes. On paper you write "by the hypothesis";
+here you have to say <i>which</i> one.
+</p>
+
+<div class="step">
+<h3>Step 1 &mdash; <code>assume h3 : P</code></h3>
+<p class="ln">
+<b>English:</b> "Suppose <i>P</i>." <br>
+<b>What it does:</b> The goal is a conditional, <code>P → R</code>. The move for a
+conditional goal is always the same: assume the antecedent, prove the consequent.
+<code>assume</code> does exactly that, and makes you name the assumption &mdash; here
+<code>h3</code>.
+</p>
+<div class="goalwrap">
+<span class="lbl">Tactic state after</span>
+<pre>P Q R : Prop
+h1 : P → Q
+h2 : Q → R
+h3 : P
+⊢ R</pre>
+</div>
+<p>
+<code>h3 : P</code> has moved up above the line. It is now something you have, rather than
+something you owe. The goal shrank from <code>P → R</code> to <code>R</code>. This
+trade &mdash; the arrow's left side goes up, its right side stays down &mdash; is the
+single most common event in Chapter 3, and Lean makes it literal.
+</p>
+</div>
+
+<div class="step">
+<h3>Step 2 &mdash; <code>have h4 : Q := h1 h3</code></h3>
+<p class="ln">
+<b>English:</b> "Since <i>P</i> &rarr; <i>Q</i> and <i>P</i>, we have <i>Q</i>." <br>
+<b>What it does:</b> <code>have</code> introduces a new fact into the list above the line.
+You state what the fact is (<code>Q</code>), give it a name (<code>h4</code>), and after
+<code>:=</code> supply the reason. The reason here is <code>h1 h3</code>, which is Lean's
+notation for modus ponens: writing a proof of <code>P → Q</code> next to a proof of
+<code>P</code> gives you a proof of <code>Q</code>.
+</p>
+<div class="goalwrap">
+<span class="lbl">Tactic state after</span>
+<pre>P Q R : Prop
+h1 : P → Q
+h2 : Q → R
+h3 : P
+h4 : Q
+⊢ R</pre>
+</div>
+<p>
+The goal has not changed. That is normal and correct: <code>have</code> is how you make
+progress by accumulating, rather than by simplifying what is owed. Most proofs alternate
+between the two.
+</p>
+</div>
+
+<div class="step">
+<h3>Step 3 &mdash; <code>show R from h2 h4</code></h3>
+<p class="ln">
+<b>English:</b> "Since <i>Q</i> &rarr; <i>R</i> and <i>Q</i>, we have <i>R</i>, which is
+what was to be shown." <br>
+<b>What it does:</b> <code>show G from e</code> says "the goal is <code>G</code>, and here
+is a proof of it." It is <code>have</code> for the last step: same idea, except that
+instead of adding a fact, it discharges the goal. Restating the goal explicitly is
+optional in principle and mandatory in practice &mdash; it is what makes a Lean proof
+readable a week later.
+</p>
+<div class="goalwrap">
+<span class="lbl">Tactic state after</span>
+<pre>No goals</pre>
+</div>
+</div>
+
+<div class="step">
+<h3>Step 4 &mdash; <code>done</code></h3>
+<p class="ln">
+<b>English:</b> the little box at the end. <br>
+<b>What it does:</b> asserts that nothing remains. If something did remain,
+<code>done</code> errors and tells you what. It is a checkpoint you write on purpose, and
+you will come to like it: it converts "I think I'm finished" into a claim the machine can
+contradict.
+</p>
+</div>
+
+<details class="deeper">
+<summary>Deeper: why <code>h1 h3</code> is written like a function call</summary>
+<p>
+Because it is one. In Lean's foundation, a proposition is a type and a proof of it is a
+term of that type. The proposition <code>P → Q</code> is literally the type of functions
+from proofs of <code>P</code> to proofs of <code>Q</code>. So <code>h1</code> is a
+function, <code>h3</code> is an argument, and <code>h1 h3</code> is an application whose
+value is a proof of <code>Q</code>. Modus ponens is not a rule bolted onto the system;
+it is function application, and the rule for a conditional goal is lambda abstraction.
+</p>
+<p>
+This is the Curry&ndash;Howard correspondence, and it is the reason the whole enterprise
+works at all: checking a proof reduces to typechecking a program, which is decidable and
+fast. Once you have seen it, <code>∀</code> is a dependent product,
+<code>∃</code> is a dependent sum, and <code>And.intro</code> (which shows up in the next
+example) is the pairing constructor. You do not need any of this to do the exercises.
+It is worth knowing that the exercises are not pretending.
+</p>
+<p>
+A visible consequence: everything after <code>from</code> or <code>:=</code> is a
+<i>term</i>, written in a different sublanguage from the tactics. <code>h2 h4</code>,
+<code>And.intro h4 h5</code>, <code>Exists.intro x h</code> are all terms. Tactics like
+<code>assume</code> and <code>fix</code> are, underneath, machinery for building such
+terms without your having to write them out.
+</p>
+</details>
+
+<details class="deeper">
+<summary>Deeper: what the dialect is doing, and what it is hiding</summary>
+<p>
+<code>assume</code>, <code>fix</code>, <code>obtain</code>, <code>show</code>,
+<code>define</code>, <code>by_cases on</code>, <code>by_induc</code>,
+<code>contradict</code>, <code>demorgan</code>, <code>contrapos</code>,
+<code>quant_neg</code>, <code>disj_syll</code>, <code>or_right</code> and
+<code>exists_unique</code> are all defined by Velleman in <code>HTPIDefs.lean</code>.
+They are marked with an asterisk in the book's appendix for precisely this reason. Only
+<code>have</code>, <code>apply</code>, <code>rewrite</code>, <code>calc</code>,
+<code>ring</code> and a few others are standard.
+</p>
+<p>
+Standard Lean writes <code>intro h3</code> for both <code>assume h3 : P</code> and
+<code>fix x : U</code> &mdash; one tactic doing two jobs, without the type annotation and
+without the distinction between assuming a hypothesis and introducing a variable. That is
+more concise and much less legible to a student in week eight, which is why Velleman split
+it. Similarly, standard Lean writes <code>h.mp</code> and <code>h.mpr</code> where we write
+<code>h.ltr</code> and <code>h.rtl</code>.
+</p>
+<p>
+The book's appendix has a section titled
+<a href="https://djvelleman.github.io/HTPIwL/Appendix.html">Transitioning to Standard
+Lean</a> that gives the replacement for every asterisked tactic. If you go on to use Lean
+for anything real, that page is a half-hour of reading and then you are fine.
+</p>
+</details>
+
+<hr>
+
+<h2>Exercise 3.4.2 &mdash; a subset goal, and a conjunction</h2>
+
+<p>
+<b>The problem.</b> Suppose <i>A</i> &sube; <i>B</i> and <i>A</i> &sube; <i>C</i>. Show
+that <i>A</i> &sube; <i>B</i> &cap; <i>C</i>.
+</p>
+
+<p>
+Now there are sets, and the interesting thing happens before the first tactic: you have to
+decide what <i>A</i> &sube; <i>B</i> &cap; <i>C</i> even is. It is
+<i>&forall;x</i>(<i>x</i> &isin; <i>A</i> &rarr; <i>x</i> &isin; <i>B</i> &cap; <i>C</i>).
+Unwinding that definition is the entire first move, and it is the move students most often
+skip on paper.
+</p>
+
+<div class="pair">
+<div>
+<h3>On paper</h3>
+<p>
+Let <i>x</i> be arbitrary, and suppose <i>x</i> &isin; <i>A</i>.
+</p>
+<p>
+Since <i>A</i> &sube; <i>B</i>, <i>x</i> &isin; <i>B</i>.
+</p>
+<p>
+Since <i>A</i> &sube; <i>C</i>, <i>x</i> &isin; <i>C</i>.
+</p>
+<p>
+Hence <i>x</i> &isin; <i>B</i> and <i>x</i> &isin; <i>C</i>, so
+<i>x</i> &isin; <i>B</i> &cap; <i>C</i>.
+</p>
+<p>
+Since <i>x</i> was arbitrary,
+<i>A</i> &sube; <i>B</i> &cap; <i>C</i>. &#9633;
+</p>
+</div>
+<div>
+<h3>In Lean</h3>
+<div class="codewrap"><pre><code>theorem Exercise_3_4_2 (U : Type) (A B C : Set U)
+    (h1 : A ⊆ B) (h2 : A ⊆ C) : A ⊆ B ∩ C := by
+  define
+  fix x : U
+  assume h3 : x ∈ A
+  have h4 : x ∈ B := h1 h3
+  have h5 : x ∈ C := h2 h3
+  show x ∈ B ∩ C from And.intro h4 h5
+  done</code></pre></div>
+<p class="prov unver">Statement verbatim from <code>Chap3Ex.lean</code>; proof written for this page (not machine-checked).</p>
+</div>
+</div>
+
+<h3>Step 0 &mdash; the opening position</h3>
+
+<div class="goalwrap">
+<span class="lbl">Tactic state</span>
+<pre>U : Type
+A B C : Set U
+h1 : A ⊆ B
+h2 : A ⊆ C
+⊢ A ⊆ B ∩ C</pre>
+</div>
+
+<p>
+<code>U : Type</code> is the universe of discourse &mdash; Velleman's <i>U</i>, made
+explicit. <code>A B C : Set U</code> says the three sets are sets of elements of that
+universe. Lean will not let you write a set without saying what it is a set <i>of</i>,
+which is a small tax that buys you the entire absence of Russell's paradox.
+</p>
+
+<div class="step">
+<h3>Step 1 &mdash; <code>define</code></h3>
+<p class="ln">
+<b>English:</b> "By the definition of &sube;, what we must show is: for every <i>x</i>,
+if <i>x</i> &isin; <i>A</i> then <i>x</i> &isin; <i>B</i> &cap; <i>C</i>." <br>
+<b>What it does:</b> <code>define</code> unfolds the definition of whatever is outermost
+in the goal. Here that is <code>⊆</code>.
+</p>
+<div class="goalwrap">
+<span class="lbl">Tactic state after</span>
+<pre>U : Type
+A B C : Set U
+h1 : A ⊆ B
+h2 : A ⊆ C
+⊢ ∀ ⦃a : U⦄, a ∈ A → a ∈ B ∩ C</pre>
+</div>
+<p>
+The double brackets <code>⦃ ⦄</code> mark a <i>strict implicit</i> argument, which is
+Lean's way of saying that when you later write <code>h1 h3</code>, it will figure out from
+<code>h3</code> which element you meant, so you do not have to say. Ignore the brackets;
+read the line as "for all <i>a</i>."
+</p>
+<p>
+<code>define</code> is optional here &mdash; the next tactic would have unfolded it
+silently. It is worth writing anyway, at least while you are learning, because <b>looking
+at what a definition unfolds to is the single most useful thing this tool does for you.</b>
+There is also <code>define at h1</code>, which unfolds a hypothesis instead of the goal.
+</p>
+</div>
+
+<div class="step">
+<h3>Step 2 &mdash; <code>fix x : U</code></h3>
+<p class="ln">
+<b>English:</b> "Let <i>x</i> be an arbitrary element of <i>U</i>." <br>
+<b>What it does:</b> The goal is universally quantified. The move for a universal goal is
+to introduce an arbitrary object and prove the statement about it. <code>fix</code> is
+that move. Note that it is a <i>different</i> tactic from <code>assume</code>: you assume
+a hypothesis, you fix an object. Standard Lean uses <code>intro</code> for both and the
+distinction is lost; Velleman keeps it because on paper it is the distinction between
+"suppose" and "let."
+</p>
+<div class="goalwrap">
+<span class="lbl">Tactic state after</span>
+<pre>U : Type
+A B C : Set U
+h1 : A ⊆ B
+h2 : A ⊆ C
+x : U
+⊢ x ∈ A → x ∈ B ∩ C</pre>
+</div>
+<p>
+<code>x</code> is now a name above the line, with no properties whatsoever. That
+namelessness is exactly what "arbitrary" means, and it is enforced: there is no way to
+accidentally use a property of <i>x</i> that you did not prove, because there are none
+recorded.
+</p>
+</div>
+
+<div class="step">
+<h3>Step 3 &mdash; <code>assume h3 : x ∈ A</code></h3>
+<p class="ln">
+Conditional goal, same move as before.
+</p>
+<div class="goalwrap">
+<span class="lbl">Tactic state after</span>
+<pre>U : Type
+A B C : Set U
+h1 : A ⊆ B
+h2 : A ⊆ C
+x : U
+h3 : x ∈ A
+⊢ x ∈ B ∩ C</pre>
+</div>
+</div>
+
+<div class="step">
+<h3>Steps 4 and 5 &mdash; <code>have h4 : x ∈ B := h1 h3</code> and <code>have h5 : x ∈ C := h2 h3</code></h3>
+<p class="ln">
+<b>English:</b> "Since <i>A</i> &sube; <i>B</i> and <i>x</i> &isin; <i>A</i>,
+<i>x</i> &isin; <i>B</i>." <br>
+<b>What it does:</b> Here is the payoff for the unfolding in step 1. Since
+<code>A ⊆ B</code> <i>is</i> the statement <code>∀ ⦃a⦄, a ∈ A → a ∈ B</code>, and since a
+conditional is a function, <code>h1</code> is a function that eats a proof of
+<code>x ∈ A</code> and returns a proof of <code>x ∈ B</code>. So <code>h1 h3</code> is
+that proof, written exactly the way modus ponens was written in the first example. You do
+not have to <code>define at h1</code> first; Lean sees through the definition.
+</p>
+<div class="goalwrap">
+<span class="lbl">Tactic state after both</span>
+<pre>U : Type
+A B C : Set U
+h1 : A ⊆ B
+h2 : A ⊆ C
+x : U
+h3 : x ∈ A
+h4 : x ∈ B
+h5 : x ∈ C
+⊢ x ∈ B ∩ C</pre>
+</div>
+</div>
+
+<div class="step">
+<h3>Step 6 &mdash; <code>show x ∈ B ∩ C from And.intro h4 h5</code></h3>
+<p class="ln">
+<b>English:</b> "Therefore <i>x</i> is in both, i.e. in the intersection." <br>
+<b>What it does:</b> <code>x ∈ B ∩ C</code> unfolds to <code>x ∈ B ∧ x ∈ C</code>, and
+<code>And.intro</code> is the thing that builds a proof of a conjunction out of proofs of
+the two halves. Read <code>And.intro h4 h5</code> as "the pair consisting of <code>h4</code>
+and <code>h5</code>." Going the other way, if <code>h : P ∧ Q</code> then
+<code>h.left : P</code> and <code>h.right : Q</code>; you will see those constantly.
+</p>
+<div class="goalwrap">
+<span class="lbl">Tactic state after</span>
+<pre>No goals</pre>
+</div>
+</div>
+
+<div class="note">
+<p>
+<b>Notice what did not happen.</b> Nowhere did we say "since <i>x</i> was arbitrary." On
+paper that sentence is load-bearing and forgetting it is a real error. In Lean it is
+structural: <code>x</code> was introduced by <code>fix</code>, nothing about it was ever
+assumed, and the proof term that gets built is a function of <code>x</code>. You cannot
+forget to do it and you cannot fake having done it. This is the sort of thing formalizing
+teaches by removing the possibility of the mistake, and it is why doing a few of these
+makes the paper proofs better.
+</p>
+</div>
+
+<hr>
+
+<h2>Exercise 3.3.8 &mdash; an existential goal</h2>
+
+<p>
+<b>The problem.</b> Suppose <i>A</i> &isin; <i>F</i>, where <i>F</i> is a family of sets.
+Show that <i>A</i> &sube; &#8899;<i>F</i>.
+</p>
+
+<p>
+This one is short but it introduces the third kind of goal &mdash; existential &mdash; and
+it is the first time the definition you unfold is genuinely worth unfolding, because
+almost nobody has the definition of &#8899;<i>F</i> memorized in the right form.
+</p>
+
+<div class="pair">
+<div>
+<h3>On paper</h3>
+<p>
+Let <i>x</i> be arbitrary and suppose <i>x</i> &isin; <i>A</i>.
+</p>
+<p>
+To show <i>x</i> &isin; &#8899;<i>F</i>, we must produce a set in <i>F</i> containing
+<i>x</i>.
+</p>
+<p>
+Take that set to be <i>A</i>. Indeed <i>A</i> &isin; <i>F</i> by hypothesis, and
+<i>x</i> &isin; <i>A</i> by assumption.
+</p>
+<p>
+Since <i>x</i> was arbitrary, <i>A</i> &sube; &#8899;<i>F</i>. &#9633;
+</p>
+</div>
+<div>
+<h3>In Lean</h3>
+<div class="codewrap"><pre><code>theorem Exercise_3_3_8 (U : Type) (F : Set (Set U)) (A : Set U)
+    (h1 : A ∈ F) : A ⊆ ⋃₀ F := by
+  fix x : U
+  assume h2 : x ∈ A
+  define
+  apply Exists.intro A
+  show A ∈ F ∧ x ∈ A from And.intro h1 h2
+  done</code></pre></div>
+<p class="prov unver">Statement verbatim from <code>Chap3Ex.lean</code>; proof written for this page (not machine-checked). It follows the shape of <code>Example_3_3_5</code> in <code>HTPILib/Chap3.lean</code>, which proves the analogous fact.</p>
+</div>
+</div>
+
+<p>
+<code>F : Set (Set U)</code> is a set of sets of elements of <i>U</i> &mdash; Velleman's
+&#8497;. The symbol <code>⋃₀</code> is typed <code>\bigcup</code> and then
+<code>0</code>; the little zero is Lean's way of distinguishing "union of a family" from
+"union of two sets."
+</p>
+
+<p>
+The two moves worth watching are these.
+</p>
+
+<div class="step">
+<h3><code>define</code> on the goal <code>x ∈ ⋃₀ F</code></h3>
+<div class="goalwrap">
+<span class="lbl">Tactic state after</span>
+<pre>U : Type
+F : Set (Set U)
+A : Set U
+h1 : A ∈ F
+x : U
+h2 : x ∈ A
+⊢ ∃ (t : Set U), t ∈ F ∧ x ∈ t</pre>
+</div>
+<p>
+There it is: "<i>x</i> belongs to the union of the family" means "there is a member of the
+family that <i>x</i> belongs to." Lean may print this using its shorthand
+<code>∃ t ∈ F, x ∈ t</code>, which means the same thing, and the bound variable might be
+called something other than <code>t</code>. What matters is the shape: an
+<code>∃</code> whose body is an <code>∧</code>.
+</p>
+</div>
+
+<div class="step">
+<h3><code>apply Exists.intro A</code></h3>
+<p class="ln">
+<b>English:</b> "Take the set to be <i>A</i>." <br>
+<b>What it does:</b> The move for an existential goal is to supply a witness. You name the
+object and the goal becomes the claim about that specific object.
+</p>
+<div class="goalwrap">
+<span class="lbl">Tactic state after</span>
+<pre>U : Type
+F : Set (Set U)
+A : Set U
+h1 : A ∈ F
+x : U
+h2 : x ∈ A
+⊢ A ∈ F ∧ x ∈ A</pre>
+</div>
+<p>
+The quantifier is gone and what remains is a conjunction of two things you already have.
+This is the formal counterpart of the sentence students most often omit: <i>which</i>
+object are you claiming exists? Lean makes you write it down before it will let you
+proceed, and the discipline of choosing the witness first &mdash; rather than gesturing at
+one mid-sentence &mdash; is worth carrying back to paper.
+</p>
+</div>
+
+<p>
+The dual move, for when an existential is a <i>given</i> rather than a goal, is
+<code>obtain</code>:
+</p>
+
+<div class="codewrap"><pre><code>obtain (a : U) (h3 : ∀ (y : U), P a → Q y) from h2</code></pre></div>
+<p class="prov">Verbatim line from a Section 3.3 example in <code>HTPILib/Chap3.lean</code> (Velleman).</p>
+
+<p>
+Read it as "let <i>a</i> be an object such that&hellip;, which exists by <code>h2</code>."
+It is the existential instantiation of Chapter 3, and, like <code>fix</code>, it gives you
+an object about which you know exactly one thing and nothing else.
+</p>
+
+<hr>
+
+<h2>Two proofs of Velleman's, verbatim</h2>
+
+<p>
+Everything above has my proofs in it. Here are two of his, copied out of the package
+without changes, so that you have something on this page that is certainly correct to
+calibrate against. Both prove the same theorem, Example 3.2.4 in the book.
+</p>
+
+<div class="codewrap"><pre><code>theorem Example_3_2_4_v2 (P Q R : Prop)
+    (h : P → (Q → R)) : ¬R → (P → ¬Q) := by
+  assume h2 : ¬R
+  assume h3 : P
+  by_contra h4
+  have h5 : Q → R := h h3
+  have h6 : R := h5 h4
+  show False from h2 h6
+  done</code></pre></div>
+<p class="prov">Verbatim from <code>HTPILib/Chap3.lean</code> (Velleman).</p>
+
+<div class="codewrap"><pre><code>theorem Example_3_2_4_v3 (P Q R : Prop)
+    (h : P → (Q → R)) : ¬R → (P → ¬Q) := by
+  assume h2 : ¬R
+  assume h3 : P
+  by_contra h4
+  contradict h2
+  show R from h h3 h4
+  done</code></pre></div>
+<p class="prov">Verbatim from <code>HTPILib/Chap3.lean</code> (Velleman).</p>
+
+<p>
+Both open the same way. The goal <code>¬Q</code> is a negation, so <code>by_contra h4</code>
+assumes <code>h4 : Q</code> and changes the goal to <code>False</code>. In <code>v2</code>
+we then build <code>R</code> and finish by noting that <code>h2 : ¬R</code> applied to
+<code>h6 : R</code> yields <code>False</code>. In <code>v3</code>, <code>contradict h2</code>
+does the bookkeeping differently: it says "I will get my contradiction out of
+<code>h2</code>," and so replaces the goal <code>False</code> with the goal <code>R</code>.
+</p>
+
+<p>
+The two are the same proof written with different amounts of ceremony, and comparing them
+is a good exercise in seeing what a proof <i>is</i> as opposed to how it is spelled.
+</p>
+
+<details class="deeper">
+<summary>Deeper: a proof with a case split, also verbatim</summary>
+<div class="codewrap"><pre><code>theorem Example_3_5_2
+    (U : Type) (A B C : Set U) :
+    A \ (B \ C) ⊆ (A \ B) ∪ C := by
+  fix x : U
+  assume h1 : x ∈ A \ (B \ C)
+  define; define at h1
+  have h2 : x ∉ B \ C := h1.right
+  define at h2; demorgan at h2
+            --h2 : x ∉ B ∨ x ∈ C
+  by_cases on h2
+  · -- Case 1. h2 : x ∉ B
+    apply Or.inl
+    show x ∈ A \ B from And.intro h1.left h2
+    done
+  · -- Case 2. h2 : x ∈ C
+    apply Or.inr
+    show x ∈ C from h2
+    done
+  done</code></pre></div>
+<p class="prov">Verbatim from <code>HTPILib/Chap3.lean</code> (Velleman), his comment included.</p>
+<p>
+Three new things. <code>demorgan at h2</code> rewrites a negated conjunction into a
+disjunction, in place &mdash; De Morgan's law as a single legal move rather than a
+paragraph. <code>by_cases on h2</code> splits a disjunctive given into two cases, and the
+two <code>·</code> bullets are the two cases; note that the block belonging to each bullet
+is indented under it, and each ends with its own <code>done</code>. <code>Or.inl</code> and
+<code>Or.inr</code> prove a disjunctive goal by choosing the left or right disjunct.
+</p>
+<p>
+Also note <code>h1.right</code> and <code>h1.left</code>: <code>h1</code> is (after
+unfolding) a conjunction, and those are its two halves. And <code>define; define at h1</code>
+on one line &mdash; a semicolon just sequences two tactics.
+</p>
+</details>
+
+<hr>
+
+<h2>The tactics on this page</h2>
+
+<table class="sched">
+<tr><th>Tactic</th><th>Use it when</th><th>What it means on paper</th></tr>
+<tr><td><code>assume h : P</code></td><td>the goal is <code>P → Q</code></td><td>"Suppose <i>P</i>."</td></tr>
+<tr><td><code>fix x : U</code></td><td>the goal is <code>∀ x, ...</code></td><td>"Let <i>x</i> be arbitrary."</td></tr>
+<tr><td><code>have h : P := e</code></td><td>you can derive a useful fact</td><td>"Since &hellip;, we have <i>P</i>."</td></tr>
+<tr><td><code>show P from e</code></td><td>you can finish the current goal</td><td>"which is what was to be shown."</td></tr>
+<tr><td><code>define</code></td><td>the goal contains a definition to unwind</td><td>"By definition, this says&hellip;"</td></tr>
+<tr><td><code>define at h</code></td><td>a given contains a definition to unwind</td><td>same, applied to a hypothesis</td></tr>
+<tr><td><code>apply Exists.intro a</code></td><td>the goal is <code>∃ x, ...</code></td><td>"Take <i>x</i> = <i>a</i>."</td></tr>
+<tr><td><code>obtain (a : U) (h : ...) from h2</code></td><td>a given is <code>∃ x, ...</code></td><td>"Let <i>a</i> be such that&hellip;"</td></tr>
+<tr><td><code>And.intro h1 h2</code></td><td>the goal is <code>P ∧ Q</code></td><td>"Both hold, so the conjunction does."</td></tr>
+<tr><td><code>h.left</code>, <code>h.right</code></td><td>a given is <code>P ∧ Q</code></td><td>"In particular&hellip;"</td></tr>
+<tr><td><code>by_contra h</code></td><td>the goal is <code>¬P</code> or you want contradiction</td><td>"Suppose not."</td></tr>
+<tr><td><code>contradict h</code></td><td>the goal is <code>False</code></td><td>"It suffices to contradict <i>h</i>."</td></tr>
+<tr><td><code>by_cases on h</code></td><td>a given is <code>P ∨ Q</code></td><td>"Case 1&hellip; Case 2&hellip;"</td></tr>
+<tr><td><code>demorgan at h</code></td><td>a given is a negated ∧ or ∨</td><td>"By De Morgan's law&hellip;"</td></tr>
+<tr><td><code>done</code></td><td>you think you are finished</td><td>&#9633;</td></tr>
+</table>
+
+<p>
+Every tactic in that table except <code>have</code>, <code>apply</code> and the
+<code>And</code>/<code>Or</code>/<code>Exists</code> constructors is part of Velleman's
+dialect. The book's <a href="https://djvelleman.github.io/HTPIwL/Appendix.html">appendix</a>
+has the complete list and the standard-Lean translations.
+</p>
+
+<h2>Your turn</h2>
+
+<p>
+Open <code>Chap3Ex.lean</code>. These are in there, in this order, and you have done all of
+them on paper already:
+</p>
+
+<ul>
+<li><code>Exercise_3_2_1b</code> &mdash; <code>(h1 : ¬R → (P → ¬Q)) : P → (Q → R)</code>.
+    Two <code>assume</code>s and a <code>by_contra</code>.</li>
+<li><code>Exercise_3_2_2a</code> &mdash; <code>(h1 : P → Q) (h2 : R → ¬Q) : P → ¬R</code>.</li>
+<li><code>Exercise_3_3_9</code> &mdash; <code>(h1 : A ∈ F) : ⋂₀ F ⊆ A</code>. The dual of
+    3.3.8 above; <code>define</code> tells you what changed.</li>
+<li><code>Exercise_3_3_10</code>, <code>Exercise_3_3_12</code>, <code>Exercise_3_4_4</code>
+    &mdash; more of the same, slowly getting less mechanical.</li>
+</ul>
+<p class="prov">Exercise names and statements verbatim from <code>Chap3Ex.lean</code>.</p>
+
+<p>
+When one of them stops being mechanical, stop and write it on paper first. That is not a
+retreat; it is the whole method.
+</p>
+
+<hr>
+
+<p class="footer">
+Next: <a href="walkthrough-ch5.html">Chapter 5 &mdash; functions</a>.
+&middot; MATH 2055, Fall 2026. Taylor Dupuy, University of Vermont. Optional and ungraded.
+</p>
+
+</body>
+</html>

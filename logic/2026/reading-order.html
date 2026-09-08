@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>How to read the book — MATH 2055</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Taylor Dupuy">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<p><a href="math2055.html">&larr; Fundamentals of Mathematics</a></p>
+
+<h1>How to read the book</h1>
+
+<p>
+Velleman writes Chapters 1 and 2 with logic and set theory braided together, and he
+does it on purpose. Chapter 1 is called &ldquo;Sentential Logic,&rdquo; but &sect;1.3 and
+&sect;1.4 are about sets; Chapter 2 is called &ldquo;Quantificational Logic,&rdquo; but
+&sect;2.3 is about sets again.
+</p>
+
+<p>
+The reason is that sets are the best available worked example of the logical connectives.
+&ldquo;<i>x</i> is in <i>A</i> or <i>x</i> is in <i>B</i>&rdquo; <i>is</i> a disjunction.
+&ldquo;<i>x</i> is in <i>A</i> and not in <i>B</i>&rdquo; <i>is</i> a conjunction with a
+negation. And the fact that <i>A</i>&nbsp;&cup;&nbsp;(<i>B</i>&nbsp;&cap;&nbsp;<i>C</i>)
+= (<i>A</i>&nbsp;&cup;&nbsp;<i>B</i>)&nbsp;&cap;&nbsp;(<i>A</i>&nbsp;&cup;&nbsp;<i>C</i>)
+is nothing but the distributive law for &and; and &or; with &ldquo;<i>x</i>&nbsp;&isin;&nbsp;&mdash;&rdquo;
+wrapped around every letter. Velleman introduces a connective and then immediately shows you
+a set operation that is that connective in disguise.
+</p>
+
+<p>
+<b>I am going to separate them.</b> We will do all of the propositional logic first, then all
+of the predicate logic, and only then all of the set theory. Both orders are legitimate and they
+cover exactly the same material. Here is what each looks like, so you can follow whichever suits you.
+</p>
+
+<h2>The two orders</h2>
+
+<table>
+<tr><th>Velleman's order</th><th>Our order</th></tr>
+<tr>
+<td valign="top">
+&sect;1.1 connectives<br>
+&sect;1.2 truth tables<br>
+&sect;1.3 variables and sets<br>
+&sect;1.4 operations on sets<br>
+&sect;1.5 conditional, biconditional<br>
+&sect;2.1 quantifiers<br>
+&sect;2.2 quantifier equivalences<br>
+&sect;2.3 more operations on sets
+</td>
+<td valign="top">
+<b>Unit I &mdash; Propositional Logic</b><br>
+&sect;1.1, &sect;1.2, &sect;1.5<br><br>
+<b>Unit II &mdash; Predicate Logic</b><br>
+&sect;1.3 (first part only), &sect;2.1, &sect;2.2 (logic half)<br><br>
+<b>Unit III &mdash; Sets</b><br>
+&sect;1.3 (rest), &sect;1.4, &sect;2.2 (set half), &sect;2.3
+</td>
+</tr>
+</table>
+
+<p>
+The tradeoff is real and worth stating plainly. You will meet the ten equivalence laws in
+&sect;1.2 and then wait two or three weeks before using them for anything, which is less
+satisfying than Velleman's version. What you get in exchange is that each of the three ideas
+gets a clean, uninterrupted run &mdash; and when the set operations do arrive, you already have
+the full logical toolkit, and you get to watch the whole of &sect;1.4 fall out of laws you
+already know cold. Sets stop being a parallel topic and become the first application.
+</p>
+
+<p>
+<b>One thing we borrow early.</b> Section 2.1 uses the abbreviations
+&forall;<i>x</i>&nbsp;&isin;&nbsp;<i>A</i> and &exist;<i>x</i>&nbsp;&isin;&nbsp;<i>A</i>, so
+we need the single symbol &isin; (&ldquo;is an element of&rdquo;) before we build any set theory.
+Take it on faith for three weeks: <i>A</i> is a collection of things, and
+<i>x</i>&nbsp;&isin;&nbsp;<i>A</i> means <i>x</i> is one of them. That is the only thing we borrow.
+</p>
+
+<h2>What &ldquo;bound&rdquo; means</h2>
+
+<p>
+A variable is <b>bound</b> when some operator has captured it, and <b>free</b> otherwise.
+In &forall;<i>x</i>&nbsp;(<i>x</i>&nbsp;&gt;&nbsp;0) the <i>x</i> is bound by the quantifier.
+In <i>x</i>&nbsp;&gt;&nbsp;<i>c</i>, both letters are free. In
+{<i>x</i>&nbsp;&isin;&nbsp;&reals;&nbsp;|&nbsp;13&nbsp;&minus;&nbsp;2<i>x</i>&nbsp;&gt;&nbsp;<i>c</i>}
+the <i>x</i> is bound by the braces and the <i>c</i> is free.
+</p>
+
+<p>
+Here is the test that matters: <b>renaming a bound variable changes nothing.</b>
+{<i>x</i>&nbsp;|&nbsp;<i>P</i>(<i>x</i>)} and {<i>y</i>&nbsp;|&nbsp;<i>P</i>(<i>y</i>)} are the
+same set. &int;<i>f</i>(<i>x</i>)&nbsp;d<i>x</i> and &int;<i>f</i>(<i>t</i>)&nbsp;d<i>t</i> are
+the same integral &mdash; you have been using bound variables since Calculus I without anyone
+naming them. Renaming a <i>free</i> variable, on the other hand, changes what you said. Free
+variables are the slots you can still put values into; bound ones are already spoken for.
+</p>
+
+<p>
+<b>A note on when we cover it.</b> Velleman first explains free and bound variables using set-builder
+notation, because the <i>x</i> in {<i>x</i>&nbsp;|&nbsp;<i>P</i>(<i>x</i>)} is his example of a
+bound variable. We will meet binding through quantifiers instead &mdash; &forall;<i>x</i> and
+&exist;<i>x</i> bind <i>x</i> in exactly the same way &mdash; and then meet set-builder notation
+in Unit III as a <i>second</i> thing that binds a variable. If you are reading &sect;1.3 straight
+through and hit set-builder notation before we have covered it, that is why.
+</p>
+
+<p>
+<b>If you prefer Velleman's order, read the book straight through.</b> That is entirely
+legitimate. Every problem I assign is labeled with its section number, so either way you will
+know where to find it.
+</p>
+
+<h2>Why does he say &ldquo;sentential&rdquo; and I say &ldquo;propositional&rdquo;?</h2>
+
+<p>
+Same subject, two names. A <i>sentence</i> is a piece of language; a <i>proposition</i> is
+supposed to be the thing a sentence expresses &mdash; so that &ldquo;it is raining&rdquo; and
+&ldquo;il pleut&rdquo; are two sentences expressing one proposition. Logicians who would rather
+not commit to propositions existing as objects in their own right say <b>sentential logic</b>,
+because all they need is sentences and the operations that build new sentences out of old ones.
+Mathematicians and computer scientists mostly say <b>propositional logic</b> and don't worry
+about it. Velleman is writing in the logicians' idiom; I grew up in the other one.
+</p>
+
+<p>
+The same thing happens one chapter later. Velleman's <b>quantificational logic</b> is what most
+people call <b>predicate logic</b>, or <b>first-order logic</b>. All three names mean the logic
+you get when you add &forall; and &exist; to the propositional connectives. If you go looking for
+other sources &mdash; and you should &mdash; you will find them filed under the other names.
+</p>
+
+<h2>Sections we skip, and the exercises that go with them</h2>
+
+<p>
+We do not cover <b>&sect;4.4</b> (ordering relations), <b>&sect;5.4</b> (closures),
+<b>&sect;6.2</b>, <b>&sect;6.5</b> or <b>Chapter 7</b> (number theory). Chapter 4 is taught only as
+far as equivalence relations require. Congruence modulo <i>m</i> is done inside &sect;4.5, so you
+get modular arithmetic without Chapter 7.
+</p>
+
+<p>
+<b>&sect;5.5 (images and inverse images) and Chapter 8 (infinite sets) are covered.</b> Both were
+off the list in earlier drafts of this course and are now on the schedule &mdash; &sect;5.5 on
+November 18, and Chapter 8 in the last three meetings of the term, after induction. If you saw an
+older version of this page saying otherwise, this one is right.
+</p>
+
+<p>
+Separately, a handful of <b>individual exercises</b> inside sections we <i>do</i> cover quietly
+depend on sections we skip. They are not harder &mdash; they use vocabulary you will not have.
+These are single exercises, not whole sections; everything else in each of these sections is
+assigned as normal.
+</p>
+
+<ul>
+<li>In <b>&sect;4.5</b> &mdash; skip <b>exercises 25, 26 and 27</b>. 25 and 26 ask about
+antisymmetry and partial orders on a quotient; 27 puts a partial order on the set of partitions and
+asks in part (c) for a greatest lower bound. All three are &sect;4.4.
+<br><small>(&sect;4.5 has 27 exercises in the 3rd edition. An earlier version of this page said
+&ldquo;30&rdquo;, which is a 2nd-edition number and does not exist in our book.)</small></li>
+<li>In <b>&sect;5.1</b> &mdash; skip <b>exercise 19(b)</b> only. That part needs partial orders
+(&sect;4.4).
+<br><small><b>Do 19(a) and 19(c).</b> The stem of #19 is where big-oh is defined &mdash;
+&sect;5.1 is the only place in the book that defines it &mdash; and 19(a) is the concrete
+verification against that definition (that 7<i>x</i>&nbsp;+&nbsp;3 is big-oh of <i>x</i><sup>2</sup>
+but not conversely). You need both later: &sect;6.3 #13 and #21 and &sect;6.4 #15 and #16 all use
+big-oh. 19(c) is good practice. An earlier version of this page told you to skip all of 19 &mdash;
+don't.</small></li>
+<li>In <b>&sect;5.2</b> &mdash; skip <b>exercise 22(b) and 22(g)</b>. Largest element of a quotient
+under an ordering (&sect;4.4). The other parts of 22 are fine.</li>
+</ul>
+
+<p>
+That is the complete list, and it is shorter than it used to be. Every entry on it is there for one
+reason: <b>&sect;4.4, ordering relations</b>. Everything else in &sect;&sect;1.1&ndash;3.7,
+4.1&ndash;4.3, 4.5, 5.1&ndash;5.3, 5.5, 6.1, 6.3, 6.4 and 8.1&ndash;8.3 is fair game.
+</p>
+
+<p>
+<b>Nothing in &sect;6.1 is skipped.</b> An earlier version of this page told you to skip &sect;6.1
+exercise 7 because it was about images and inverse images. It isn't &mdash; #7 asks you to find and
+prove a formula for 3<sup>0</sup>&nbsp;+&nbsp;3<sup>1</sup>&nbsp;+&nbsp;&middot;&middot;&middot;&nbsp;+&nbsp;3<sup><i>n</i></sup>,
+which is pure induction. Do it. Nothing in &sect;6.1 depends on anything we skip.
+</p>
+
+<p>
+One thing that looks like it should be on the list and isn't: several &sect;6.4 exercises talk about
+<i>the smallest element</i> of a set. That is the well-ordering principle, which we do cover in
+&sect;6.4 &mdash; it is not the order theory of &sect;4.4. Do those.
+</p>
+
+<h2>Problems</h2>
+
+<p>
+These are not collected and not graded. They are the course. Quiz problems look like these,
+and there is no other way to get good at this than doing them on paper with the book shut.
+Starred problems are the ones I am most likely to work in class or ask about on a quiz.
+(There are no exams in this course &mdash; the Friday quizzes are the whole grade.)
+</p>
+
+<h3>Unit I &mdash; Propositional Logic</h3>
+
+<ul>
+<li><b>&sect;1.1:</b> 1, 3, 5, 6, 9&#9733;
+<br><small>3 is the Alice-and-Bob problem &mdash; four negations, two of which are secretly the
+same. It is the one that kills &ldquo;not both&rdquo; versus &ldquo;both not.&rdquo;
+9 identifies premises and conclusions; do it together with &sect;1.2 #7.</small></li>
+<li><b>&sect;1.2:</b> 3, 5, 7, 11&#9733;, 13, 15, 18
+<br><small>11 is the first proof-shaped writing in the course: prove equivalences by citing laws
+rather than by building a table. 18 asks what you can conclude about an argument whose conclusion
+is a tautology &mdash; short, and better than it looks.</small></li>
+<li><b>&sect;1.5:</b> 3&#9733;, 6, 7, <b>11</b>&#9733;, 12
+<br><small>3 is the best converse-versus-conditional problem in the chapter.
+<b>Do 11.</b> We cite it by name in Unit III.</small></li>
+</ul>
+
+<h3>Unit II &mdash; Predicate Logic</h3>
+
+<ul>
+<li><b>&sect;1.3:</b> 1&#9733;, 2 &mdash; <i>these two only; the rest of &sect;1.3 waits for Unit III</i></li>
+<li><b>&sect;2.1:</b> 1, 3, 4, 6, 7&#9733;
+<br><small>3 is our free-versus-bound drill. 7 is five formulas about parents and children that
+differ only in the <i>order</i> of the quantifiers &mdash; this is the &forall;&exist; versus
+&exist;&forall; problem and it is worth an afternoon.</small></li>
+<li><b>&sect;2.2:</b> 1(a)(b)(d), 2(a)(b), 3, 4&#9733;, 5, 6, 7&#9733;, 9&#9733;, 15
+<br><small>4 derives one quantifier-negation law from the other in three lines. 7 is genuinely
+surprising and reuses 6 as a lemma. 9 is the first counterexample you will construct.</small></li>
+</ul>
+
+<h3>Unit III &mdash; Sets</h3>
+
+<ul>
+<li><b>&sect;1.3:</b> 4, 5, 7, 9
+<br><small>9 ends with a nested set-builder expression &mdash; that is where you find out whether
+you know what the braces do.</small></li>
+<li><b>&sect;1.4:</b> 1, 3, 5&#9733;, 9&#9733;, 10, 15
+<br><small>5 is the bridge problem of the whole block: prove set identities by translating to
+&isin;-statements and citing the laws from &sect;1.2 by name. This is the moment Unit I pays off.
+10 is the repair half: (<i>A</i>&nbsp;&cup;&nbsp;<i>B</i>)&nbsp;\&nbsp;<i>B</i> is not
+<i>A</i> in general, and 10(b) asks you to prove what it always <i>is</i>. If you want the
+counterexample half as well, do <b>11</b> &mdash; that is the one that asks whether
+(<i>A</i>&nbsp;\&nbsp;<i>B</i>)&nbsp;&cup;&nbsp;<i>B</i>&nbsp;=&nbsp;<i>A</i>, and then what is
+true instead. Counterexample-then-repair is the habit Chapter 3 will demand.</small></li>
+<li><b>&sect;2.2:</b> 11&#9733;, 13
+<br><small>11 shows set theory <i>is</i> logic with &isin; in it. 13 is the one that cites
+&sect;1.5 #11.</small></li>
+<li><b>&sect;2.3:</b> 3, 6, 9&#9733;, 12, 15, 16
+<br><small>3 asks for the power set of {&empty;}, and half of you will get one element instead
+of two. 16 is Russell's paradox: the very first thing you learned in Unit I is what breaks naive
+set theory in the last section of the block.</small></li>
+</ul>
+
+</body>
+</html>

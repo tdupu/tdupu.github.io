@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Chapter 6 walkthrough &mdash; Lean &mdash; MATH 2055</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Taylor Dupuy">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="lean.css">
+</head>
+<body class="wide">
+
+<p><a href="index.html">&larr; Lean</a></p>
+
+<h1>Chapter 6, line by line</h1>
+
+<p>
+Induction. The theorem is Example 6.1.2 in <i>How To Prove It</i>: <b>3 divides
+<i>n</i><sup>3</sup> + 2<i>n</i> for every natural number <i>n</i></b>. In the package it
+is <code>Like_Example_6_1_2</code>, in <code>HTPILib/Chap6.lean</code>, and the proof below
+is Velleman's, copied without changes.
+</p>
+
+<p>
+Two things make this the right example. First, the induction step needs a genuine algebraic
+identity, so you get to see how Lean handles routine algebra (it does it for you, with
+<code>ring</code>). Second, the divisibility is a hidden existential, so Chapter 3 shows up
+again inside Chapter 6, which is the honest structure of the subject.
+</p>
+
+<hr>
+
+<h2>What <code>by_induc</code> does</h2>
+
+<p>
+A goal of the form <code>∀ (n : Nat), P n</code> is a universally quantified statement, so
+you could try <code>fix n : Nat</code> and prove <code>P n</code> directly. Usually you
+cannot. <code>by_induc</code> is the alternative: it replaces the single goal with
+<b>two</b> goals.
+</p>
+
+<div class="goalwrap">
+<span class="lbl">Before</span>
+<pre>⊢ ∀ (n : Nat), 3 ∣ n ^ 3 + 2 * n</pre>
+</div>
+
+<div class="goalwrap">
+<span class="lbl">After <code>by_induc</code>: goal 1, the base case</span>
+<pre>⊢ 3 ∣ 0 ^ 3 + 2 * 0</pre>
+</div>
+
+<div class="goalwrap">
+<span class="lbl">After <code>by_induc</code>: goal 2, the induction step</span>
+<pre>⊢ ∀ (n : Nat), 3 ∣ n ^ 3 + 2 * n → 3 ∣ (n + 1) ^ 3 + 2 * (n + 1)</pre>
+</div>
+<p class="prov unver">These two states are reconstructed from the tactics that follow in Velleman's proof (they are forced by it), not quoted from his file.</p>
+
+<p>
+That is the entire principle of mathematical induction, expressed as a single legal move.
+And look carefully at goal 2, because it answers the question every student asks in week
+eleven:
+</p>
+
+<div class="note">
+<p>
+<b>"Isn't assuming <i>P</i>(<i>n</i>) assuming what we're trying to prove?"</b> No, and
+here is the proof that it is not. The thing being proved is
+<code>∀ n, P n → P (n + 1)</code>. That is a statement about a conditional. Assuming
+<code>P n</code> in order to derive <code>P (n + 1)</code> is just the ordinary Chapter 3
+move for a conditional goal &mdash; the same <code>assume</code> you have been using since
+September. The induction hypothesis is not an assumption of the theorem; it is the
+antecedent of the implication you are currently proving. Lean's display makes this
+impossible to misread, which is why doing one of these in Lean tends to settle the
+question permanently.
+</p>
+</div>
+
+<p>
+The two goals are handled by the two <code>·</code> bullets in the proof below. Everything
+indented under the first bullet is the base case; everything under the second is the
+induction step. Nothing but indentation keeps them apart, so mind the whitespace.
+</p>
+
+<hr>
+
+<h2>Example 6.1.2</h2>
+
+<div class="pair">
+<div>
+<h3>On paper</h3>
+<p>
+<b>Base case.</b> 0<sup>3</sup> + 2&middot;0 = 0 = 3&middot;0, so 3 &#8739; 0.
+</p>
+<p>
+<b>Induction step.</b> Let <i>n</i> be arbitrary and suppose
+3 &#8739; <i>n</i><sup>3</sup> + 2<i>n</i>.
+</p>
+<p>
+Then <i>n</i><sup>3</sup> + 2<i>n</i> = 3<i>k</i> for some <i>k</i>.
+</p>
+<p>
+Now
+(<i>n</i>+1)<sup>3</sup> + 2(<i>n</i>+1)
+= <i>n</i><sup>3</sup> + 2<i>n</i> + 3<i>n</i><sup>2</sup> + 3<i>n</i> + 3
+= 3<i>k</i> + 3<i>n</i><sup>2</sup> + 3<i>n</i> + 3
+= 3(<i>k</i> + <i>n</i><sup>2</sup> + <i>n</i> + 1),
+</p>
+<p>
+so 3 &#8739; (<i>n</i>+1)<sup>3</sup> + 2(<i>n</i>+1).
+</p>
+<p>
+By induction, the result holds for all <i>n</i>. &#9633;
+</p>
+</div>
+<div>
+<h3>In Lean</h3>
+<div class="codewrap"><pre><code>theorem Like_Example_6_1_2 :
+    ∀ (n : Nat), 3 ∣ n ^ 3 + 2 * n := by
+  by_induc
+  · -- Base Case
+    define         --Goal : ∃ (c : Nat), 0 ^ 3 + 2 * 0 = 3 * c
+    apply Exists.intro 0
+    rfl
+    done
+  · -- Induction Step
+    fix n : Nat
+    assume ih : 3 ∣ n ^ 3 + 2 * n
+    define at ih   --ih : ∃ (c : Nat), n ^ 3 + 2 * n = 3 * c
+    obtain (k : Nat) (h1 : n ^ 3 + 2 * n = 3 * k) from ih
+    define         --Goal : ∃ (c : Nat), (n + 1) ^ 3 + 2 * (n + 1) = 3 * c
+    apply Exists.intro (k + n ^ 2 + n + 1)
+    show (n + 1) ^ 3 + 2 * (n + 1) = 3 * (k + n ^ 2 + n + 1) from
+      calc (n + 1) ^ 3 + 2 * (n + 1)
+        _ = n ^ 3 + 2 * n + 3 * n ^ 2 + 3 * n + 3 := by ring
+        _ = 3 * k + 3 * n ^ 2 + 3 * n + 3 := by rw [h1]
+        _ = 3 * (k + n ^ 2 + n + 1) := by ring
+    done
+  done</code></pre></div>
+<p class="prov">Verbatim from <code>HTPILib/Chap6.lean</code> (Velleman), his comments included.</p>
+</div>
+</div>
+
+<h3>The base case, step by step</h3>
+
+<div class="step">
+<h3><code>define</code></h3>
+<p class="ln">
+<b>English:</b> "3 divides 0 means: there is a <i>c</i> with 0 = 3<i>c</i>." <br>
+<b>What it does:</b> unfolds <code>∣</code>. Divisibility is a definition, and the
+definition is existential. This is the moment Chapter 3 walks back into the room.
+</p>
+<div class="goalwrap">
+<span class="lbl">Velleman's own comment</span>
+<pre>Goal : ∃ (c : Nat), 0 ^ 3 + 2 * 0 = 3 * c</pre>
+</div>
+</div>
+
+<div class="step">
+<h3><code>apply Exists.intro 0</code> then <code>rfl</code></h3>
+<p class="ln">
+Supply the witness &mdash; <i>c</i> = 0 &mdash; and then the remaining goal is
+<code>0 ^ 3 + 2 * 0 = 3 * 0</code>, which both sides compute to <code>0</code>.
+<code>rfl</code> ("reflexivity") closes any goal whose two sides are literally the same
+after computation. For concrete numbers, Lean just does the arithmetic.
+</p>
+</div>
+
+<h3>The induction step, step by step</h3>
+
+<div class="step">
+<h3><code>fix n : Nat</code> and <code>assume ih : 3 ∣ n ^ 3 + 2 * n</code></h3>
+<p class="ln">
+The goal was <code>∀ n, P n → P (n + 1)</code>. Universal goal, so <code>fix</code>;
+conditional goal, so <code>assume</code>. There is nothing induction-specific happening
+here at all, which is the point made in the box above. The name <code>ih</code> is a
+convention, not a keyword &mdash; you could call it <code>h7</code>.
+</p>
+<div class="goalwrap">
+<span class="lbl">Tactic state after</span>
+<pre>n : Nat
+ih : 3 ∣ n ^ 3 + 2 * n
+⊢ 3 ∣ (n + 1) ^ 3 + 2 * (n + 1)</pre>
+</div>
+<p class="prov unver">Reconstructed from the surrounding tactics, not quoted from Velleman's file.</p>
+</div>
+
+<div class="step">
+<h3><code>define at ih</code> and <code>obtain (k : Nat) (h1 : ...) from ih</code></h3>
+<p class="ln">
+<b>English:</b> "So <i>n</i><sup>3</sup> + 2<i>n</i> = 3<i>k</i> for some <i>k</i>." <br>
+<b>What it does:</b> unfold the divisibility in the hypothesis, exposing an existential;
+then <code>obtain</code> strips the existential and hands you a name for the witness plus
+the fact about it. This is the Chapter 3 move for an existential <i>given</i>, and it is
+the reason the divisibility exercises are a good first induction: you get to use both
+halves of Chapter 3's existential machinery in a single proof.
+</p>
+<div class="goalwrap">
+<span class="lbl">Velleman's comment, then the effect of <code>obtain</code></span>
+<pre>ih : ∃ (c : Nat), n ^ 3 + 2 * n = 3 * c
+k : Nat
+h1 : n ^ 3 + 2 * n = 3 * k</pre>
+</div>
+</div>
+
+<div class="step">
+<h3><code>define</code> and <code>apply Exists.intro (k + n ^ 2 + n + 1)</code></h3>
+<p class="ln">
+Unfold the divisibility in the goal, then supply the witness. And here is the actual
+mathematical content of the whole proof: <b>you have to know what <i>c</i> is before you
+can start computing.</b>
+</p>
+<div class="goalwrap">
+<span class="lbl">Velleman's own comment</span>
+<pre>Goal : ∃ (c : Nat), (n + 1) ^ 3 + 2 * (n + 1) = 3 * c</pre>
+</div>
+<p>
+On paper you discover <i>c</i> = <i>k</i> + <i>n</i><sup>2</sup> + <i>n</i> + 1 by doing
+the algebra and reading off the answer at the end. Lean makes you commit to it first, then
+verify. That is a real difference in workflow and it is worth naming: <b>do the scratch
+algebra on paper, then write the Lean proof knowing the answer.</b> Trying to discover the
+witness while inside Lean is miserable and is not what the tool is for.
+</p>
+</div>
+
+<div class="step">
+<h3>The <code>calc</code> block</h3>
+<p class="ln">
+The chain of equalities, one line per equals sign, with a justification after each
+<code>:=</code>. The underscore means "the right-hand side of the line above."
+</p>
+<div class="codewrap"><pre><code>      calc (n + 1) ^ 3 + 2 * (n + 1)
+        _ = n ^ 3 + 2 * n + 3 * n ^ 2 + 3 * n + 3 := by ring
+        _ = 3 * k + 3 * n ^ 2 + 3 * n + 3 := by rw [h1]
+        _ = 3 * (k + n ^ 2 + n + 1) := by ring</code></pre></div>
+<p class="prov">Verbatim excerpt from <code>HTPILib/Chap6.lean</code> (Velleman).</p>
+<p>
+Two justifications appear. <code>ring</code> proves any identity that holds in every
+commutative ring by normalizing both sides &mdash; expanding
+<code>(n + 1) ^ 3</code>, collecting terms, all of it. You do not check that step and you
+do not have to. <code>rw [h1]</code> substitutes using the induction hypothesis,
+replacing <code>n ^ 3 + 2 * n</code> by <code>3 * k</code>.
+</p>
+<p>
+Notice the shape: <b>algebra, then the induction hypothesis, then algebra.</b> The middle
+line is the only one that uses induction at all, and the outer two are bookkeeping that
+the machine does. That decomposition is invisible in the paper proof, where the whole
+computation is one displayed chain, and seeing it separated is genuinely clarifying about
+what induction contributes.
+</p>
+</div>
+
+<hr>
+
+<h2>A summation, and an inequality</h2>
+
+<p>
+Two more of Velleman's, verbatim, because the other two things Chapter 6 asks you to do by
+induction are sums and inequalities, and each has one wrinkle.
+</p>
+
+<h3>A sum</h3>
+
+<div class="codewrap"><pre><code>theorem Like_Example_6_1_1 :
+    ∀ (n : Nat), (Sum i from 0 to n, 2 ^ i) + 1 = 2 ^ (n + 1) := by
+  by_induc
+  · -- Base Case
+    rewrite [sum_base]
+    rfl
+    done
+  · -- Induction Step
+    fix n : Nat
+    assume ih : (Sum i from 0 to n, 2 ^ i) + 1 = 2 ^ (n + 1)
+    show (Sum i from 0 to n + 1, 2 ^ i) + 1 = 2 ^ (n + 1 + 1) from
+      calc (Sum i from 0 to n + 1, 2 ^ i) + 1
+        _ = (Sum i from 0 to n, 2 ^ i) + 2 ^ (n + 1) + 1 := by
+              rw [sum_from_zero_step]
+        _ = (Sum i from 0 to n, 2 ^ i) + 1 + 2 ^ (n + 1) := by ring
+        _ = 2 ^ (n + 1) + 2 ^ (n + 1) := by rw [ih]
+        _ = 2 ^ (n + 1 + 1) := by ring
+    done
+  done</code></pre></div>
+<p class="prov">Verbatim from <code>HTPILib/Chap6.lean</code> (Velleman).</p>
+
+<p>
+The wrinkle is that <code>Sum i from 0 to n, f i</code> is a defined notation, and peeling
+one term off the end is a theorem, not a manipulation. That theorem is
+<code>sum_from_zero_step</code>, and it says exactly what you would want:
+</p>
+
+<div class="codewrap"><pre><code>theorem sum_from_zero_step {A : Type} [AddZeroClass A] {n : Nat} {f : Nat → A} :
+    Sum i from 0 to (n + 1), f i = (Sum i from 0 to n, f i) + f (n + 1)</code></pre></div>
+<p class="prov">Verbatim from the header comment of <code>HTPILib/Chap6.lean</code> (Velleman); the theorem itself lives in <code>Chap8Part1</code>.</p>
+
+<p>
+<code>sum_base</code> is its companion for the one-term sum. On paper, "&hellip; the sum up
+to <i>n</i>+1 is the sum up to <i>n</i> plus the last term" is a sentence you write without
+thinking. In Lean it is a named lemma you rewrite with. This is a fair summary of the whole
+experience of formalizing: the steps are the same steps, and the ones you never noticed
+turn out to have names.
+</p>
+
+<h3>An inequality, and a base case that is not zero</h3>
+
+<div class="codewrap"><pre><code>theorem Example_6_1_3 : ∀ n ≥ 5, 2 ^ n > n ^ 2 := by
+  by_induc
+  · -- Base Case
+    decide
+    done
+  · -- Induction Step
+    fix n : Nat
+    assume h1 : n ≥ 5
+    assume ih : 2 ^ n > n ^ 2
+    have h2 : n * n ≥ 5 * n := Nat.mul_le_mul_right n h1
+    show 2 ^ (n + 1) > (n + 1) ^ 2 from
+      calc 2 ^ (n + 1)
+        _ = 2 * 2 ^ n := by ring
+        _ > 2 * n ^ 2 := by linarith
+        _ ≥ n ^ 2 + 5 * n := by linarith
+        _ > n ^ 2 + 2 * n + 1 := by linarith
+        _ = (n + 1) ^ 2 := by ring
+    done
+  done</code></pre></div>
+<p class="prov">Verbatim from <code>HTPILib/Chap6.lean</code> (Velleman).</p>
+
+<p>
+Three things worth naming.
+</p>
+
+<ul>
+<li>
+  <b>The base case is <i>n</i> = 5, not <i>n</i> = 0</b>, and <code>by_induc</code> works
+  that out from the <code>∀ n ≥ 5</code> in the statement. The induction step accordingly
+  gets an extra hypothesis, <code>h1 : n ≥ 5</code>, which you will need.
+</li>
+<li>
+  <b><code>decide</code></b> closes the base case. It means "this is a decidable claim
+  about concrete numbers &mdash; compute it." Here that is 32 &gt; 25.
+</li>
+<li>
+  <b>A <code>calc</code> chain can mix <code>=</code>, <code>&gt;</code> and
+  <code>≥</code></b>, and Lean composes the relations correctly to conclude
+  <code>&gt;</code> overall. <code>linarith</code> discharges each inequality step: it is a
+  decision procedure for linear arithmetic over ordered fields, and it will use anything in
+  the context, which is how <code>h2</code> and <code>ih</code> get used without being
+  mentioned.
+</li>
+</ul>
+
+<p>
+<code>ring</code>, <code>linarith</code> and <code>decide</code> are standard Lean, not
+Velleman's dialect. They are the first genuine automation you meet, and they are the
+reason formalizing Chapter 6 is less tedious than formalizing Chapter 3.
+</p>
+
+<hr>
+
+<h2>Your turn</h2>
+
+<p>
+In <code>Chap6Ex.lean</code>, Section 6.1:
+</p>
+
+<div class="codewrap"><pre><code>theorem Exercise_6_1_9a : ∀ (n : Nat), 2 ∣ n ^ 2 + n := sorry</code></pre></div>
+<p class="prov">Verbatim from <code>Chap6Ex.lean</code> (Velleman).</p>
+
+<p>
+This is <code>Like_Example_6_1_2</code> with different numbers, so you can follow that
+proof structurally, line for line. Do it on paper first &mdash; in particular, work out the
+witness <i>c</i> before you type anything.
+</p>
+
+<p>
+Then, harder and more interesting:
+</p>
+
+<div class="codewrap"><pre><code>theorem Like_Exercise_6_1_4 :
+    ∀ (n : Nat), Sum i from 0 to n, 2 * i + 1 = (n + 1) ^ 2 := sorry
+
+theorem Exercise_6_1_15 : ∀ n ≥ 10, 2 ^ n > n ^ 3 := sorry</code></pre></div>
+<p class="prov">Verbatim from <code>Chap6Ex.lean</code> (Velleman).</p>
+
+<p>
+The first follows <code>Like_Example_6_1_1</code>; the second follows
+<code>Example_6_1_3</code>, and is a genuine fight, mostly because finding the right
+intermediate inequality is genuine work. That is fine. It is supposed to be.
+</p>
+
+<details class="deeper">
+<summary>A solution to 6.1.9(a), if you want to check yourself afterwards</summary>
+<div class="codewrap"><pre><code>theorem Exercise_6_1_9a : ∀ (n : Nat), 2 ∣ n ^ 2 + n := by
+  by_induc
+  · -- Base Case
+    define
+    apply Exists.intro 0
+    rfl
+    done
+  · -- Induction Step
+    fix n : Nat
+    assume ih : 2 ∣ n ^ 2 + n
+    define at ih
+    obtain (k : Nat) (h1 : n ^ 2 + n = 2 * k) from ih
+    define
+    apply Exists.intro (k + n + 1)
+    show (n + 1) ^ 2 + (n + 1) = 2 * (k + n + 1) from
+      calc (n + 1) ^ 2 + (n + 1)
+        _ = n ^ 2 + n + 2 * n + 2 := by ring
+        _ = 2 * k + 2 * n + 2 := by rw [h1]
+        _ = 2 * (k + n + 1) := by ring
+    done
+  done</code></pre></div>
+<p class="prov unver">Statement verbatim from <code>Chap6Ex.lean</code>; proof written for this page (not machine-checked). It is <code>Like_Example_6_1_2</code> with the numbers changed &mdash; check it in Lean rather than believing this page.</p>
+</details>
+
+<hr>
+
+<h2>Where to go after this</h2>
+
+<p>
+If you have got this far and want more, the natural next steps are Chapter 6's later
+sections &mdash; strong induction and recursion, where <code>by_strong_induc</code> and
+recursive definitions like <code>fact</code> and <code>Fib</code> live &mdash; and then
+Chapter 7, number theory, which is where the exercises stop feeling like exercises.
+</p>
+
+<p>
+If instead you want to leave the dialect and use Lean for real mathematics, read the
+<a href="https://djvelleman.github.io/HTPIwL/Appendix.html">Transitioning to Standard
+Lean</a> section of the appendix, then look at
+<a href="https://leanprover-community.github.io/">Mathlib</a>. That is a different and
+much larger world, and nothing in this course is preparation for it beyond the one thing
+that matters: knowing what a goal state is and how to look at one.
+</p>
+
+<hr>
+
+<p class="footer">
+Previous: <a href="walkthrough-ch5.html">Chapter 5</a> &middot;
+<a href="badge.html">The badge</a>.
+&middot; MATH 2055, Fall 2026. Taylor Dupuy, University of Vermont. Optional and ungraded.
+</p>
+
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Chapter 5 walkthrough &mdash; Lean &mdash; MATH 2055</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Taylor Dupuy">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="lean.css">
+</head>
+<body class="wide">
+
+<p><a href="index.html">&larr; Lean</a></p>
+
+<h1>Chapter 5, line by line</h1>
+
+<p>
+One theorem, done properly: <b>the composition of two one-to-one functions is one-to-one</b>
+&mdash; Theorem 5.2.5(1) in <i>How To Prove It</i>. In the package it is
+<code>Theorem_5_2_5_1</code>, in <code>HTPILib/Chap5.lean</code>, and the proof below is
+Velleman's own, copied without changes. Everything on this page except the last section is
+verbatim, so you can trust it.
+</p>
+
+<p>
+By the time we look at this, you will already have proved it on paper: Chapter 5 is done in
+class in November, and the Lean side of it comes afterwards. That ordering is deliberate; see
+the <a href="index.html">hub page</a>.
+</p>
+
+<div class="note">
+<p>
+<b>Reading the goal states.</b> Above the <code>⊢</code>: what you have. Below it: what
+you owe. Velleman writes the intermediate states as comments in his own source, and the
+states quoted below are his, verbatim, which is as authoritative as it gets.
+</p>
+</div>
+
+<hr>
+
+<h2>The definitions first</h2>
+
+<p>
+Before the theorem there is a question worth a minute: what, exactly, is a function to
+Lean? In Chapter 5 Velleman defines a function as a set of ordered pairs with a
+single-valuedness property, and then proves that this matches the built-in notion. Lean's
+built-in notion is primitive: <code>f : A → B</code> is a first-class object, and
+<code>f a</code> is its value. The two are reconciled in Section 5.1 by
+<code>func_from_graph</code>. For our purposes, <code>f : A → B</code> is a function and
+that is that.
+</p>
+
+<p>
+The two properties we care about are defined like this:
+</p>
+
+<div class="codewrap"><pre><code>def onto {A B : Type} (f : A → B) : Prop :=
+  ∀ (y : B), ∃ (x : A), f x = y
+
+def one_to_one {A B : Type} (f : A → B) : Prop :=
+  ∀ (x1 x2 : A), f x1 = f x2 → x1 = x2</code></pre></div>
+<p class="prov">Verbatim from <code>HTPILib/Chap5.lean</code> (Velleman).</p>
+
+<p>
+These are the book's definitions, transcribed. Nothing is hidden and nothing is cleverer
+than what is on the page. The braces in <code>{A B : Type}</code> mean those arguments are
+<i>implicit</i>: Lean works out the types from <code>f</code>, so you write
+<code>one_to_one f</code>, not <code>one_to_one A B f</code>.
+</p>
+
+<p>
+Note that <code>one_to_one f</code> is a <i>defined</i> notion, so it is opaque until you
+unfold it. That is what <code>define</code> is for, and on this page <code>define</code>
+does most of the work.
+</p>
+
+<hr>
+
+<h2>Theorem 5.2.5(1)</h2>
+
+<p>
+<b>The theorem.</b> If <i>f</i> : <i>A</i> &rarr; <i>B</i> and <i>g</i> : <i>B</i> &rarr;
+<i>C</i> are both one-to-one, then <i>g</i> &#8728; <i>f</i> is one-to-one.
+</p>
+
+<div class="pair">
+<div>
+<h3>On paper</h3>
+<p>
+Suppose <i>f</i> and <i>g</i> are one-to-one.
+</p>
+<p>
+Let <i>a</i><sub>1</sub> and <i>a</i><sub>2</sub> be arbitrary elements of <i>A</i>, and
+suppose (<i>g</i> &#8728; <i>f</i>)(<i>a</i><sub>1</sub>) =
+(<i>g</i> &#8728; <i>f</i>)(<i>a</i><sub>2</sub>).
+</p>
+<p>
+By the definition of composition, this says
+<i>g</i>(<i>f</i>(<i>a</i><sub>1</sub>)) = <i>g</i>(<i>f</i>(<i>a</i><sub>2</sub>)).
+</p>
+<p>
+Since <i>g</i> is one-to-one, <i>f</i>(<i>a</i><sub>1</sub>) =
+<i>f</i>(<i>a</i><sub>2</sub>).
+</p>
+<p>
+Since <i>f</i> is one-to-one, <i>a</i><sub>1</sub> = <i>a</i><sub>2</sub>.
+</p>
+<p>
+Since <i>a</i><sub>1</sub> and <i>a</i><sub>2</sub> were arbitrary,
+<i>g</i> &#8728; <i>f</i> is one-to-one. &#9633;
+</p>
+</div>
+<div>
+<h3>In Lean</h3>
+<div class="codewrap"><pre><code>theorem Theorem_5_2_5_1 {A B C : Type} (f : A → B) (g : B → C) :
+    one_to_one f → one_to_one g → one_to_one (g ∘ f) := by
+  assume h1 : one_to_one f
+  assume h2 : one_to_one g
+  define at h1
+  define at h2
+  define
+  fix a1 : A
+  fix a2 : A
+  define : (g ∘ f) a1; define : (g ∘ f) a2
+  assume h3 : g (f a1) = g (f a2)
+  have h4 : f a1 = f a2 := h2 (f a1) (f a2) h3
+  show a1 = a2 from h1 a1 a2 h4
+  done</code></pre></div>
+<p class="prov">Verbatim from <code>HTPILib/Chap5.lean</code> (Velleman), with his inline goal-state comments moved into the walkthrough below.</p>
+</div>
+</div>
+
+<p>
+Nine tactic lines for six sentences, and the extra three are all <code>define</code>. That
+is the honest ratio for Chapter 5: what costs you lines in Lean is the unfolding that on
+paper you do silently, in your head, correctly, most of the time.
+</p>
+
+<h3>Step 0 &mdash; the opening position</h3>
+
+<div class="goalwrap">
+<span class="lbl">Tactic state</span>
+<pre>A B C : Type
+f : A → B
+g : B → C
+⊢ one_to_one f → one_to_one g → one_to_one (g ∘ f)</pre>
+</div>
+
+<p>
+Note the shape of the goal. It is not "<i>P</i> and <i>Q</i> imply <i>R</i>"; it is
+"<i>P</i> implies (<i>Q</i> implies <i>R</i>)." Those are equivalent, and Lean prefers the
+second because it composes better. It is why there are two <code>assume</code>s in a row.
+</p>
+
+<div class="step">
+<h3>Steps 1&ndash;2 &mdash; <code>assume h1 : one_to_one f</code>, <code>assume h2 : one_to_one g</code></h3>
+<p class="ln">
+"Suppose <i>f</i> is one-to-one. Suppose <i>g</i> is one-to-one." Conditional goal, twice.
+</p>
+<div class="goalwrap">
+<span class="lbl">Tactic state after</span>
+<pre>A B C : Type
+f : A → B
+g : B → C
+h1 : one_to_one f
+h2 : one_to_one g
+⊢ one_to_one (g ∘ f)</pre>
+</div>
+</div>
+
+<div class="step">
+<h3>Steps 3&ndash;4 &mdash; <code>define at h1</code> and <code>define at h2</code></h3>
+<p class="ln">
+<b>English:</b> "By the definition of one-to-one, <code>h1</code> says: for all
+<i>x</i><sub>1</sub>, <i>x</i><sub>2</sub> in <i>A</i>, if
+<i>f</i>(<i>x</i><sub>1</sub>) = <i>f</i>(<i>x</i><sub>2</sub>) then
+<i>x</i><sub>1</sub> = <i>x</i><sub>2</sub>." <br>
+<b>What it does:</b> unfolds the definition <i>inside a hypothesis</i>, in place. The
+hypothesis keeps its name and changes its displayed form.
+</p>
+<div class="goalwrap">
+<span class="lbl">Velleman's own comments on these two lines</span>
+<pre>h1 : ∀ (x1 x2 : A), f x1 = f x2 → x1 = x2
+h2 : ∀ (x1 x2 : B), g x1 = g x2 → x1 = x2</pre>
+</div>
+<p>
+This is the step that matters, and it is worth pausing on. <code>one_to_one f</code> is a
+name. It is not usable as a name; it is usable as the universally quantified conditional
+it abbreviates. On paper, "since <i>g</i> is one-to-one" is a phrase you deploy without
+consciously expanding. In Lean you expand it, look at it, and then apply it &mdash; and
+having looked at it, you notice things, such as that it quantifies over <i>two</i>
+variables, which is exactly what you will need in a moment.
+</p>
+</div>
+
+<div class="step">
+<h3>Step 5 &mdash; <code>define</code></h3>
+<p class="ln">
+Same unfolding, applied to the goal.
+</p>
+<div class="goalwrap">
+<span class="lbl">Velleman's own comment</span>
+<pre>Goal : ∀ (x1 x2 : A), (g ∘ f) x1 = (g ∘ f) x2 → x1 = x2</pre>
+</div>
+<p>
+The goal is now universally quantified over two variables, with a conditional inside.
+Chapter 3 tells you exactly what to do with that, and it does not matter in the least that
+the subject is functions: <code>fix</code>, <code>fix</code>, <code>assume</code>. This is
+the payoff of Chapter 3, and it is the reason the Lean pass over Chapter 5 comes at the end
+of the term rather than as a new topic in September. There is no November Lean day: Chapters 5
+and 6 share the partial Lean slot on <b>Friday, December 11</b>, which also carries Quiz 11 and
+&sect;8.3, so that meeting is a demonstration. This page is written so that you can work through
+the theorem on your own without it.
+</p>
+</div>
+
+<div class="step">
+<h3>Steps 6&ndash;7 &mdash; <code>fix a1 : A</code>, <code>fix a2 : A</code></h3>
+<p class="ln">
+"Let <i>a</i><sub>1</sub> and <i>a</i><sub>2</sub> be arbitrary."
+</p>
+<div class="goalwrap">
+<span class="lbl">Velleman's own comment</span>
+<pre>Goal : (g ∘ f) a1 = (g ∘ f) a2 → a1 = a2</pre>
+</div>
+</div>
+
+<div class="step">
+<h3>Step 8 &mdash; <code>define : (g ∘ f) a1; define : (g ∘ f) a2</code></h3>
+<p class="ln">
+<b>English:</b> "By the definition of composition, (<i>g</i> &#8728; <i>f</i>)(<i>a</i>)
+means <i>g</i>(<i>f</i>(<i>a</i>))." <br>
+<b>What it does:</b> a third form of <code>define</code>. Written
+<code>define : e</code>, it unfolds the specific expression <code>e</code> wherever it
+appears, rather than unfolding whatever happens to be outermost. You need the pointed
+version here because the outermost thing in the goal is the arrow, not the composition.
+The semicolon just runs two tactics in sequence on one line.
+</p>
+<div class="goalwrap">
+<span class="lbl">Velleman's own comment</span>
+<pre>Goal : g (f a1) = g (f a2) → a1 = a2</pre>
+</div>
+<p>
+This is the whole substance of the proof, made visible. Composition is a definition, not a
+fact; unfolding it is the only move available, and once it is unfolded the rest is two
+applications of hypotheses.
+</p>
+</div>
+
+<div class="step">
+<h3>Step 9 &mdash; <code>assume h3 : g (f a1) = g (f a2)</code></h3>
+<div class="goalwrap">
+<span class="lbl">Tactic state after</span>
+<pre>A B C : Type
+f : A → B
+g : B → C
+h1 : ∀ (x1 x2 : A), f x1 = f x2 → x1 = x2
+h2 : ∀ (x1 x2 : B), g x1 = g x2 → x1 = x2
+a1 a2 : A
+h3 : g (f a1) = g (f a2)
+⊢ a1 = a2</pre>
+</div>
+<p>
+Look at this position for a moment. It is the entire proof, laid out: two universally
+quantified conditionals and one equation, and one equation owed. Everything from here is
+forced.
+</p>
+</div>
+
+<div class="step">
+<h3>Step 10 &mdash; <code>have h4 : f a1 = f a2 := h2 (f a1) (f a2) h3</code></h3>
+<p class="ln">
+<b>English:</b> "Since <i>g</i> is one-to-one, <i>f</i>(<i>a</i><sub>1</sub>) =
+<i>f</i>(<i>a</i><sub>2</sub>)." <br>
+<b>What it does:</b> <code>h2</code> is a <code>∀</code> over two variables followed by a
+conditional. You instantiate a <code>∀</code> by writing the objects after it, and you
+apply a conditional by writing the proof of the antecedent after that. So
+<code>h2 (f a1) (f a2) h3</code> reads left to right as: take <code>h2</code>, specialize
+it at <code>f a1</code> and <code>f a2</code>, then feed it <code>h3</code>. The result is
+a proof of <code>f a1 = f a2</code>.
+</p>
+<p>
+Notice that we instantiate <code>h2</code> &mdash; the one about <i>g</i> &mdash; at
+elements of <i>B</i>, namely <code>f a1</code> and <code>f a2</code>. Getting that
+backwards is the classic error in this proof, and on paper it is easy to make and hard to
+see. Here it does not typecheck.
+</p>
+<div class="goalwrap">
+<span class="lbl">Tactic state after</span>
+<pre>...
+h3 : g (f a1) = g (f a2)
+h4 : f a1 = f a2
+⊢ a1 = a2</pre>
+</div>
+</div>
+
+<div class="step">
+<h3>Step 11 &mdash; <code>show a1 = a2 from h1 a1 a2 h4</code></h3>
+<p class="ln">
+"Since <i>f</i> is one-to-one, <i>a</i><sub>1</sub> = <i>a</i><sub>2</sub>." The same move
+with the other hypothesis, and the goal is discharged.
+</p>
+<div class="goalwrap">
+<span class="lbl">Tactic state after</span>
+<pre>No goals</pre>
+</div>
+</div>
+
+<div class="note">
+<p>
+<b>The one thing to take away.</b> The proof has exactly two ideas &mdash; unfold
+"one-to-one," unfold "composition" &mdash; and after that it is bookkeeping. That is true
+of the paper proof too, but on paper the bookkeeping is invisible, so students conclude
+the proof was mostly idea and cannot reproduce it. Watching the goal state shrink line by
+line shows you the real ratio, which is roughly one idea to five mechanical steps. Knowing
+that ratio is calming, and it is a large part of what a first proofs course is for.
+</p>
+</div>
+
+<details class="deeper">
+<summary>Deeper: <code>onto</code>, and where <code>obtain</code> comes back</summary>
+<p>
+The companion theorem &mdash; the composition of two onto functions is onto &mdash; has
+the same skeleton with the quantifiers the other way round, so the Chapter 3 moves swap:
+<code>obtain</code> instead of <code>have</code>, <code>apply Exists.intro</code> instead
+of <code>fix</code>.
+</p>
+<div class="codewrap"><pre><code>theorem Theorem_5_2_5_2 {A B C : Type} (f : A → B) (g : B → C) :
+    onto f → onto g → onto (g ∘ f) := by
+  assume h1 : onto f
+  assume h2 : onto g
+  define at h1           --h1 : ∀ (y : B), ∃ (x : A), f x = y
+  define at h2           --h2 : ∀ (y : C), ∃ (x : B), g x = y
+  define                 --Goal : ∀ (y : C), ∃ (x : A), (g ∘ f) x = y
+  fix c : C
+  obtain (b : B) (h3 : g b = c) from h2 c
+  obtain (a : A) (h4 : f a = b) from h1 b
+  apply Exists.intro a   --Goal : (g ∘ f) a = c
+  rewrite [comp_def]     --Goal : g (f a) = c
+  rewrite [←h4] at h3
+  show g (f a) = c from h3
+  done</code></pre></div>
+<p class="prov">Verbatim from <code>HTPILib/Chap5.lean</code> (Velleman), his comments included.</p>
+<p>
+Two things are new. <code>rewrite [comp_def]</code> uses a previously proved lemma
+(<code>comp_def</code>, one line above it in Velleman's file, which says
+<code>(g ∘ f) x = g (f x)</code>) to rewrite the goal. And
+<code>rewrite [←h4] at h3</code> rewrites <i>backwards</i> &mdash; the left arrow
+<code>←</code>, typed <code>\l</code>, means "use this equation right-to-left" &mdash;
+inside the hypothesis <code>h3</code>, turning <code>g b = c</code> into
+<code>g (f a) = c</code> by replacing <code>b</code> with <code>f a</code>.
+</p>
+<p>
+<code>rewrite</code> is substitution of equals for equals, which on paper is invisible and
+in Lean is a tactic you invoke by name. It is the single largest source of "why won't it
+just do the obvious thing" among beginners. The answer is that Lean will not substitute
+without being told where and in which direction.
+</p>
+</details>
+
+<details class="deeper">
+<summary>Deeper: a <code>calc</code> proof, and a genuinely slick argument</summary>
+<p>
+Theorem 5.3.3(1): if <i>g</i> &#8728; <i>f</i> = id, then <i>f</i> is one-to-one. The
+paper proof is a chain of equalities, and Lean has a construct that writes chains of
+equalities the way you would on a blackboard.
+</p>
+<div class="codewrap"><pre><code>theorem Theorem_5_3_3_1 {A B : Type} (f : A → B) (g : B → A)
+    (h1 : g ∘ f = id) : one_to_one f := by
+  define              --Goal : ∀ (x1 x2 : A), f x1 = f x2 → x1 = x2
+  fix a1 : A; fix a2 : A
+  assume h2 : f a1 = f a2
+  show a1 = a2 from
+    calc a1
+      _ = id a1 := by rfl
+      _ = (g ∘ f) a1 := by rw [h1]
+      _ = g (f a1) := by rfl
+      _ = g (f a2) := by rw [h2]
+      _ = (g ∘ f) a2 := by rfl
+      _ = id a2 := by rw [h1]
+      _ = a2 := by rfl
+  done</code></pre></div>
+<p class="prov">Verbatim from <code>HTPILib/Chap5.lean</code> (Velleman).</p>
+<p>
+Read the <code>calc</code> block as one long chain: <i>a</i><sub>1</sub> = id
+<i>a</i><sub>1</sub> = (<i>g</i>&#8728;<i>f</i>)(<i>a</i><sub>1</sub>) = &hellip; =
+<i>a</i><sub>2</sub>. The underscore stands for "the right-hand side of the previous line."
+After each <code>:=</code> is the justification for that one step. <code>rfl</code>
+(reflexivity) means "these two are the same thing by definition, nothing to prove";
+<code>rw [h1]</code> means "rewrite using the equation <code>h1</code>."
+</p>
+<p>
+Every step here is either a definitional unfolding or one substitution. The proof is
+completely mechanical, and yet on paper this is the argument that makes students say "how
+would I ever have thought of that." The answer, visible in the <code>calc</code> block, is
+that you would not have to: there is only one direction to go at each stage.
+</p>
+</details>
+
+<hr>
+
+<h2>Your turn</h2>
+
+<p>
+In <code>Chap5Ex.lean</code>, Section 5.2:
+</p>
+
+<div class="codewrap"><pre><code>theorem Exercise_5_2_10b {A B C : Type} (f: A → B) (g : B → C) :
+    one_to_one (g ∘ f) → one_to_one f := sorry</code></pre></div>
+<p class="prov">Verbatim from <code>Chap5Ex.lean</code> (Velleman). <code>sorry</code> is Lean's placeholder meaning "trust me" &mdash; your job is to replace it with <code>by</code> and a proof.</p>
+
+<p>
+It is the converse-ish direction: if the composite is injective, the <i>first</i> function
+must have been. Prove it on paper first. Then note that you now need to go the other way
+through the composition &mdash; you have an equation about <i>f</i> and you need one about
+<i>g</i> &#8728; <i>f</i> &mdash; which means <code>calc</code> rather than plain
+<code>have</code>.
+</p>
+
+<p>
+Related, and a good second one: <code>Exercise_5_2_10a</code>, which says
+<code>onto (g ∘ f) → onto g</code>. Ask yourself before starting why the exercises pair
+"one-to-one" with <i>f</i> and "onto" with <i>g</i>, and not the other way. The asymmetry
+is the content.
+</p>
+
+<details class="deeper">
+<summary>A solution to 5.2.10(b), if you want to check yourself afterwards</summary>
+<div class="codewrap"><pre><code>theorem Exercise_5_2_10b {A B C : Type} (f: A → B) (g : B → C) :
+    one_to_one (g ∘ f) → one_to_one f := by
+  assume h1 : one_to_one (g ∘ f)
+  define at h1
+  define
+  fix a1 : A; fix a2 : A
+  assume h2 : f a1 = f a2
+  have h3 : (g ∘ f) a1 = (g ∘ f) a2 :=
+    calc (g ∘ f) a1
+      _ = g (f a1) := by rfl
+      _ = g (f a2) := by rw [h2]
+      _ = (g ∘ f) a2 := by rfl
+  show a1 = a2 from h1 a1 a2 h3
+  done</code></pre></div>
+<p class="prov unver">Statement verbatim from <code>Chap5Ex.lean</code>; proof written for this page (not machine-checked). It is assembled from the exact patterns in <code>Theorem_5_2_5_1</code> and <code>Theorem_5_3_3_1</code> above &mdash; but check it in Lean rather than believing this page.</p>
+<p>
+Notice that <code>g</code> never appears as a hypothesis and is never assumed to be
+anything. It is along for the ride. That is the content of the exercise: injectivity of a
+composite says nothing about the outer function, and everything about the inner one.
+</p>
+</details>
+
+<hr>
+
+<p class="footer">
+Previous: <a href="walkthrough-ch3.html">Chapter 3</a> &middot;
+Next: <a href="walkthrough-ch6.html">Chapter 6 &mdash; induction</a>.
+&middot; MATH 2055, Fall 2026. Taylor Dupuy, University of Vermont. Optional and ungraded.
+</p>
+
+</body>
+</html>

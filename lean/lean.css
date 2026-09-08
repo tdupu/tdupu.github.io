@@ -1,0 +1,93 @@
+/* Additions for the Lean pages. Loaded after ../style.css. */
+
+.wide { max-width: 52rem; }
+
+code, pre, .goal {
+  font-family: "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+}
+code { font-size: 0.88em; }
+
+.codewrap { overflow-x: auto; margin: 0.7rem 0; }
+.codewrap pre {
+  margin: 0;
+  padding: 0.6rem 0.75rem;
+  background: #f7f7f4;
+  border: 1px solid #ddd;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  white-space: pre;
+}
+.codewrap pre code { font-size: inherit; }
+
+.goalwrap { overflow-x: auto; margin: 0.5rem 0 0.9rem; }
+.goalwrap pre {
+  margin: 0;
+  padding: 0.55rem 0.75rem;
+  background: #fbf8ee;
+  border: 1px solid #e0d8bd;
+  border-left: 3px solid #b9a55e;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  white-space: pre;
+}
+.goalwrap .lbl {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #6a5f38;
+  margin-bottom: 0.25rem;
+}
+
+.prov {
+  font-size: 0.78rem;
+  color: #666;
+  margin: -0.35rem 0 1rem;
+  font-style: italic;
+}
+.prov.unver { color: #8a4a1a; }
+
+.warn {
+  border: 2px solid #a33;
+  background: #fdf3f2;
+  padding: 0.7rem 0.9rem;
+  margin: 1.1rem 0;
+}
+.warn p:first-child { margin-top: 0; }
+.warn p:last-child  { margin-bottom: 0; }
+.warn .hd { font-weight: bold; color: #8a1f1f; }
+
+.note {
+  border-left: 3px solid #bbb;
+  background: #fafafa;
+  padding: 0.5rem 0.85rem;
+  margin: 1rem 0;
+}
+.note p:first-child { margin-top: 0; }
+.note p:last-child  { margin-bottom: 0; }
+
+details.deeper {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem 0;
+  margin: 1.2rem 0;
+}
+details.deeper > summary {
+  cursor: pointer;
+  font-style: italic;
+  color: #444;
+}
+details.deeper[open] > summary { margin-bottom: 0.5rem; }
+
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.4rem; }
+.pair > div > h3 { margin-top: 0; }
+@media (max-width: 44rem) { .pair { grid-template-columns: 1fr; } }
+
+.step { margin: 1.3rem 0; }
+.step > .ln { margin: 0 0 0.3rem; }
+
+table.sched { border-collapse: collapse; margin: 0.8rem 0; font-size: 0.95rem; }
+table.sched th, table.sched td {
+  border-bottom: 1px solid #ddd; padding: 0.35rem 0.9rem 0.35rem 0; text-align: left;
+  vertical-align: top;
+}

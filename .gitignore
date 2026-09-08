@@ -27,3 +27,12 @@ AGENTS.md
 .agents/
 .codex/
 CLAUDE.md
+
+# Staging for removal — never publish (see _to_delete/README)
+_to_delete/
+
+# Preview / scratch artifacts from agent runs — never publish
+_preview/
+Claude outputs/
+claude-outputs/
+*.preview.html

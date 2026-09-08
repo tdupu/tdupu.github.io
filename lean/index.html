@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lean &mdash; MATH 2055</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Taylor Dupuy">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="lean.css">
+</head>
+<body>
+
+<p><a href="../logic/2026/math2055.html">&larr; MATH 2055</a></p>
+
+<h1>Lean, for this course</h1>
+
+<p>
+Optional. Ungraded. Worth zero points. It cannot help your grade and it cannot hurt it.
+</p>
+
+<p>
+Velleman, who wrote our textbook, also wrote a free companion book in which
+<b>every exercise is the same exercise, done on a computer.</b>
+Exercise 3.2.1(a) in <i>How To Prove It</i> is a theorem called
+<code>Exercise_3_2_1a</code> in the file <code>Chap3Ex.lean</code>. Same numbering, same
+statement, same chapter. You do the problem on paper first, the way this course does
+everything; if you want, you then do the identical problem in Lean and a machine tells
+you whether your proof is actually a proof.
+</p>
+
+<p>
+That correspondence is the entire point. This is not a separate subject bolted onto the
+course. It is a second pass over the same material with a referee who never gets tired
+and never gives you the benefit of the doubt.
+</p>
+
+<h2>The framing (Massot's, and it is right)</h2>
+
+<div class="note">
+<p>
+<b>The goal is to improve your proofs on paper. Lean expertise is a non-goal.</b>
+</p>
+</div>
+
+<p>
+Patrick Massot puts it this way and it is worth taking literally. Nobody in this course
+is going to become a Lean user. What happens instead is that Lean refuses to accept the
+three or four moves that undergraduates habitually make without noticing: using the
+thing you are trying to prove, quantifying over a variable that was never introduced,
+saying "clearly" where a case split belongs, proving the converse by accident. The
+machine finds these in seconds. After a couple of hours of that, you find them yourself,
+on paper, with a pen. That is the transfer we are after, and it is the only one.
+</p>
+
+<h2>What a proof assistant actually is</h2>
+
+<p>
+A proof assistant is a programming language whose programs are proofs. You type a
+sequence of instructions; the software maintains a bookkeeping record of exactly what
+you have assumed and exactly what remains to be shown; when nothing remains to be shown,
+the proof is done, and it is done in a sense that has been mechanically checked against
+a small fixed set of rules.
+</p>
+
+<p>
+The thing you look at while working is called the <b>tactic state</b> or <b>goal state</b>.
+It is displayed in a pane next to your file, and it is the whole user interface. Here is
+what it looks like at the start of the very first exercise:
+</p>
+
+<div class="goalwrap">
+<span class="lbl">Tactic state</span>
+<pre>P Q R : Prop
+h1 : P → Q
+h2 : Q → R
+⊢ P → R</pre>
+</div>
+
+<p>
+Everything above the <code>⊢</code> is what you are allowed to use. The line below it is
+what you owe. <code>P Q R : Prop</code> says these three letters are propositions;
+<code>h1</code> and <code>h2</code> are names for the two hypotheses. Every step you take
+changes this display, and the honest description of what you are doing is: pushing the
+turnstile line until it says <code>No goals</code>.
+</p>
+
+<p>
+This display is the pedagogical payload. A structured prose proof in Velleman's style is
+a sequence of givens-and-goal states written in English. The tactic state is the same
+sequence, maintained for you, and never wrong. Chapter 3 of <i>How To Prove It</i> asks
+you to keep that table in your head. Lean puts it on the screen.
+</p>
+
+<h2>Why Velleman specifically</h2>
+
+<p>
+There are a dozen ways to teach Lean. Almost all of them teach Lean. Velleman's
+companion, <a href="https://djvelleman.github.io/HTPIwL/"><i>How To Prove It with Lean</i></a>,
+teaches <i>our book</i>, and it does so by defining a set of custom tactics whose names are
+the moves in the book: <code>assume</code>, <code>fix</code>, <code>obtain</code>,
+<code>show ... from</code>, <code>by_cases on</code>, <code>by_induc</code>. A finished
+proof reads like a compressed version of the structured prose proof you would have written
+by hand.
+</p>
+
+<div class="note">
+<p>
+<b>Honest disclosure:</b> this is a dialect. Those tactic names are not standard Lean;
+they are defined in a file called <code>HTPIDefs.lean</code> that ships with the package,
+and in the book's appendix they are marked with an asterisk for exactly this reason.
+Standard Lean writes <code>intro</code> where we write <code>assume</code> and
+<code>fix</code>, and <code>h.mp</code> where we write <code>h.ltr</code>. If you ever
+want to leave the dialect, the book's appendix has a section called
+<a href="https://djvelleman.github.io/HTPIwL/Appendix.html">Transitioning to Standard
+Lean</a> that translates every one of them. Nothing you learn is wasted; some of it just
+has a different name outside this course.
+</p>
+</div>
+
+<h2>The path</h2>
+
+<p>
+Three tiers. Do them in order. Most people should stop after the first one and be
+perfectly happy about it.
+</p>
+
+<h3>Tier 1 &mdash; the Set Theory Game (nothing to install, no account)</h3>
+
+<p>
+<a href="https://adam.math.hhu.de/#/g/djvelleman/stg4">The Set Theory Game</a> is also
+Velleman's, it runs in a browser tab, it requires no account and no download, and its
+eight worlds &mdash; Subset, Complement, Intersection, Union, Combination, Family
+Intersection, Family Union, Family Combination &mdash; are Chapter 3 of our textbook,
+in order. This is the front door. If you do nothing else, do Subset World; it takes
+about twenty minutes and it will change how you read the definition of <code>&sube;</code>.
+</p>
+
+<p>
+Other games worth an evening, none of them required:
+</p>
+
+<ul>
+<li><a href="https://adam.math.hhu.de/#/g/leanprover-community/nng4">Natural Number Game</a>
+&mdash; builds arithmetic from the Peano axioms. The classic. Chapter 6 material, roughly.</li>
+<li><a href="https://adam.math.hhu.de/#/g/emilyriehl/reintroductiontoproofs">Riehl &mdash; A Reintroduction to Proofs</a>
+&mdash; aimed at exactly our audience.</li>
+<li><a href="https://adam.math.hhu.de/#/g/trequetrum/lean4game-logic">Logic Game</a>
+&mdash; Chapters 1 and 2 material: connectives, quantifiers, negation.</li>
+</ul>
+
+<h3>Tier 2 &mdash; the real package, in the browser, via GitHub Codespaces</h3>
+
+<p>
+When you want the actual numbered exercises, you need the actual package. One click:
+<a href="https://codespaces.new/djvelleman/HTPILeanPackage">codespaces.new/djvelleman/HTPILeanPackage</a>.
+You need a free GitHub account and a Chromium-based browser. Full instructions, including
+the part you must not skip, are on the <a href="setup.html">setup page</a>.
+</p>
+
+<div class="warn">
+<p><span class="hd">Read this before you open a codespace.</span></p>
+<p>
+The package asks GitHub for a 4-CPU machine. A free GitHub account gets 120 core-hours
+per month, and a 4-CPU machine burns them at four times the clock &mdash; so your 120
+hours are about <b>30 hours of actual sitting-there time</b>. Worse, a codespace you
+close the tab on keeps running. <b>You must stop the codespace when you are finished.</b>
+Details and the exact click sequence are on the <a href="setup.html">setup page</a>.
+</p>
+</div>
+
+<div class="warn">
+<p><span class="hd">There is no zero-install way to run the HTPI package itself.</span></p>
+<p>
+Do not waste an hour looking for one. The public browser-based Lean editors &mdash;
+<a href="https://live.lean-lang.org/">live.lean-lang.org</a> and
+<a href="https://lean.math.hhu.de/">lean.math.hhu.de</a> &mdash; ship Mathlib and only
+Mathlib. They do not have <code>HTPILib</code>, so <code>assume</code>,
+<code>fix</code>, <code>obtain</code> and the rest are simply not defined there and your
+file will not compile. The Set Theory Game is zero-install because it is a separate
+purpose-built game, not because the package runs in a browser. It does not.
+</p>
+</div>
+
+<h3>Tier 3 &mdash; install it on your own machine</h3>
+
+<p>
+<code>elan</code>, VS Code, the Lean 4 extension, <code>lake build</code>, wait ten
+minutes. Worth doing if you find you like this. Instructions on the
+<a href="setup.html">setup page</a>.
+</p>
+
+<h2>The two in-class Lean days</h2>
+
+<p>
+Two class meetings this term are Lean days &mdash; <b>Wednesday, October 28</b> and
+<b>Friday, December 11</b>. The scheduling is not incidental and I want to be explicit about
+it, because it is the most important design decision on this page:
+</p>
+
+<div class="note">
+<p>
+<b>Every Lean day comes after the same material has already been done on paper.</b>
+Never before, never simultaneously. Nothing in this course is collected or graded outside
+the room &mdash; there is no written homework to hand in and nothing comes back marked
+&mdash; so what &ldquo;done on paper&rdquo; means here is that we will have worked the
+material in class and you will have written those proofs by hand yourself, in the practice
+problems and on the Friday quizzes, before you formalize any of it.
+</p>
+</div>
+
+<p>
+The reason is that formalizing a proof you do not yet understand teaches you nothing
+except how to fight a text editor. Lean is a mirror. It is only useful once there is
+something to reflect. Run it first and you get the worst version of both activities: you
+learn the mathematics badly, from a machine, in a syntax you cannot read.
+</p>
+
+<table class="sched">
+<tr><th>Day</th><th>After</th><th>What we do</th></tr>
+<tr>
+  <td>Wednesday, October 28<br><small>a full meeting</small></td>
+  <td>Ch. 3, proof techniques</td>
+  <td>Set Theory Game together, then <code>Exercise_3_2_1a</code> and
+      <code>Exercise_3_4_2</code>. See the
+      <a href="walkthrough-ch3.html">Chapter 3 walkthrough</a>.</td>
+</tr>
+<tr>
+  <td>Friday, December 11<br><small>partial &mdash; a demonstration</small></td>
+  <td>Ch. 5, functions; Ch. 6, induction</td>
+  <td>Injectivity and composition, <code>define</code> as the formal analogue of
+      "unwind the definition," and a look at <code>by_induc</code>. See the
+      <a href="walkthrough-ch5.html">Chapter 5</a> and
+      <a href="walkthrough-ch6.html">Chapter 6</a> walkthroughs.</td>
+</tr>
+</table>
+
+<div class="warn">
+<p><span class="hd">December 11 is a Lean day only in part.</span></p>
+<p>
+It is also the last day of class, it carries <b>Quiz 11</b>, and <b>&sect;8.3</b> is scheduled on
+it. Fifty minutes will not hold all three, so plan on a demonstration rather than a working
+session, and plan on doing Chapters 5 and 6 in Lean on your own time with the
+<a href="walkthrough-ch5.html">Chapter 5</a> and <a href="walkthrough-ch6.html">Chapter 6</a>
+walkthroughs, which are written to be read alone. There is <b>no third Lean day</b> &mdash; all 37
+meetings are assigned and there is nowhere to put one. I am glad to work through any of it with
+anyone in office hours.
+</p>
+</div>
+
+<p>
+Bring a laptop if you have one. If you do not, share; that is better anyway. Nothing on
+these days is collected and nothing is graded.
+</p>
+
+<h2>The completion badge</h2>
+
+<p>
+There is an optional badge. It carries <b>no academic credit of any kind</b> &mdash; not
+extra credit, not a curve adjustment, not a tiebreaker, nothing. It is a line on a page
+and, if you want one, a letter of recommendation that can say something specific.
+</p>
+
+<p>
+You earn it in a short conversation in office hours, in which I put a problem you have
+not seen in front of you and you talk me through the goal state: what is given, what is
+owed, what the next move is and why. You do not have to finish it. You have to be able
+to read the screen.
+</p>
+
+<p>
+Here is the honest reason it works that way, in one sentence:
+<b>an AI can solve these exercises instantly and Lean will happily certify the result,
+so a submitted file proves nothing about the person who submitted it.</b>
+That is also precisely why none of this is graded &mdash; a grade would be measuring the
+wrong thing &mdash; and precisely why the value is entirely in the doing. Nobody is
+checking. There is nothing to game. The only person who benefits from you actually
+sitting with a goal state until it makes sense is you, and the benefit shows up on Friday,
+on the ten minutes of proof you write by hand, which are the entire grade.
+</p>
+
+<p>
+<a href="badge.html">Full badge details &rarr;</a>
+</p>
+
+<h2>Pages here</h2>
+
+<ul>
+<li><a href="setup.html">Setup</a> &mdash; games, Codespaces, local install, troubleshooting.</li>
+<li><a href="walkthrough-ch3.html">Chapter 3 walkthrough</a> &mdash; three exercises, line by line, with the goal state after every step.</li>
+<li><a href="walkthrough-ch5.html">Chapter 5 walkthrough</a> &mdash; the composition of two one-to-one functions is one-to-one.</li>
+<li><a href="walkthrough-ch6.html">Chapter 6 walkthrough</a> &mdash; induction, and what <code>by_induc</code> does.</li>
+<li><a href="badge.html">The badge</a>.</li>
+</ul>
+
+<h2>Links</h2>
+
+<ul>
+<li><a href="https://djvelleman.github.io/HTPIwL/">Velleman &mdash; <i>How To Prove It with Lean</i></a>
+  (<a href="https://djvelleman.github.io/HTPIwL/How-To-Prove-It-with-Lean.pdf">PDF</a>,
+   <a href="https://djvelleman.github.io/HTPIwL/IntroLean.html">Introduction to Lean chapter</a>,
+   <a href="https://djvelleman.github.io/HTPIwL/Appendix.html">Appendix</a>)</li>
+<li><a href="https://github.com/djvelleman/HTPILeanPackage">The HTPI Lean Package</a> on GitHub
+  &mdash; this is where <code>Chap3Ex.lean</code> through <code>Chap8Ex.lean</code> live.</li>
+<li><a href="https://adam.math.hhu.de/#/g/djvelleman/stg4">Set Theory Game</a></li>
+<li><a href="https://codespaces.new/djvelleman/HTPILeanPackage">Open the package in GitHub Codespaces</a></li>
+<li><a href="https://leanprover-community.github.io/">Lean community</a> &mdash; the Zulip chat is friendly and real people answer.</li>
+</ul>
+
+<hr>
+
+<p class="footer">
+MATH 2055, Fall 2026. Taylor Dupuy, University of Vermont.
+Everything on these pages is optional and ungraded.
+</p>
+
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Setup &mdash; Lean &mdash; MATH 2055</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Taylor Dupuy">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="lean.css">
+</head>
+<body>
+
+<p><a href="index.html">&larr; Lean</a></p>
+
+<h1>Getting Lean running</h1>
+
+<p>
+Three options, in increasing order of effort. <b>Start at the top.</b> Genuinely: most
+people should do option 1 and stop.
+</p>
+
+<h2>1. The Set Theory Game &mdash; nothing to install</h2>
+
+<p>
+<a href="https://adam.math.hhu.de/#/g/djvelleman/stg4">adam.math.hhu.de/#/g/djvelleman/stg4</a>
+</p>
+
+<p>
+Open the link. That is the setup. No account, no download, no install, no configuration.
+It works on a phone, though a laptop is much nicer.
+</p>
+
+<p>
+The game is by Velleman, the same person who wrote our textbook, and its eight worlds are
+Chapter 3:
+</p>
+
+<ol>
+<li>Subset World</li>
+<li>Complement World</li>
+<li>Intersection World</li>
+<li>Union World</li>
+<li>Combination World</li>
+<li>Family Intersection World</li>
+<li>Family Union World</li>
+<li>Family Combination World</li>
+</ol>
+
+<p>
+Start with Subset World. Work left to right. The game will not let you into a world until
+you have the tools for it.
+</p>
+
+<div class="note">
+<p>
+<b>Your progress lives in your browser, and only in your browser.</b> The game saves to
+local storage on the machine you are using. Clearing cookies or site data will delete it,
+and it does not follow you to another computer. There is a download-your-progress option
+in the menu if you care. Mostly, do not care &mdash; if you lose it, replaying is fast
+and is not a waste of time.
+</p>
+</div>
+
+<div class="note">
+<p>
+<b>A dialect warning, so it does not surprise you later.</b> The Set Theory Game's tactics
+are close to, but not identical to, the ones in Velleman's book. The game is a warm-up for
+the ideas, not a syntax reference for the package. Do not spend energy memorizing exact
+spellings there.
+</p>
+</div>
+
+<h2>2. GitHub Codespaces &mdash; the real package, in a browser tab</h2>
+
+<p>
+This runs the actual <a href="https://github.com/djvelleman/HTPILeanPackage">HTPI Lean
+Package</a>, with the real numbered exercise files, on a computer that Microsoft rents
+you for free, displayed in your browser. It is what I would use if I did not want to
+install anything.
+</p>
+
+<div class="warn">
+<p><span class="hd">The one thing you must not skip: stop your codespace when you finish.</span></p>
+<p>
+The package's configuration file asks GitHub for a machine with <b>4 CPUs and 8 GB of
+memory</b>. A free GitHub account includes <b>120 core-hours per month</b>. Core-hours,
+not hours. A 4-CPU machine consumes them at four times the wall clock, so your free tier
+is really about <b>30 hours of sitting in front of it per month.</b>
+</p>
+<p>
+And a codespace does not stop because you closed the tab. It keeps running, and keeps
+billing, until it idles out or you stop it. Close the laptop lid on Tuesday and you can
+burn the month by Thursday without touching a key. There is no warning and no error
+message; things simply stop working and you will not know why.
+</p>
+<p>
+<b>When you are done for the day:</b> go to
+<a href="https://github.com/codespaces">github.com/codespaces</a>, find your codespace in
+the list, click the <b>&hellip;</b> menu on its row, and choose <b>Stop codespace</b>.
+Do this every single time. Make it a reflex. Thirty hours is plenty for this course if
+you stop it, and nowhere near enough if you do not.
+</p>
+</div>
+
+<h3>Step by step</h3>
+
+<ol>
+<li>
+  <b>Get a free GitHub account</b> if you do not have one:
+  <a href="https://github.com/signup">github.com/signup</a>. Use whatever email you like.
+  No payment information is required and none should be requested.
+</li>
+<li>
+  <b>Use a Chromium-based browser</b> &mdash; Chrome, Edge, Brave, Arc, Vivaldi.
+  Velleman says this in his preface and he is right: Codespaces is unreliable in Safari
+  and Firefox. This is the single most common reason setup "doesn't work."
+</li>
+<li>
+  <b>Click this link:</b>
+  <a href="https://codespaces.new/djvelleman/HTPILeanPackage">codespaces.new/djvelleman/HTPILeanPackage</a>.
+  You will get a confirmation page showing the repository and the machine type. Click
+  <b>Create codespace</b>.
+</li>
+<li>
+  <b>Wait.</b> The first launch builds a container and then runs
+  <code>lake exe cache get!</code> and <code>lake build</code>, which download and compile
+  the library. This takes several minutes &mdash; possibly ten. It is not stuck. Let it
+  finish before you touch anything; a half-built library produces error messages that
+  make no sense.
+</li>
+<li>
+  <b>Open an exercise file.</b> In the file list on the left, click
+  <code>Chap3Ex.lean</code>. This is the file whose theorems are numbered to match the
+  exercises in <i>How To Prove It</i>.
+</li>
+<li>
+  <b>Find the goal pane.</b> Put your cursor inside a proof. A panel called
+  <b>Lean Infoview</b> should appear on the right showing the tactic state. If it does not,
+  press <code>Ctrl-Shift-P</code> (<code>Cmd-Shift-P</code> on a Mac), type
+  <code>Lean 4: Infoview: Display Goal</code>, and press Enter. <b>Without this pane you
+  are working blind.</b> It is the entire point.
+</li>
+<li>
+  <b>Stop the codespace when you are done.</b> See the box above. Every time.
+</li>
+</ol>
+
+<h3>Typing the symbols</h3>
+
+<p>
+You type <code>\</code> followed by a short name, then space or tab. The Lean extension
+replaces it.
+</p>
+
+<div class="codewrap"><pre><code>\to     or  \r     →         \and    or  \an    ∧
+\forall or  \all   ∀         \or                ∨
+\exists or  \ex    ∃         \not    or  \n     ¬
+\in                ∈         \iff    or  \lr    ↔
+\notin             ∉         \sub               ⊆
+\cup               ∪         \cap               ∩
+\bigcup            ⋃₀        \bigcap            ⋂₀
+\comp              ∘         \powerset          𝒫
+\ne                ≠         \le                ≤</code></pre></div>
+<p class="prov">Abbreviations follow the Lean 4 VS Code extension's standard table; the book's appendix has a "Typing Symbols" section with the full list.</p>
+
+<p>
+If you forget one, hover the mouse over a symbol already on the screen and the tooltip
+tells you how to type it.
+</p>
+
+<h2>3. Installing on your own machine</h2>
+
+<p>
+Nicer if you are going to do this more than twice: faster, offline, no quota, and your
+files are yours. Budget half an hour, most of it waiting.
+</p>
+
+<ol>
+<li>
+  <b>Install VS Code</b>: <a href="https://code.visualstudio.com/">code.visualstudio.com</a>.
+</li>
+<li>
+  <b>Install the Lean 4 extension.</b> In VS Code, open the Extensions panel, search for
+  <code>lean4</code>, install the one published by <b>leanprover</b>. When it starts, it
+  will offer to install <code>elan</code>, the Lean version manager, for you. Say yes.
+  (<code>elan</code> is to Lean what <code>pyenv</code> is to Python: it reads the
+  <code>lean-toolchain</code> file in a project and fetches exactly that compiler version.
+  You never pick a version by hand.)
+</li>
+<li>
+  <b>Get the package.</b> Either download the ZIP from
+  <a href="https://github.com/djvelleman/HTPILeanPackage">github.com/djvelleman/HTPILeanPackage</a>
+  and unzip it, or, if you use git:
+  <div class="codewrap"><pre><code>git clone https://github.com/djvelleman/HTPILeanPackage.git</code></pre></div>
+</li>
+<li>
+  <b>Open the folder in VS Code</b> &mdash; the folder itself, the one containing
+  <code>lakefile.toml</code>. Not a single file. Lean needs the project root to find the
+  library.
+</li>
+<li>
+  <b>Build it.</b> Open a terminal in VS Code (Terminal &rarr; New Terminal) and run:
+  <div class="codewrap"><pre><code>lake exe cache get!
+lake build</code></pre></div>
+  The first command downloads precompiled Mathlib, which is what makes this take ten
+  minutes instead of two hours. Do not skip it. The second builds the book's own library
+  on top.
+</li>
+<li>
+  <b>Open <code>Chap3Ex.lean</code></b> and check that the Infoview pane appears when your
+  cursor is inside a proof.
+</li>
+</ol>
+
+<p>
+Official instructions, if you want the canonical source:
+<a href="https://lean-lang.org/lean4/doc/quickstart.html">lean-lang.org quickstart</a> and
+<a href="https://leanprover-community.github.io/get_started.html">leanprover-community.github.io/get_started</a>.
+</p>
+
+<div class="warn">
+<p><span class="hd">Do not use Gitpod.</span></p>
+<p>
+You will find instructions online &mdash; including in the repository's own leftover
+config files, and in the README of Heather Macbeth's <i>math2001</i>, which is otherwise
+an excellent course &mdash; telling you to open a Lean project in Gitpod. <b>These are
+stale.</b> Gitpod Classic has been sunset. Ignore every Gitpod button you see. Use
+Codespaces or install locally.
+</p>
+</div>
+
+<h2>Troubleshooting</h2>
+
+<h3>Whitespace is not decoration. It is syntax.</h3>
+
+<p>
+This is the single largest source of misery for beginners, so it goes first. Lean 4 uses
+indentation to decide what belongs to what. Two spaces of indentation inside a proof,
+consistently. If you paste code and the indentation shifts, the proof breaks in a way
+whose error message will not mention indentation.
+</p>
+
+<p>
+In particular, the bullet <code>·</code> (typed <code>\.</code>) opens a subproof, and
+everything belonging to that subproof must be indented further than the bullet:
+</p>
+
+<div class="codewrap"><pre><code>  apply And.intro
+  · -- Proof that x ∈ B.
+    show x ∈ B from h1 h3.left
+    done
+  · -- Proof that x ∉ D.
+    contradict h2 with h4
+    apply Exists.intro x
+    show x ∈ C ∩ D from And.intro h3.right h4
+    done
+  done</code></pre></div>
+<p class="prov">Verbatim excerpt from <code>Like_Example_3_4_1</code> in <code>HTPILib/Chap3.lean</code> (Velleman).</p>
+
+<p>
+Note also that <code>done</code> appears once at the end of each bullet's block and once
+more at the end of the whole proof. <code>done</code> means "I claim there is nothing left
+to prove here." If Lean disagrees it will tell you, and that is useful information rather
+than an annoyance.
+</p>
+
+<h3>The error messages are bad. Here is how to read them anyway.</h3>
+
+<p>
+Lean's errors are written for people who already know Lean. Three rules make them
+usable:
+</p>
+
+<ul>
+<li>
+  <b>Read the goal pane, not the error.</b> Nine times out of ten the error is telling you
+  "the thing you claimed does not match the thing that is owed," and the Infoview shows you
+  both. Compare them character by character.
+</li>
+<li>
+  <b>The red squiggle is often below the real mistake.</b> A step that leaves the state in
+  an unexpected shape produces an error on the <i>next</i> step. If line 7 is red, suspect
+  line 6.
+</li>
+<li>
+  <b><code>unknown identifier</code></b> means you referred to a hypothesis name that does
+  not exist &mdash; usually a typo, or a name that a previous tactic consumed or renamed.
+  Look at the pane: it lists every name you actually have.
+</li>
+</ul>
+
+<p>
+A specific one worth naming: if <b>every line is red</b> and the errors mention
+<code>assume</code>, <code>fix</code>, or <code>obtain</code> being unknown, you are not
+in the HTPI package. Either the build did not finish, or you opened a lone file instead of
+the project folder, or you are on one of the public web editors described below.
+</p>
+
+<h3>The public web editors will not work, and here is why</h3>
+
+<div class="warn">
+<p><span class="hd">live.lean-lang.org and lean.math.hhu.de cannot run these exercises.</span></p>
+<p>
+Both ship Lean plus <b>Mathlib</b>. Neither has <b>HTPILib</b>, which is the library
+Velleman wrote for the book and where <code>assume</code>, <code>fix</code>,
+<code>obtain</code>, <code>define</code>, <code>by_induc</code> and the rest are defined.
+Paste an exercise into either one and you will get a wall of "unknown tactic" errors that
+have nothing to do with your proof. There is no way around this and no setting to change.
+If you want the numbered exercises you need Codespaces or a local install. Full stop.
+</p>
+</div>
+
+<h3>Non-Chromium browsers</h3>
+
+<p>
+Codespaces misbehaves in Safari and Firefox &mdash; typically the editor loads but the
+Infoview never appears, or keyboard shortcuts do nothing. Use Chrome or Edge. This is not
+a preference, it is what the tooling supports.
+</p>
+
+<h3>When you are stuck on the mathematics, not the machine</h3>
+
+<p>
+This is a good place to be and it means the tool is working. In order:
+</p>
+
+<ol>
+<li>
+  <b>Read the goal pane out loud, in English.</b> "I have a function f, I know it is
+  one-to-one, and I owe: for all x1 and x2, if f of x1 equals f of x2 then x1 equals x2."
+  Half of all stuck-ness dissolves here.
+</li>
+<li>
+  <b>Ask what shape the goal is</b> &mdash; conditional, universal, existential,
+  conjunction, negation &mdash; and apply the corresponding move from Chapter 3. That table
+  in the book is not a study aid, it is an algorithm.
+</li>
+<li>
+  <b>Look up the analogous worked example</b> in <a href="https://djvelleman.github.io/HTPIwL/">
+  <i>How To Prove It with Lean</i></a>. The chapter numbering matches; the example you want
+  is in the same section as the exercise.
+</li>
+<li>
+  <b>Write the proof on paper first.</b> If you cannot write it on paper you will not be
+  able to write it in Lean, and fighting the syntax will not help you find it. This is
+  the whole reason the Lean days are scheduled after the paper work.
+</li>
+<li>
+  <b>Ask me.</b> Office hours, or after class. Bring the screen.
+</li>
+</ol>
+
+<p>
+And one thing not to do: do not have an AI write the proof for you and then read the
+green checkmark as evidence you learned something. It will work, instantly, every time,
+and you will get nothing out of it. That is <a href="badge.html">why the badge is a
+conversation and not a file</a>.
+</p>
+
+<hr>
+
+<p class="footer">
+MATH 2055, Fall 2026. Taylor Dupuy, University of Vermont.
+Optional and ungraded.
+</p>
+
+</body>
+</html>
