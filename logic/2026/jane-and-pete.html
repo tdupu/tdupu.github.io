@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Jane, Pete, and the prizes — MATH 2055</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Taylor Dupuy">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<p><a href="math2055.html">&larr; Fundamentals of Mathematics</a></p>
+
+<h1>Exercises &sect;1.1 #9(a) and &sect;1.2 #7</h1>
+
+<p>
+Exercise &sect;1.2 #7 is an unusually creative homework problem, and I like it more the
+more I think about it. It asks you to return to the argument from &sect;1.1 #9(a) and check
+your earlier intuition using the new tool from &sect;1.2: a truth table.
+</p>
+
+<h2>The argument</h2>
+
+<p>Let</p>
+
+<ul>
+<li><i>JM</i> mean &ldquo;Jane wins the math prize,&rdquo;</li>
+<li><i>PM</i> mean &ldquo;Pete wins the math prize,&rdquo; and</li>
+<li><i>PC</i> mean &ldquo;Pete wins the chemistry prize.&rdquo;</li>
+</ul>
+
+<p>
+We do not need a proposition <i>JC</i>, because the statement &ldquo;Jane wins the chemistry
+prize&rdquo; never appears. The three premises and the conclusion are
+</p>
+
+<pre>
+NOT (JM AND PM)
+PM OR PC
+JM
+Therefore, PC.
+</pre>
+
+<p>
+Since <i>JM</i> is true and <i>JM</i> AND <i>PM</i> is not true, <i>PM</i> must be false.
+Since <i>PM</i> OR <i>PC</i> is true and <i>PM</i> is false, <i>PC</i> must be true. This is
+what allows us to conclude that Pete wins the chemistry prize.
+</p>
+
+<h2>The truth-table check</h2>
+
+<p>
+For &sect;1.2 #7, make the full truth table. The last three columns are the three premises.
+</p>
+
+<pre style="overflow-x: auto;">
+JM  PM  PC | JM AND PM | NOT (JM AND PM) | PM OR PC | JM
+-----------+-----------+-----------------+----------+---
+ T   T   T |     T     |        F        |    T     | T
+ T   T   F |     T     |        F        |    T     | T
+ T   F   T |     F     |        T        |    T     | T  &lt;-- remains
+ T   F   F |     F     |        T        |    F     | T
+ F   T   T |     F     |        T        |    T     | F
+ F   T   F |     F     |        T        |    T     | F
+ F   F   T |     F     |        T        |    T     | F
+ F   F   F |     F     |        T        |    F     | F
+</pre>
+
+<p>
+First look at the final <i>JM</i> column. Since that premise must be true, eliminate the
+bottom four rows. Next look at <i>PM</i> OR <i>PC</i>. It eliminates the row
+<i>T, F, F</i>. Finally, NOT (<i>JM</i> AND <i>PM</i>) eliminates the two rows that begin
+<i>T, T</i>. Only the row <i>T, F, T</i> remains. In that row <i>PC</i> is true, so Pete
+wins the chemistry prize.
+</p>
+
+</body>
+</html>
